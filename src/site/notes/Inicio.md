@@ -2,7 +2,7 @@
 {"dg-publish":true,"permalink":"/inicio/","tags":["gardenEntry"],"dg-note-properties":{}}
 ---
 
-> [!info]- 2° año, 1° cuatrimestre
+> [!info] 2° año, 1° cuatrimestre
 
 > > [!example]- Taller de comunicación
 > > **[[2° año, 1° cuatrimestre/1. Taller de comunicación/Clase 2 - Lunes, 06 de abril de 2026 (06 04 26) - Taller de comunicación\|Clase 2 - Lunes, 06 de abril de 2026 (06 04 26)]]**
