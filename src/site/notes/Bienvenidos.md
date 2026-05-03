@@ -2,7 +2,7 @@
 {"dg-publish":true,"permalink":"/bienvenidos/","tags":["gardenEntry"],"dg-note-properties":{}}
 ---
 
-Este sitio es un espacio colaborativo creado por estudiantes de la **Tecnicatura en Desarrollo de Software** del **IFTS N°16 (CABA)**. Usando Obsidian, Digital Garden, GitHub y Vercel, compartimos resúmenes, infografías y videos generados con NotebookLM sobre la carrera. Desde 2025, el proyecto funciona como un recurso abierto para futuras cohortes, ofreciendo una visión general de la formación. Las grabaciones de clases se comparten en un grupo privado de Telegram accesible mediante contacto. Todo se desarrolla con herramientas preferentemente open source, asegurando que el contenido se almacene localmente y crezca de forma colaborativa a lo largo del tiempo.
+Este sitio es un espacio colaborativo creado por estudiantes de la **Tecnicatura en Desarrollo de Software** del **IFTS N°16 (CABA)**. Usando Obsidian, Digital Garden, GitHub y Vercel, compartimos resúmenes, infografías y videos generados con NotebookLM sobre la carrera. Desde 2025, el proyecto funciona como un recurso abierto para futuras cohortes, ofreciendo una visión general de la formación. Las grabaciones de clases se comparten en un grupo privado de Telegram accesible mediante contacto. Todo se desarrolla con **herramientas** preferentemente **open source**, asegurando que el contenido se almacene localmente y crezca de forma colaborativa a lo largo del tiempo.
 <br>
 > [!info] 2° año, 1° cuatrimestre - 2026
 
