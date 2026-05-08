@@ -118,9 +118,9 @@
 > |---|---|---|
 > |Fecha|Evento / Actividad|Descripción Detallada|
 > |**Inmediato**|Entrega de TP 1, 2 y 3|Los grupos deben subir los trabajos prácticos 1, 2 y 3 al aula virtual. Es suficiente con que **un solo integrante por grupo** realice la carga.|
-> |**11 de junio**|Clase Asincrónica|No habrá conexión en vivo. Se publicará la consigna del **Trabajo Práctico N° 4 (TP4)** sobre Google Forms y gestión de datos. El profesor subirá una guía paso a paso.|
+> |**11 de mayo**|Clase Asincrónica|No habrá conexión en vivo. Se publicará la consigna del **Trabajo Práctico N° 4 (TP4)** sobre Google Forms y gestión de datos. El profesor subirá una guía paso a paso.|
 > |**Durante la semana del 11/06**|Pre-entrega TP4|Se sugiere realizar una pre-entrega a mitad de semana para revisión antes de la entrega final.|
-> |**18 de junio**|**Examen Parcial**|**Presencial**. El examen será sencillo y evaluará los contenidos de los **Trabajos Prácticos 1, 2 y 3**, enfocándose en gestión de información, análisis y mejoras.|
+> |**18 de mayo**|**Examen Parcial**|**Presencial**. El examen será sencillo y evaluará los contenidos de los **Trabajos Prácticos 1, 2 y 3**, enfocándose en gestión de información, análisis y mejoras.|
 > |**A confirmar**|Trabajo Final Integrador|Se realizará una articulación con la materia _Taller de Comunicación_. Consistirá en un estudio estadístico y propuesta de mejora para la comunicación institucional.|
 > 
 > **Recordatorios Importantes:**
