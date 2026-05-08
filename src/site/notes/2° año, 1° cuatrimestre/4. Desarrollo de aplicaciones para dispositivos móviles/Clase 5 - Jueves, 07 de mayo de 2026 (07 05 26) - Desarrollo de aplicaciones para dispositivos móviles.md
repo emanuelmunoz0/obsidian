@@ -142,3 +142,16 @@
 >     - **Calificación:** No definen la nota final del cuatrimestre por sí solas (un 2 es mejor que un 0), pero son requisito para poner en práctica lo visto. La nota final depende de la defensa del proyecto.
 > - **Indicación del Profesor:** Se recomienda empezar el proyecto final lo antes posible, integrando los componentes (listas, navegación, formularios) a medida que se aprenden en clase. No es obligatorio usar todas las funciones (como Tabs o Menú Hamburguesa) si la aplicación no lo requiere.
 > - **Aviso de Disponibilidad:** Se dispone de los últimos 40-45 minutos de cada clase sincrónica para realizar consultas técnicas y corrección de errores en vivo.
+
+> [!quote]- Video resumen, infografía y presentación
+> # 1. Video resumen
+> 
+> 
+> 
+> # 2. Infografía
+> 
+> <iframe src="https://drive.google.com/file/d/1PbwHedWtz9dN4B3M98TmENa3PzPo42ey/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> 
+> # 3. Presentación
+> 
+> 
