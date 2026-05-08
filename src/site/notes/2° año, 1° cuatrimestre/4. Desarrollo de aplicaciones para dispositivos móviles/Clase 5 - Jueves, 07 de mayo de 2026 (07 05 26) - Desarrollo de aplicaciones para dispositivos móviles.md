@@ -146,7 +146,7 @@
 > [!quote]- Video resumen, infografía y presentación
 > # 1. Video resumen
 > 
-> 
+> <iframe title="Clase 5 (07 05 26) - Desarrollo de aplicaciones para dispositivos móviles" src="https://www.youtube.com/embed/FEZsM8AYPig?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 2. Infografía
 > 
@@ -154,4 +154,4 @@
 > 
 > # 3. Presentación
 > 
-> 
+> <iframe src="https://drive.google.com/file/d/1D6zFrHW4do9q2CY5BJuBkogdbI5c4Hwv/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
