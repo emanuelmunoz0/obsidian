@@ -135,7 +135,7 @@
 > A partir del análisis de la información proporcionada por la cátedra, se establecen los siguientes puntos clave:
 > 
 > - **Modificación de Fecha de Examen:** El segundo parcial ha sido reprogramado.
->     - **Fecha:** Viernes 12 de julio.
+>     - **Fecha:** Viernes 12 de junio.
 >     - **Tipo de evento:** Segundo Examen Parcial.
 >     - **Descripción:** Se traslada la fecha original para permitir una clase adicional de repaso y consultas.
 > - **Trabajo Práctico Obligatorio (Grupal):**
