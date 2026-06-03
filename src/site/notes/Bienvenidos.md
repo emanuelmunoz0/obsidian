@@ -30,7 +30,7 @@ Este sitio es un espacio colaborativo creado por estudiantes de la **Tecnicatura
 > > 
 > > **[[2° año, 1° cuatrimestre/2. Tecnologías de la información y de la comunicación/Clase 6 - Lunes, 04 de mayo de 2026 (04 05 26) - Tecnologías de la información y de la comunicación\|Clase 6 - Lunes, 04 de mayo de 2026 (04 05 26)]]**
 > > 
-> > **[[Clase 7 - Lunes, 01 de junio de 2026 (01 06 26) - Tecnologías de la información y de la comunicación\|Clase 7 - Lunes, 01 de junio de 2026 (01 06 26)]]**
+> > **[[2° año, 1° cuatrimestre/2. Tecnologías de la información y de la comunicación/Clase 7 - Lunes, 01 de junio de 2026 (01 06 26) - Tecnologías de la información y de la comunicación\|Clase 7 - Lunes, 01 de junio de 2026 (01 06 26)]]**
 
 > > [!example]- Desarrollo de sistemas orientado a la gestión
 > > **[[2° año, 1° cuatrimestre/3. Desarrollo de sistemas orientado a la gestión/Clase 2 - Martes, 07 de abril de 2026 (07 04 26) - Desarrollo de sistemas orientado a la gestión\|Clase 2 - Martes, 07 de abril de 2026 (07 04 26)]]**
