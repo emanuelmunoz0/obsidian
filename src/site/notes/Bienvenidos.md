@@ -18,6 +18,8 @@ Este sitio es un espacio colaborativo creado por estudiantes de la **Tecnicatura
 > > **[[2° año, 1° cuatrimestre/1. Taller de comunicación/Clase 6 - Lunes, 04 de mayo de 2026 (04 05 26) - Taller de comunicación\|Clase 6 - Lunes, 04 de abril de 2026 (04 05 26)]]**
 > > 
 > > **[[2° año, 1° cuatrimestre/1. Taller de comunicación/Clase 7 - Lunes, 01 de junio de 2026 (01 06 26) - Taller de comunicación\|Clase 7 - Lunes, 01 de junio de 2026 (01 06 26)]]**
+> > 
+> > **[[2° año, 1° cuatrimestre/1. Taller de comunicación/Clase 8 - Lunes, 08 de junio de 2026 (08 06 26) - Taller de comunicación\|Clase 8 - Lunes, 08 de junio de 2026 (08 06 26)]]**
 
 > > [!example]- Tecnologías de la información y de la comunicación
 > > **[[2° año, 1° cuatrimestre/2. Tecnologías de la información y de la comunicación/Clase 2 - Lunes, 06 de abril de 2026 (06 04 26) - Tecnologías de la información y de la comunicación\|Clase 2 - Lunes, 06 de abril de 2026 (06 04 26)]]**
