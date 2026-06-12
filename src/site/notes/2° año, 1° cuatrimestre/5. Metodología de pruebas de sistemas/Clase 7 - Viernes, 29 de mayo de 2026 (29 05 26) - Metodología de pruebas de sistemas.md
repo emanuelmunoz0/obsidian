@@ -399,3 +399,6 @@
 > # 3. Presentación
 > 
 > <iframe src="https://drive.google.com/file/d/1CEulWA9SrUneP-ZzCAc9diUPTVhjWW7d/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> 
+
+> [!quote]- <a href="https://notebooklm.google.com/notebook/74ff5218-7c6c-4d94-9e3c-a8b0f7e388f4/artifact/b1497cbc-8359-42ed-be69-ca3ea08242df?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_" target="_blank" style="color: inherit; font-weight: bold;">Cuestionario de repaso</a>
