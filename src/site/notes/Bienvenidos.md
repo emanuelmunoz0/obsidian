@@ -48,6 +48,8 @@ Este sitio es un espacio colaborativo creado por estudiantes de la **Tecnicatura
 > > **[[2° año, 1° cuatrimestre/3. Desarrollo de sistemas orientado a la gestión/Clase 7 - Martes, 19 de mayo de 2026 (19 05 26) - Desarrollo de sistemas orientado a la gestión\|Clase 7 - Martes, 19 de mayo de 2026 (19 05 26)]]**
 > > 
 > > **[[2° año, 1° cuatrimestre/3. Desarrollo de sistemas orientado a la gestión/Clase 8 - Martes, 02 de junio de 2026 (02 06 26) - Desarrollo de sistemas orientado a la gestión\|Clase 8 - Martes, 02 de junio de 2026 (02 06 26)]]**
+> > 
+> > **[[2° año, 1° cuatrimestre/3. Desarrollo de sistemas orientado a la gestión/Clase 9 - Martes, 09 de junio de 2026 (09 06 26) - Desarrollo de sistemas orientado a la gestión\|Clase 9 - Martes, 09 de junio de 2026 (09 06 26)]]**
 
 > > [!example]- Desarrollo de aplicaciones para dispositivos móviles
 > > **[[2° año, 1° cuatrimestre/4. Desarrollo de aplicaciones para dispositivos móviles/Clase 2 - Jueves, 09 de abril de 2026 (09 04 26) - Desarrollo de aplicaciones para dispositivos móviles\|Clase 2 - Jueves, 09 de abril de 2026 (09 04 26)]]**
@@ -63,6 +65,8 @@ Este sitio es un espacio colaborativo creado por estudiantes de la **Tecnicatura
 > > **[[2° año, 1° cuatrimestre/4. Desarrollo de aplicaciones para dispositivos móviles/Clase 7 - Jueves, 21 de mayo de 2026 (21 05 26) - Desarrollo de aplicaciones para dispositivos móviles\|Clase 7 - Jueves, 21 de mayo de 2026 (21 05 26)]]**
 > > 
 > > **[[2° año, 1° cuatrimestre/4. Desarrollo de aplicaciones para dispositivos móviles/Clase 8 - Jueves, 28 de mayo de 2026 (28 05 26) - Desarrollo de aplicaciones para dispositivos móviles\|Clase 8 - Jueves, 28 de mayo de 2026 (28 05 26)]]**
+> > 
+> > **[[2° año, 1° cuatrimestre/4. Desarrollo de aplicaciones para dispositivos móviles/Clase 9 - Jueves, 11 de junio de 2026 (11 06 26) - Desarrollo de aplicaciones para dispositivos móviles\|Clase 9 - Jueves, 11 de junio de 2026 (11 06 26)]]**
 
 > > [!example]- Metodología de pruebas de sistemas
 > > **[[2° año, 1° cuatrimestre/5. Metodología de pruebas de sistemas/Clase 1 - Viernes, 27 de marzo de 2026 (27 03 26) - Metodología de pruebas de sistemas\|Clase 1 - Viernes, 27 de marzo de 2026 (27 03 26)]]**
