@@ -3,176 +3,169 @@
 ---
 
 > [!quote]- Resumen
-> # Guía Integral de Estudio: Desarrollo de Sistemas Orientados a Objetos
+> # Guía Completa de Estudio: Diagramas de Paquetes en el Modelado de Software
 > 
-> Este documento constituye una síntesis exhaustiva de los fundamentos de la programación orientada a objetos (POO) y la configuración de entornos de desarrollo, diseñada como material de estudio principal para la materia.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 1. Introducción General al Paradigma
-> 
-> El desarrollo de sistemas ha evolucionado a través de diferentes **paradigmas de programación**, que son esencialmente modelos o estilos de programación que definen cómo se estructura y ejecuta el código. La transición hacia la **Programación Orientada a Objetos (POO)** surge como una respuesta a las limitaciones de los modelos anteriores para gestionar la complejidad creciente de los sistemas informáticos.
-> 
-> Esta materia se define como un "híbrido": combina la teoría profunda de la POO con el aprendizaje práctico de la **infraestructura y el setup de desarrollo**. El objetivo es que el estudiante no solo comprenda la lógica de objetos, sino que también domine el ecosistema de herramientas (servidores, bases de datos, entornos de ejecución) necesarias para profesionalizar el desarrollo de aplicaciones.
+> Este documento constituye un material de estudio integral sobre el modelado y diseño de software, centrándose específicamente en la estructura, funcionalidad y aplicación de los **diagramas de paquetes**. A través de este análisis, se busca proporcionar una comprensión profunda de cómo organizar sistemas complejos mediante una jerarquización lógica y visual.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 2. Contexto e Importancia: Del Modelo Procedimental a la POO
+> ## 1. Introducción General
 > 
-> ### El Paradigma Procedimental
+> El diagrama de paquetes es una herramienta fundamental dentro de los diagramas estructurales de UML. Su función principal es mostrar la organización y disposición de los elementos de un sistema, permitiendo una visualización macro que facilita la comprensión de estructuras complejas. Se considera una continuación lógica de otros diagramas estructurales, donde cada uno está relacionado y depende del anterior para conformar la arquitectura total del software.
 > 
-> Históricamente, la programación era predominantemente procedimental. Se basaba en una secuencia de instrucciones con estructuras de control (condicionales e iteraciones). Aunque funcional, presentaba dos problemas críticos al escalar:
+> ## 2. Contexto del Tema
 > 
-> 1. **Dificultad de Mantenimiento:** Modificar una funcionalidad en un sistema extenso implicaba rastrear infinitas líneas de código, con un alto riesgo de romper partes no relacionadas ("efecto dominó").
-> 2. **Baja Reutilización:** El código estaba tan entrelazado con funciones específicas de una aplicación que era casi imposible trasladarlo a otro proyecto.
+> En el desarrollo de software, los diagramas de clases pueden volverse excesivamente extensos y difíciles de manejar a medida que el proyecto crece. El diagrama de paquetes surge como una solución para agrupar estas clases y otros elementos en unidades lógicas. Mientras que el diagrama de clases es minucioso y "fino", el de paquetes es "macro" y abarcativo, permitiendo resumir múltiples actividades y funciones en gráficos ordenados.
 > 
-> ### El Surgimiento de la POO
+> ### Importancia y Relevancia
 > 
-> En la década de los 90, la POO se consolidó (con lenguajes como Java y C++) como la solución para organizar el software de manera similar a cómo percibimos el mundo real: a través de entidades con características y comportamientos definidos. Hoy en día, los lenguajes modernos como JavaScript o Python son multiparadigma, permitiendo combinar lo procedimental, lo lógico, lo funcional y lo orientado a objetos de forma fluida.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 3. Marco Conceptual: Definición de Conceptos Clave
-> 
-> Para entender la POO desde cero, es fundamental distinguir entre sus componentes básicos:
-> 
-> ### A. Clase (El Molde)
-> 
-> Es una abstracción que define la estructura de un tipo de objeto. Se escribe siempre en **singular** (ej. `Cliente`, no `Clientes`). Define qué datos tendrá el objeto y qué podrá hacer.
-> 
-> ### B. Objeto o Instancia (El Resultado)
-> 
-> Es la materialización de la clase. Mientras que la clase es el "plano", el objeto es la "casa construida". Cada objeto ocupa un lugar en la memoria (variable) y tiene valores específicos para sus atributos.
-> 
-> - _Sintaxis conceptual:_ `Variable = New Clase()`.
-> 
-> ### C. Atributos (Datos/Características)
-> 
-> Son las variables internas de la clase que definen las propiedades del objeto.
-> 
-> - **Públicos:** Accesibles desde cualquier parte del código.
-> - **Privados:** Solo pueden ser modificados por los métodos internos de la misma clase (crucial para la seguridad de datos como contraseñas o saldos).
-> - **De Instancia:** Valores que cambian entre objetos (ej. el nombre de cada cliente).
-> - **De Clase:** Valores compartidos por todos los objetos de esa clase (ej. la anatomía básica en una clase `Persona`).
-> 
-> ### D. Métodos (Funciones/Comportamientos)
-> 
-> Son las acciones que el objeto puede realizar.
-> 
-> - **Constructores:** El método especial que se ejecuta automáticamente al crear un objeto (`new`). Se encarga de inicializar los atributos.
-> - **Getters:** Métodos para obtener/leer el valor de un atributo.
-> - **Setters:** Métodos para establecer o modificar el valor de un atributo, permitiendo incluir validaciones.
+> - **Simplificación:** Permite reducir la complejidad visual de sistemas con numerosas clases.
+> - **Organización Jerárquica:** Facilita la visualización de la estructura jerárquica dentro de un sistema.
+> - **Flexibilidad:** Es aplicable a proyectos, sistemas y diversos escenarios de modelado.
+> - **Visibilidad de Capas:** Permite identificar claramente las capas de presentación, lógica, física (hardware) y de datos.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 4. Los Cuatro Pilares de la POO
+> ## 3. Marco Conceptual
 > 
-> La solidez de este paradigma se apoya en cuatro conceptos fundamentales que guían el diseño de software:
+> ### Definición de Conceptos Clave
 > 
-> |   |   |   |
-> |---|---|---|
-> |Pilar|Descripción|Analogía / Ejemplo|
-> |**Abstracción**|Proceso de simplificar la realidad, seleccionando solo los atributos y métodos relevantes para el sistema y descartando el resto.|Para un banco, un `Cliente` es un DNI y un saldo; no importa su altura o color de ojos.|
-> |**Encapsulamiento**|Ocultar la complejidad interna. Los datos están "protegidos" dentro del objeto y solo se accede a ellos a través de métodos autorizados.|Para conducir un auto, presionas el acelerador (método); no necesitas saber cómo funciona la inyección de combustible (lógica interna).|
-> |**Herencia**|Capacidad de crear clases nuevas a partir de clases existentes, heredando sus atributos y métodos. Permite jerarquías (clase padre/hijo).|Una clase `Persona` (padre) hereda sus rasgos a `Empleado` y `Cliente` (hijos).|
-> |**Polimorfismo**|Capacidad de que diferentes clases respondan de manera distinta a un mismo mensaje o método.|El método `CerrarCuenta` actuará distinto si es una `Caja de Ahorro` o una `Cuenta Corriente`.|
+> - **Paquete:** Se representa gráficamente como un rectángulo con una solapa o "orejita" en la parte superior izquierda, similar a una carpeta de archivo físico. Es un contenedor que agrupa elementos como interfaces, subsistemas, funciones y clases.
+> - **Capa:** Representa un nivel de abstracción dentro del sistema. Las capas comunes incluyen:
+>     - **Capa de Presentación:** Interfaz de usuario y componentes de _frontend_.
+>     - **Capa Lógica:** Donde residen las reglas de negocio y procesos.
+>     - **Capa Física/Hardware:** Referente a la infraestructura.
+>     - **Capa de Datos:** Modelos de bases de datos y persistencia.
+> - **Subsistema:** Una agrupación de elementos que cumple una función específica dentro del sistema general (por ejemplo, un subsistema de comunicación).
 > 
-> --------------------------------------------------------------------------------
+> ### Términos Fundamentales de Relación
 > 
-> ## 5. Desarrollo del Entorno y Ecosistema Tecnológico
-> 
-> Un pilar de esta formación es el **Setup de Infraestructura**. No basta con programar la lógica; se debe configurar el entorno donde la aplicación "vive".
-> 
-> - **Ecosistema JavaScript:** Es la decisión estándar para el desarrollo en este curso.
-> - **Node.js:** El entorno que permite ejecutar JavaScript fuera del navegador (en el servidor). Es vital saber gestionar paquetes (instalar/desinstalar).
-> - **Express:** Framework de Node para crear servidores web y APIs que responden a solicitudes de navegadores.
-> - **Bases de Datos:** Se requiere conexión y capacidad de realizar consultas (queries) para crear, modificar y acceder a datos. Se mencionan opciones vectoriales para IA como Pinecone o Chroma.
-> - **Frontend:** El usuario interactúa mediante HTML y CSS. Se permite el uso de frameworks como Angular, React o Next para quienes deseen mayor complejidad.
-> - **Inteligencia Artificial (IA):** Se incentiva el uso de IAs (vía API o modelos locales) tanto para asistir en la codificación como para integrarlas como funcionalidades dentro de las aplicaciones.
+> |   |   |
+> |---|---|
+> |Término|Definición Académica según el Contexto|
+> |**Dependencia**|Relación donde un paquete requiere de otro para su funcionamiento.|
+> |**Generalización**|Relación de herencia entre paquetes.|
+> |**Morfismo**|Concepto proveniente del álgebra de conjuntos que describe el tipo de relación entre bloques.|
+> |**Polimorfismo**|En informática, se refiere a la capacidad de un método para realizar distintas acciones según el contexto o la clase donde se aplique (polifuncionalidad).|
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 6. Ejemplos Prácticos: Sistema Bancario
+> ## 4. Desarrollo del Tema: El Diagrama de Paquetes
 > 
-> A continuación, se detalla cómo se estructuraría una aplicación bancaria bajo este paradigma:
+> ### Estructura y Composición
 > 
-> ### Clase: `CuentaBancaria`
+> Un paquete funciona como un "archivero". Así como en una oficina las carpetas con solapas organizan documentos por nombre (administrativos, profesores, alumnos), en el software los paquetes organizan el código y las responsabilidades.
 > 
-> - **Atributos:** `numeroCuenta`, `propietario`, `CBU`, `montoDisponible` (privado), `limite`.
-> - **Métodos:**
->     - `getSaldo()`: Retorna el dinero disponible.
->     - `setLimite(nuevoLimite)`: Modifica el límite previa validación.
->     - `checkOperacion()`: Verifica si una transacción no supera el límite.
+> Dentro de un paquete se pueden incluir:
 > 
-> ### Relación entre Clases
+> 1. **Múltiples Clases:** Lo ideal es que un paquete englobe más de una clase para justificar su función de agrupamiento.
+> 2. **Subpaquetes:** Estructuras anidadas (paquetes dentro de paquetes) para mayor desglose.
+> 3. **Funciones y Condicionales:** Representaciones de toma de decisiones.
 > 
-> Un sistema real conecta múltiples moldes:
+> ### Relaciones entre Paquetes
 > 
-> 1. Un **Banco** (clase) tiene un atributo que es una **Lista/Array** de **Cuentas Bancarias**.
-> 2. Al ejecutar el método `aperturaCuenta()` en la clase `Cliente`, se invoca al **Constructor** de la clase `CuentaBancaria` para generar un nuevo objeto.
+> Las comunicaciones entre paquetes no deben ser "islas". Deben reflejar las conexiones existentes en el diagrama de clases original. Aunque en algunos diagramas simplificados no se incluyan nombres en las flechas de relación, es altamente recomendable **nombrar las relaciones** para aumentar la descriptividad y facilitar la lectura por parte de terceros.
+> 
+> #### El Concepto de Morfismos en el Diseño
+> 
+> Para entender cómo se conectan las ideas, es útil distinguir los tipos de relaciones (morfismos):
+> 
+> - **Endomorfismo:** Una relación unidireccional (desde A hacia B). Ejemplo: "Pienso, luego existo" (la inversa no necesariamente aplica de la misma forma en lógica pura).
+> - **Isomorfismo:** Una relación dual o bidireccional (de A hacia B y de B hacia A).
+> - **Polimorfismo:** Situaciones múltiples que parten desde un origen. En el desarrollo de software, se asocia a la reutilización de nombres de métodos para diferentes aplicaciones.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 7. Errores Comunes y Clarificaciones
+> ## 5. Ejemplos Prácticos y Aplicaciones
 > 
-> - **Confusión entre Clase y Objeto:** Es frecuente intentar asignar un valor (como un nombre específico) a la clase. El valor pertenece al objeto; la clase solo define que _existirá_ un nombre.
-> - **Exceso de Atributos:** No realizar una abstracción correcta lleva a sistemas pesados con datos innecesarios.
-> - **Transparencia en Cambios:** Una gran ventaja del encapsulamiento es que si se cambia la lógica de un método (ej. cómo se autentica una contraseña), el resto del sistema no se entera ni se rompe, siempre que la respuesta final del método siga siendo la misma.
+> ### Casos de Uso Comunes
+> 
+> 1. **Reserva de Hotel:** Agrupamiento de clases de clientes, habitaciones y fechas en un paquete de "Reservas".
+> 2. **Pago con Tarjeta / Compra Online:** Paquetes que gestionan la pasarela de pagos y la validación de transacciones.
+> 3. **Sistema de Televisión (Analogía):** Un televisor puede resumirse en dos grandes paquetes: **Video** y **Sonido**. Ambos deben confluir en sincronía hacia el display y el audio. Dentro de estos paquetes "macro" existen sub-elementos como osciladores, filtros y etapas de frecuencia que, vistos individualmente, serían inentendibles sin la estructura de bloques.
+> 
+> ### Aplicación en Proyectos de Software
+> 
+> Al diseñar el sistema, se recomienda:
+> 
+> - Identificar el _Frontend_ como un paquete de subsistema de comunicación.
+> - Utilizar protocolos de internet para definir cómo se llevan a cabo las comunicaciones entre paquetes.
+> - Incluir el modelo de base de datos dentro de su propio paquete descriptivo.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 6. Errores Comunes y Confusiones
+> 
+> - **Paquetes Aislados:** Graficar paquetes sin flechas de comunicación. Si no hay relación, el paquete no cumple función dentro del flujo del sistema.
+> - **Confusión entre Nodo y Nudo:**
+>     - **Nudo:** Un caso particular de conexión.
+>     - **Nodo:** Concepto más general en teoría de circuitos y diagramas de estado. Se considera un nodo cuando llegan más de dos flechas (flujos) a un punto.
+> - **Omitir Documentación:** Creer que el diagrama se explica solo. Todo diagrama debe ir acompañado de una descripción detallada o un documento (PDF/DOC) que explique su lógica.
+> - **Falta de nombres en relaciones:** No poner texto en las líneas de dependencia obliga al lector a "romperse la cabeza" para interpretar la función del vínculo.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 7. Síntesis y Conclusiones
+> 
+> El diagrama de paquetes es una herramienta de **abstracción superior** que permite organizar el software en capas y bloques lógicos. Su éxito radica en:
+> 
+> - Mantener la **concordancia** con el diagrama de clases (el diagrama de clases sigue mandando en el detalle).
+> - Utilizar una **nomenclatura descriptiva** en cada "orejita" o solapa.
+> - Facilitar la **visualización macro** para ahorrar espacio y tiempo en la interpretación del sistema.
 > 
 > --------------------------------------------------------------------------------
 > 
 > ## 8. Fechas Importantes y Avisos Académicos
 > 
-> Basado en la planificación docente y los anuncios de clase, se establecen los siguientes hitos:
+> Basado en las directrices del profesor, se establecen los siguientes hitos para el cierre de la materia:
 > 
 > |   |   |   |
 > |---|---|---|
-> |Fecha (Estimada/Fija)|Tipo de Evento|Descripción Detallada|
-> |**Clase 3 o 4**|Inicio de Proyecto|Comienzo del trabajo grupal y configuración de infraestructura (Node, bases de datos).|
-> |**Fines de Agosto - 20 Sept.**|Viaje del Profesor|El docente estará en Italia. Las clases podrían ser grabadas o reprogramadas ante problemas de conexión.|
-> |**Mediados de Octubre**|Trabajo Práctico (TP)|Entrega de TP de ejercicios (posiblemente un TP largo de ~20 ejercicios).|
-> |**22 de Octubre**|Clase Presencial|Tercera instancia presencial obligatoria (según planificación tentativa).|
-> |**29 de Octubre**|**Examen Parcial**|Evaluación presencial de contenidos teóricos y prácticos.|
-> |**Noviembre (Post-Parcial)**|Avances de Proyecto|Dinámica de tutorías: cada grupo tiene 30 min asignados para corrección.|
-> |**Fines de Noviembre**|Presentación Final|Exposición presencial de los proyectos grupales funcionales.|
+> |Fecha|Evento / Entrega|Descripción Detallada|
+> |**14 de Junio**|Avance de Proyecto|Presentación del último proyecto (Diagrama de Paquetes basado en el de Clases).|
+> |**20 de Junio**|**Examen Final / Cierre**|Rendida presencial del examen. Entrega del Trabajo Práctico (TP) **impreso**.|
+> |**21 de Junio**|Feriado / Puente|Día no laborable. El profesor habilitará este día solo para correcciones o modificaciones mínimas.|
+> |**Semana del 24 de Junio**|Carga de Notas|Fecha límite administrativa para la entrega de notas finales.|
 > 
-> **Recordatorios Importantes:**
+> ### Indicaciones Académicas Cruciales:
 > 
-> - **Asistencia:** Hay 4 clases presenciales mínimas obligatorias.
-> - **Grupos:** El trabajo es grupal para simular entornos de desarrollo reales.
-> - **Entorno:** Es obligatorio tener Node.js instalado y funcional en las máquinas personales para el inicio del proyecto.
+> 1. **Formato de Entrega:** El Trabajo Práctico final debe ser **impreso** para ser firmado por el profesor. No se aceptan entregas exclusivamente digitales para el cierre.
+> 2. **Organización del TP:** Se entrega **un solo trabajo por grupo**. Debe incluir una carátula con los nombres de todos los integrantes (máximo 5 personas mencionado en el ejemplo).
+> 3. **Contenido del TP:** Debe ser una presentación de **todos los diagramas** realizados, incluyendo el de paquetes.
+> 4. **Cierre Anticipado:** El profesor busca cerrar todo el día **20 de junio** durante el examen presencial. Se recomienda llevar las correcciones en una notebook o celular ese día para evitar conectarse el día 21 (feriado).
+> 5. **Trabajo en Equipo:** Se enfatiza la importancia del diálogo y la cooperación grupal sobre el trabajo individual, promoviendo el aprendizaje compartido.
 > 
 > --------------------------------------------------------------------------------
 > 
 > ## 9. Preguntas de Repaso
 > 
-> ### Básicas
+> ### Nivel Básico
 > 
-> 1. ¿Cuál es la diferencia principal entre una Clase y un Objeto?
-> 2. Defina los conceptos de Atributo y Método.
-> 3. ¿Para qué sirve el método Constructor de una clase?
+> 6. ¿Cuál es la representación gráfica de un paquete en UML?
+> 7. ¿Qué elementos pueden incluirse dentro de un paquete?
+> 8. ¿Cuál es la diferencia principal entre un diagrama de clases y uno de paquetes?
 > 
-> ### Intermedias
+> ### Nivel Intermedio
 > 
-> 4. Explique la importancia del Encapsulamiento con un ejemplo que no sea el del automóvil.
-> 5. ¿Por qué el paradigma procedimental dificulta el mantenimiento de sistemas grandes?
-> 6. ¿Qué diferencia hay entre un atributo de instancia y un atributo de clase?
+> 9. Explique la importancia de las "capas" en un diagrama de paquetes y mencione tres ejemplos.
+> 10. ¿Por qué es recomendable nombrar las relaciones de dependencia entre paquetes si el estándar no lo exige estrictamente?
+> 11. Describa la analogía del "archivero" aplicada a la organización de software.
 > 
-> ### Avanzadas
+> ### Nivel Avanzado
 > 
-> 7. Describa el proceso de Abstracción al diseñar una clase `Producto` para un banco vs. para un supermercado.
-> 8. ¿Cómo se relaciona la herencia con la reutilización de código?
-> 9. Analice por qué JavaScript se considera un lenguaje apto para este paradigma a pesar de ser multiparadigma.
+> 12. Analice la diferencia entre un **isomorfismo** y un **endomorfismo** aplicada a la comunicación entre bloques de sistema.
+> 13. ¿En qué situación un punto de conexión en un diagrama de estado pasa de ser un "nudo" a ser considerado un "nodo"?
+> 14. Justifique cómo un diagrama de paquetes puede ayudar a reducir la complejidad de un grafo que se ha vuelto "extensivo" en su nivel de clases.
 
 > [!quote]- Video resumen, infografía y presentación
 > # 1. Video resumen
 > 
-> <iframe title="Clase 1 - Desarrollo de sistemas orientado a objetos" src="https://www.youtube.com/embed/vnjtJeCOHYM?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe title="Clase 11 - Modelado y diseño de software" src="https://www.youtube.com/embed/mtZ1DfPxP3c?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 2. Infografía
 > 
-> <iframe src="https://drive.google.com/file/d/1fSpXQSUxFjlAgI2zsIKVRtyF_kkjPB_D/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1aouYuMtHaVZWNYZEoJJSlPx5QNFd4OiZ/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 3. Presentación
 > 
-> <iframe src="https://drive.google.com/file/d/1qvm3ckFbOSYjyvO2XjnR2_5t-FU_M-rf/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1jkO9wgMfmcLYJwqrfr_ipnQ75c8WdwcZ/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>

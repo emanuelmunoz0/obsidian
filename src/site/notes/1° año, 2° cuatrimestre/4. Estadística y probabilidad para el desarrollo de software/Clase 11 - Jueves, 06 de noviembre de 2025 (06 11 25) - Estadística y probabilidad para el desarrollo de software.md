@@ -3,176 +3,146 @@
 ---
 
 > [!quote]- Resumen
-> # Guía Integral de Estudio: Desarrollo de Sistemas Orientados a Objetos
+> # Guía de Estudio: Estadística, Distribución Normal y Ajuste de Curvas
 > 
-> Este documento constituye una síntesis exhaustiva de los fundamentos de la programación orientada a objetos (POO) y la configuración de entornos de desarrollo, diseñada como material de estudio principal para la materia.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 1. Introducción General al Paradigma
-> 
-> El desarrollo de sistemas ha evolucionado a través de diferentes **paradigmas de programación**, que son esencialmente modelos o estilos de programación que definen cómo se estructura y ejecuta el código. La transición hacia la **Programación Orientada a Objetos (POO)** surge como una respuesta a las limitaciones de los modelos anteriores para gestionar la complejidad creciente de los sistemas informáticos.
-> 
-> Esta materia se define como un "híbrido": combina la teoría profunda de la POO con el aprendizaje práctico de la **infraestructura y el setup de desarrollo**. El objetivo es que el estudiante no solo comprenda la lógica de objetos, sino que también domine el ecosistema de herramientas (servidores, bases de datos, entornos de ejecución) necesarias para profesionalizar el desarrollo de aplicaciones.
+> Este documento constituye un material de estudio integral sobre el análisis de datos estadísticos, centrándose en la aplicación práctica de la distribución normal y las técnicas de ajuste de curvas para la interpretación de fenómenos en el desarrollo de software y la ciencia de datos.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 2. Contexto e Importancia: Del Modelo Procedimental a la POO
+> ## 1. Introducción General
 > 
-> ### El Paradigma Procedimental
-> 
-> Históricamente, la programación era predominantemente procedimental. Se basaba en una secuencia de instrucciones con estructuras de control (condicionales e iteraciones). Aunque funcional, presentaba dos problemas críticos al escalar:
-> 
-> 1. **Dificultad de Mantenimiento:** Modificar una funcionalidad en un sistema extenso implicaba rastrear infinitas líneas de código, con un alto riesgo de romper partes no relacionadas ("efecto dominó").
-> 2. **Baja Reutilización:** El código estaba tan entrelazado con funciones específicas de una aplicación que era casi imposible trasladarlo a otro proyecto.
-> 
-> ### El Surgimiento de la POO
-> 
-> En la década de los 90, la POO se consolidó (con lenguajes como Java y C++) como la solución para organizar el software de manera similar a cómo percibimos el mundo real: a través de entidades con características y comportamientos definidos. Hoy en día, los lenguajes modernos como JavaScript o Python son multiparadigma, permitiendo combinar lo procedimental, lo lógico, lo funcional y lo orientado a objetos de forma fluida.
+> El análisis estadístico permite transformar datos brutos en información significativa. Este documento aborda dos grandes pilares: la **Distribución Normal**, que permite calcular probabilidades y frecuencias en poblaciones que siguen una campana de Gauss, y el **Ajuste de Curvas**, una técnica esencial para encontrar patrones y modelos matemáticos en conjuntos de datos dispersos. El dominio de estas herramientas es fundamental para la predicción de eventos y la toma de decisiones basada en evidencia.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 3. Marco Conceptual: Definición de Conceptos Clave
+> ## 2. Marco Conceptual y Definiciones Clave
 > 
-> Para entender la POO desde cero, es fundamental distinguir entre sus componentes básicos:
+> Para comprender los procedimientos avanzados, es necesario establecer los fundamentos teóricos:
 > 
-> ### A. Clase (El Molde)
+> ### Conceptos Fundamentales
 > 
-> Es una abstracción que define la estructura de un tipo de objeto. Se escribe siempre en **singular** (ej. `Cliente`, no `Clientes`). Define qué datos tendrá el objeto y qué podrá hacer.
-> 
-> ### B. Objeto o Instancia (El Resultado)
-> 
-> Es la materialización de la clase. Mientras que la clase es el "plano", el objeto es la "casa construida". Cada objeto ocupa un lugar en la memoria (variable) y tiene valores específicos para sus atributos.
-> 
-> - _Sintaxis conceptual:_ `Variable = New Clase()`.
-> 
-> ### C. Atributos (Datos/Características)
-> 
-> Son las variables internas de la clase que definen las propiedades del objeto.
-> 
-> - **Públicos:** Accesibles desde cualquier parte del código.
-> - **Privados:** Solo pueden ser modificados por los métodos internos de la misma clase (crucial para la seguridad de datos como contraseñas o saldos).
-> - **De Instancia:** Valores que cambian entre objetos (ej. el nombre de cada cliente).
-> - **De Clase:** Valores compartidos por todos los objetos de esa clase (ej. la anatomía básica en una clase `Persona`).
-> 
-> ### D. Métodos (Funciones/Comportamientos)
-> 
-> Son las acciones que el objeto puede realizar.
-> 
-> - **Constructores:** El método especial que se ejecuta automáticamente al crear un objeto (`new`). Se encarga de inicializar los atributos.
-> - **Getters:** Métodos para obtener/leer el valor de un atributo.
-> - **Setters:** Métodos para establecer o modificar el valor de un atributo, permitiendo incluir validaciones.
+> - **Media (****\mu****):** Es el promedio aritmético de los datos. Representa el centro de la distribución.
+> - **Desviación Típica o Estándar (****\sigma****):** Medida que indica cuánto se alejan, en promedio, los datos respecto a la media. Una desviación baja indica que los datos están agrupados; una alta, que están dispersos.
+> - **Tipificación (Valor Z):** Proceso de transformar una variable aleatoria normal en una variable normal estándar (con media 0 y desviación 1). La fórmula es: Z = \frac{X - \mu}{\sigma}
+> - **Límites Reales:** En distribuciones continuas, se aplican ajustes de \pm 0,5 a los valores discretos para cubrir el intervalo completo de la medición. Por ejemplo, para un valor de 120, el límite real inferior es 119,5.
+> - **Área bajo la curva:** En una distribución normal, el área total es igual a 1 (o 100%). Las tablas de probabilidad (como el Anexo 2 mencionado en las fuentes) permiten calcular el área entre la media (Z=0) y un valor Z específico.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 4. Los Cuatro Pilares de la POO
+> ## 3. Desarrollo del Tema
 > 
-> La solidez de este paradigma se apoya en cuatro conceptos fundamentales que guían el diseño de software:
+> ### 3.1. Cálculo de Probabilidades en Distribución Normal
 > 
-> |   |   |   |
-> |---|---|---|
-> |Pilar|Descripción|Analogía / Ejemplo|
-> |**Abstracción**|Proceso de simplificar la realidad, seleccionando solo los atributos y métodos relevantes para el sistema y descartando el resto.|Para un banco, un `Cliente` es un DNI y un saldo; no importa su altura o color de ojos.|
-> |**Encapsulamiento**|Ocultar la complejidad interna. Los datos están "protegidos" dentro del objeto y solo se accede a ellos a través de métodos autorizados.|Para conducir un auto, presionas el acelerador (método); no necesitas saber cómo funciona la inyección de combustible (lógica interna).|
-> |**Herencia**|Capacidad de crear clases nuevas a partir de clases existentes, heredando sus atributos y métodos. Permite jerarquías (clase padre/hijo).|Una clase `Persona` (padre) hereda sus rasgos a `Empleado` y `Cliente` (hijos).|
-> |**Polimorfismo**|Capacidad de que diferentes clases respondan de manera distinta a un mismo mensaje o método.|El método `CerrarCuenta` actuará distinto si es una `Caja de Ahorro` o una `Cuenta Corriente`.|
+> El análisis de una población bajo una distribución normal requiere seguir pasos lógicos para determinar cuántos individuos cumplen con ciertos criterios:
 > 
-> --------------------------------------------------------------------------------
+> 1. **Definición de parámetros:** Identificar la media (\mu), la desviación típica (\sigma) y el tamaño de la muestra (N).
+> 2. **Establecimiento de límites reales:** Ajustar los valores de búsqueda restando 0,5 al límite inferior y sumando 0,5 al límite superior.
+> 3. **Tipificación de los límites:** Calcular el valor Z para ambos extremos del intervalo.
+> 4. **Búsqueda en Tabla:** Localizar el área correspondiente a cada valor Z. Es importante recordar que el área para un Z negativo es idéntica a la de su contraparte positiva debido a la simetría de la curva.
+> 5. **Cálculo del área total:** Sumar o restar las áreas según la posición respecto a la media.
+> 6. **Cálculo de frecuencia:** Multiplicar el área total (en decimal) por el tamaño de la muestra (N).
 > 
-> ## 5. Desarrollo del Entorno y Ecosistema Tecnológico
+> ### 3.2. Ajuste de Curvas (Regresión)
 > 
-> Un pilar de esta formación es el **Setup de Infraestructura**. No basta con programar la lógica; se debe configurar el entorno donde la aplicación "vive".
+> Cuando las mediciones no siguen una gráfica conocida, se busca una "solución consensuada" mediante el ajuste.
 > 
-> - **Ecosistema JavaScript:** Es la decisión estándar para el desarrollo en este curso.
-> - **Node.js:** El entorno que permite ejecutar JavaScript fuera del navegador (en el servidor). Es vital saber gestionar paquetes (instalar/desinstalar).
-> - **Express:** Framework de Node para crear servidores web y APIs que responden a solicitudes de navegadores.
-> - **Bases de Datos:** Se requiere conexión y capacidad de realizar consultas (queries) para crear, modificar y acceder a datos. Se mencionan opciones vectoriales para IA como Pinecone o Chroma.
-> - **Frontend:** El usuario interactúa mediante HTML y CSS. Se permite el uso de frameworks como Angular, React o Next para quienes deseen mayor complejidad.
-> - **Inteligencia Artificial (IA):** Se incentiva el uso de IAs (vía API o modelos locales) tanto para asistir en la codificación como para integrarlas como funcionalidades dentro de las aplicaciones.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 6. Ejemplos Prácticos: Sistema Bancario
-> 
-> A continuación, se detalla cómo se estructuraría una aplicación bancaria bajo este paradigma:
-> 
-> ### Clase: `CuentaBancaria`
-> 
-> - **Atributos:** `numeroCuenta`, `propietario`, `CBU`, `montoDisponible` (privado), `limite`.
-> - **Métodos:**
->     - `getSaldo()`: Retorna el dinero disponible.
->     - `setLimite(nuevoLimite)`: Modifica el límite previa validación.
->     - `checkOperacion()`: Verifica si una transacción no supera el límite.
-> 
-> ### Relación entre Clases
-> 
-> Un sistema real conecta múltiples moldes:
-> 
-> 1. Un **Banco** (clase) tiene un atributo que es una **Lista/Array** de **Cuentas Bancarias**.
-> 2. Al ejecutar el método `aperturaCuenta()` en la clase `Cliente`, se invoca al **Constructor** de la clase `CuentaBancaria` para generar un nuevo objeto.
+> - **Objetivo:** Trazar una línea o curva que pase lo más cerca posible de la mayoría de los puntos (mínimos cuadrados).
+> - **Modelos de Ajuste:**
+>     - **Lineal:** Una línea recta (y = mx + b). Es el modelo inicial recomendado.
+>     - **Polinómico:** Curvas de grado 2, 3 o hasta 6. Ofrecen mayor precisión pero mayor complejidad.
+>     - **Exponencial/Logarítmico:** Útiles cuando los datos muestran crecimientos o decrecimientos acelerados.
+> - **Importancia en Software/Ciencia de Datos:** Estos modelos sirven para algoritmos de predicción. El ajuste permite realizar proyecciones y tendencias para la toma de decisiones futuras.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 7. Errores Comunes y Clarificaciones
+> ## 4. Ejemplos Prácticos Paso a Paso
 > 
-> - **Confusión entre Clase y Objeto:** Es frecuente intentar asignar un valor (como un nombre específico) a la clase. El valor pertenece al objeto; la clase solo define que _existirá_ un nombre.
-> - **Exceso de Atributos:** No realizar una abstracción correcta lleva a sistemas pesados con datos innecesarios.
-> - **Transparencia en Cambios:** Una gran ventaja del encapsulamiento es que si se cambia la lógica de un método (ej. cómo se autentica una contraseña), el resto del sistema no se entera ni se rompe, siempre que la respuesta final del método siga siendo la misma.
+> ### Caso 1: Estudiantes y sus Pesos
+> 
+> **Datos:** N = 500, \mu = 151 libras, \sigma = 15 libras. **Pregunta:** ¿Cuántos estudiantes pesan entre 120 y 155 libras?
+> 
+> - **Paso 1 (Límites):** 119,5 y 155,5.
+> - **Paso 2 (Tipificación):**
+>     - Z_1 = (119,5 - 151) / 15 = -2,10
+>     - Z_2 = (155,5 - 151) / 15 = 0,30
+> - **Paso 3 (Áreas por tabla):**
+>     - Área para Z=2,10: 0,4821
+>     - Área para Z=0,30: 0,1179
+> - **Paso 4 (Suma de áreas):** 0,4821 + 0,1179 = 0,60 (60% de la población).
+> - **Resultado:** 500 \times 0,60 = 300 estudiantes.
+> 
+> ### Caso 2: Valores Extremos (Más de 185 libras)
+> 
+> **Datos:** Mismos parámetros anteriores. **Pregunta:** ¿Cuántos pesan más de 185 libras?
+> 
+> - **Paso 1 (Límite):** 185,5.
+> - **Paso 2 (Tipificación):** Z = (185,5 - 151) / 15 = 2,30.
+> - **Paso 3 (Cálculo):** Como se busca el área "más allá" de 2,30, se resta el área de la tabla a 0,5 (que es la mitad de la curva).
+>     - 0,5 - 0,4893 = 0,0107 (aprox. 1%).
+> - **Resultado:** 500 \times 0,0107 = 5,35. Se redondea a 5 o 6 estudiantes.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 5. Errores Comunes y Aclaraciones
+> 
+> - **Uso de Límites Reales:** Un error frecuente es tipificar el valor exacto (ej. 120) en lugar del límite real (119,5). El ajuste de 0,5 es vital para la precisión.
+> - **Simetría de la Curva:** No existen "áreas negativas". Si Z es -2,10, se busca 2,10 en la tabla y se utiliza ese valor positivo.
+> - **Sobreajuste (Overfitting):** En el ajuste de curvas, usar un polinomio de grado muy alto (como grado 6) puede copiar los puntos perfectamente pero perder la capacidad de generalizar o predecir correctamente nuevos datos.
+> - **Redondeo:** En estadística de poblaciones (personas, objetos), si el resultado decimal es 0,5 o superior, se debe redondear al entero siguiente.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 6. Síntesis y Conclusiones
+> 
+> - La **distribución normal** permite calcular probabilidades sumando o restando áreas respecto a la media tras un proceso de tipificación.
+> - El **ajuste de curvas** es la búsqueda de un modelo matemático (recta o parábola) que represente la tendencia de datos dispersos.
+> - El uso de herramientas digitales (Excel, Google Sheets) facilita la obtención de **ecuaciones de tendencia**, permitiendo elegir entre modelos lineales o polinómicos según el grado de ajuste visual y matemático.
+> - En la ciencia de datos, los modelos de predicción dependen de este ajuste para generar proyecciones válidas.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 7. Preguntas de Repaso
+> 
+> ### Nivel Básico
+> 
+> 1. ¿Qué representa el valor Z en una distribución normal?
+> 2. ¿Por qué se utiliza el ajuste de 0,5 para establecer límites reales?
+> 3. En una curva normal, ¿qué porcentaje de los datos se encuentra a cada lado de la media?
+> 
+> ### Nivel Intermedio
+> 
+> 4. Si un valor tipificado da negativo, ¿cómo se busca su área en la tabla de probabilidad?
+> 5. ¿Cuál es la diferencia principal entre un ajuste lineal y un ajuste polinómico?
+> 
+> ### Nivel Avanzado
+> 
+> 6. Explique el procedimiento para calcular el número de individuos que se encuentran "por encima" de un valor determinado que es mayor a la media.
+> 7. ¿En qué situaciones sería preferible usar un ajuste polinómico de grado 6 sobre uno lineal, y qué riesgos conlleva?
 > 
 > --------------------------------------------------------------------------------
 > 
 > ## 8. Fechas Importantes y Avisos Académicos
 > 
-> Basado en la planificación docente y los anuncios de clase, se establecen los siguientes hitos:
+> Tras el análisis de las fuentes, se identifican las siguientes indicaciones para el cronograma académico:
 > 
-> |   |   |   |
-> |---|---|---|
-> |Fecha (Estimada/Fija)|Tipo de Evento|Descripción Detallada|
-> |**Clase 3 o 4**|Inicio de Proyecto|Comienzo del trabajo grupal y configuración de infraestructura (Node, bases de datos).|
-> |**Fines de Agosto - 20 Sept.**|Viaje del Profesor|El docente estará en Italia. Las clases podrían ser grabadas o reprogramadas ante problemas de conexión.|
-> |**Mediados de Octubre**|Trabajo Práctico (TP)|Entrega de TP de ejercicios (posiblemente un TP largo de ~20 ejercicios).|
-> |**22 de Octubre**|Clase Presencial|Tercera instancia presencial obligatoria (según planificación tentativa).|
-> |**29 de Octubre**|**Examen Parcial**|Evaluación presencial de contenidos teóricos y prácticos.|
-> |**Noviembre (Post-Parcial)**|Avances de Proyecto|Dinámica de tutorías: cada grupo tiene 30 min asignados para corrección.|
-> |**Fines de Noviembre**|Presentación Final|Exposición presencial de los proyectos grupales funcionales.|
-> 
-> **Recordatorios Importantes:**
-> 
-> - **Asistencia:** Hay 4 clases presenciales mínimas obligatorias.
-> - **Grupos:** El trabajo es grupal para simular entornos de desarrollo reales.
-> - **Entorno:** Es obligatorio tener Node.js instalado y funcional en las máquinas personales para el inicio del proyecto.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 9. Preguntas de Repaso
-> 
-> ### Básicas
-> 
-> 1. ¿Cuál es la diferencia principal entre una Clase y un Objeto?
-> 2. Defina los conceptos de Atributo y Método.
-> 3. ¿Para qué sirve el método Constructor de una clase?
-> 
-> ### Intermedias
-> 
-> 4. Explique la importancia del Encapsulamiento con un ejemplo que no sea el del automóvil.
-> 5. ¿Por qué el paradigma procedimental dificulta el mantenimiento de sistemas grandes?
-> 6. ¿Qué diferencia hay entre un atributo de instancia y un atributo de clase?
-> 
-> ### Avanzadas
-> 
-> 7. Describa el proceso de Abstracción al diseñar una clase `Producto` para un banco vs. para un supermercado.
-> 8. ¿Cómo se relaciona la herencia con la reutilización de código?
-> 9. Analice por qué JavaScript se considera un lenguaje apto para este paradigma a pesar de ser multiparadigma.
+> - **Examen Parcial:**
+>     - **Fecha:** Jueves 20 de junio.
+>     - **Modalidad:** El examen se realizará en **grupo**.
+>     - **Descripción:** Evaluación de los contenidos desarrollados en clase (probabilidad, estadística y ajuste de curvas).
+> - **Recordatorios importantes:**
+>     - El profesor enfatiza la importancia de trabajar en grupo y compartir pantalla para mostrar resultados.
+>     - Se recomienda iniciar siempre los análisis de tendencia probando primero el **modelo lineal** por ser el más clásico y sencillo de predecir.
+>     - Es fundamental contar con las tablas de probabilidad (Anexo 2) para la resolución de ejercicios de distribución normal.
 
 > [!quote]- Video resumen, infografía y presentación
 > # 1. Video resumen
 > 
-> <iframe title="Clase 1 - Desarrollo de sistemas orientado a objetos" src="https://www.youtube.com/embed/vnjtJeCOHYM?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe title="Clase 11 - Estadística y probabilidad para el desarrollo de software" src="https://www.youtube.com/embed/LG4-sVvCYCU?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 2. Infografía
 > 
-> <iframe src="https://drive.google.com/file/d/1fSpXQSUxFjlAgI2zsIKVRtyF_kkjPB_D/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/14cSV9csTLToRCbX1Qzyv27TCpUqFrYcw/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 3. Presentación
 > 
-> <iframe src="https://drive.google.com/file/d/1qvm3ckFbOSYjyvO2XjnR2_5t-FU_M-rf/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1jAHpkA8CA1ms8isE2Rmgd7-zz9qM0oNk/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>

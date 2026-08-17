@@ -3,176 +3,168 @@
 ---
 
 > [!quote]- Resumen
-> # Guía Integral de Estudio: Desarrollo de Sistemas Orientados a Objetos
+> # Guía de Estudio Avanzada: Modelado y Diseño de Software
 > 
-> Este documento constituye una síntesis exhaustiva de los fundamentos de la programación orientada a objetos (POO) y la configuración de entornos de desarrollo, diseñada como material de estudio principal para la materia.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 1. Introducción General al Paradigma
-> 
-> El desarrollo de sistemas ha evolucionado a través de diferentes **paradigmas de programación**, que son esencialmente modelos o estilos de programación que definen cómo se estructura y ejecuta el código. La transición hacia la **Programación Orientada a Objetos (POO)** surge como una respuesta a las limitaciones de los modelos anteriores para gestionar la complejidad creciente de los sistemas informáticos.
-> 
-> Esta materia se define como un "híbrido": combina la teoría profunda de la POO con el aprendizaje práctico de la **infraestructura y el setup de desarrollo**. El objetivo es que el estudiante no solo comprenda la lógica de objetos, sino que también domine el ecosistema de herramientas (servidores, bases de datos, entornos de ejecución) necesarias para profesionalizar el desarrollo de aplicaciones.
+> Este documento constituye una síntesis exhaustiva de la sesión académica centrada en el modelado de sistemas mediante diagramas de colaboración y de estado. El contenido integra las presentaciones de proyectos prácticos, el análisis técnico de flujos de trabajo y las perspectivas históricas sobre el funcionamiento del hardware y software.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 2. Contexto e Importancia: Del Modelo Procedimental a la POO
+> ## 1. Introducción General
 > 
-> ### El Paradigma Procedimental
+> El modelado de software es una etapa crítica en el diseño de sistemas que permite visualizar la interacción entre componentes y los cambios de estado de las entidades. A través del análisis de casos prácticos como reservas hoteleras, ventas de pasajes aéreos y plataformas de comercio electrónico, se establecen las bases para construir sistemas robustos, capaces de gestionar excepciones (como la falta de stock o errores de pago) y de adaptarse a las normativas vigentes (facturación electrónica).
 > 
-> Históricamente, la programación era predominantemente procedimental. Se basaba en una secuencia de instrucciones con estructuras de control (condicionales e iteraciones). Aunque funcional, presentaba dos problemas críticos al escalar:
+> ## 2. Marco Conceptual
 > 
-> 1. **Dificultad de Mantenimiento:** Modificar una funcionalidad en un sistema extenso implicaba rastrear infinitas líneas de código, con un alto riesgo de romper partes no relacionadas ("efecto dominó").
-> 2. **Baja Reutilización:** El código estaba tan entrelazado con funciones específicas de una aplicación que era casi imposible trasladarlo a otro proyecto.
+> Para comprender los sistemas presentados, es fundamental definir los dos pilares del modelado discutidos:
 > 
-> ### El Surgimiento de la POO
+> ### Conceptos Clave
 > 
-> En la década de los 90, la POO se consolidó (con lenguajes como Java y C++) como la solución para organizar el software de manera similar a cómo percibimos el mundo real: a través de entidades con características y comportamientos definidos. Hoy en día, los lenguajes modernos como JavaScript o Python son multiparadigma, permitiendo combinar lo procedimental, lo lógico, lo funcional y lo orientado a objetos de forma fluida.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 3. Marco Conceptual: Definición de Conceptos Clave
-> 
-> Para entender la POO desde cero, es fundamental distinguir entre sus componentes básicos:
-> 
-> ### A. Clase (El Molde)
-> 
-> Es una abstracción que define la estructura de un tipo de objeto. Se escribe siempre en **singular** (ej. `Cliente`, no `Clientes`). Define qué datos tendrá el objeto y qué podrá hacer.
-> 
-> ### B. Objeto o Instancia (El Resultado)
-> 
-> Es la materialización de la clase. Mientras que la clase es el "plano", el objeto es la "casa construida". Cada objeto ocupa un lugar en la memoria (variable) y tiene valores específicos para sus atributos.
-> 
-> - _Sintaxis conceptual:_ `Variable = New Clase()`.
-> 
-> ### C. Atributos (Datos/Características)
-> 
-> Son las variables internas de la clase que definen las propiedades del objeto.
-> 
-> - **Públicos:** Accesibles desde cualquier parte del código.
-> - **Privados:** Solo pueden ser modificados por los métodos internos de la misma clase (crucial para la seguridad de datos como contraseñas o saldos).
-> - **De Instancia:** Valores que cambian entre objetos (ej. el nombre de cada cliente).
-> - **De Clase:** Valores compartidos por todos los objetos de esa clase (ej. la anatomía básica en una clase `Persona`).
-> 
-> ### D. Métodos (Funciones/Comportamientos)
-> 
-> Son las acciones que el objeto puede realizar.
-> 
-> - **Constructores:** El método especial que se ejecuta automáticamente al crear un objeto (`new`). Se encarga de inicializar los atributos.
-> - **Getters:** Métodos para obtener/leer el valor de un atributo.
-> - **Setters:** Métodos para establecer o modificar el valor de un atributo, permitiendo incluir validaciones.
+> - **Diagrama de Colaboración:** Se centra en la organización de los objetos que participan en una interacción. Muestra cómo los objetos se comunican entre sí para cumplir con una función específica del sistema. Es una vista dinámica que enfatiza la relación entre los elementos.
+> - **Diagrama de Estado:** Describe el comportamiento de un sistema o un objeto específico al mostrar sus transiciones entre diferentes estados a lo largo de su ciclo de vida, respondiendo a eventos o estímulos.
+> - **Time-out (Tiempo de espera):** Un mecanismo de control que determina la expiración de una acción o reserva si no se completa en un plazo determinado.
+> - **Stock Dinámico:** Estado de disponibilidad de un producto que debe actualizarse en tiempo real para evitar errores de sobreventa.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 4. Los Cuatro Pilares de la POO
+> ## 3. Desarrollo del Tema: Análisis de Casos Prácticos
 > 
-> La solidez de este paradigma se apoya en cuatro conceptos fundamentales que guían el diseño de software:
+> El estudio se divide en cuatro áreas lógicas basadas en los modelos presentados por los grupos de trabajo:
 > 
-> |   |   |   |
-> |---|---|---|
-> |Pilar|Descripción|Analogía / Ejemplo|
-> |**Abstracción**|Proceso de simplificar la realidad, seleccionando solo los atributos y métodos relevantes para el sistema y descartando el resto.|Para un banco, un `Cliente` es un DNI y un saldo; no importa su altura o color de ojos.|
-> |**Encapsulamiento**|Ocultar la complejidad interna. Los datos están "protegidos" dentro del objeto y solo se accede a ellos a través de métodos autorizados.|Para conducir un auto, presionas el acelerador (método); no necesitas saber cómo funciona la inyección de combustible (lógica interna).|
-> |**Herencia**|Capacidad de crear clases nuevas a partir de clases existentes, heredando sus atributos y métodos. Permite jerarquías (clase padre/hijo).|Una clase `Persona` (padre) hereda sus rasgos a `Empleado` y `Cliente` (hijos).|
-> |**Polimorfismo**|Capacidad de que diferentes clases respondan de manera distinta a un mismo mensaje o método.|El método `CerrarCuenta` actuará distinto si es una `Caja de Ahorro` o una `Cuenta Corriente`.|
+> ### A. Sistema de Reserva Hotelera
+> 
+> Este modelo abarca desde la intención del cliente hasta la confirmación de la estancia.
+> 
+> - **Flujo de Colaboración:**
+>     1. El cliente inicia la reserva hacia el hotel (el sistema).
+>     2. El hotel crea la reserva en el sistema interno.
+>     3. Se verifica la disponibilidad de habitaciones.
+>     4. Se solicitan y entregan datos de los huéspedes.
+>     5. Se gestiona el pago (seña o total).
+> - **Consideraciones de Estado:**
+>     - **Iniciada:** La reserva comienza su ciclo.
+>     - **Verificación:** Si hay disponibilidad, se asigna habitación; si no, se cancela.
+>     - **Pago:** Puede requerir un adelanto (10%, 50%) o el 100% según la política. Si el pago falla, la reserva se cancela.
+>     - **Confirmada:** Estado final tras el pago y la asignación de personal.
+> 
+> ### B. Sistema de E-commerce (Comercio Electrónico)
+> 
+> Inspirado en modelos como Amazon o Mercado Libre, enfocado en la automatización.
+> 
+> - **Interacciones Principales:**
+>     - **Carga de Productos:** Al abrir la página, se instancian los productos disponibles.
+>     - **Carrito de Compras:** Se crea una instancia única por usuario donde se acumulan los ítems.
+>     - **Gestión de Pedido:** El carrito envía la información al módulo de pedido, el cual se vincula con el módulo de pago.
+> - **Gestión de Excepciones:**
+>     - Si un método de pago es rechazado, el sistema debe permitir "Grados de Libertad", ofreciendo al usuario modificar el método antes de cancelar.
+>     - En caso de falta de stock (por compras simultáneas), el sistema debe permitir reprogramar el envío o cancelar la operación.
+> 
+> ### C. Venta de Pasajes Aéreos
+> 
+> Un modelo complejo que incluye servicios adicionales y múltiples canales de salida.
+> 
+> - **Estados del Proceso:**
+>     1. **Búsqueda:** Filtrado por fechas y destinos.
+>     2. **Reserva:** Generación de datos preliminares.
+>     3. **Criterios Adicionales:** Inclusión de seguros y equipaje extra.
+>     4. **Abonar:** Transición al éxito del pago o al canal de atención al cliente en caso de rechazo.
+>     5. **Finalización:** Entrega de tarjeta de embarque (formato físico o código QR).
+> 
+> ### D. Compra Presencial (Supermercado)
+> 
+> Un modelo simplificado de interacción física.
+> 
+> - **Componentes:** Cliente, carrito físico, sucursal y vendedor.
+> - **Proceso:** El cliente elige productos, el vendedor confirma la venta y la sucursal procesa el pago.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 5. Desarrollo del Entorno y Ecosistema Tecnológico
+> ## 4. Relaciones entre Conceptos y Profundización Técnica
 > 
-> Un pilar de esta formación es el **Setup de Infraestructura**. No basta con programar la lógica; se debe configurar el entorno donde la aplicación "vive".
+> ### La Importancia del "Time-out"
 > 
-> - **Ecosistema JavaScript:** Es la decisión estándar para el desarrollo en este curso.
-> - **Node.js:** El entorno que permite ejecutar JavaScript fuera del navegador (en el servidor). Es vital saber gestionar paquetes (instalar/desinstalar).
-> - **Express:** Framework de Node para crear servidores web y APIs que responden a solicitudes de navegadores.
-> - **Bases de Datos:** Se requiere conexión y capacidad de realizar consultas (queries) para crear, modificar y acceder a datos. Se mencionan opciones vectoriales para IA como Pinecone o Chroma.
-> - **Frontend:** El usuario interactúa mediante HTML y CSS. Se permite el uso de frameworks como Angular, React o Next para quienes deseen mayor complejidad.
-> - **Inteligencia Artificial (IA):** Se incentiva el uso de IAs (vía API o modelos locales) tanto para asistir en la codificación como para integrarlas como funcionalidades dentro de las aplicaciones.
+> Los sistemas de reserva y las aplicaciones web deben implementar ventanas de espera. Si un usuario no concreta una acción (como un pago o un inicio de sesión) en el tiempo previsto, el sistema debe cerrar la sesión o liberar el recurso para mantener la eficiencia y seguridad.
 > 
-> --------------------------------------------------------------------------------
+> ### Redes y "Upgrades"
 > 
-> ## 6. Ejemplos Prácticos: Sistema Bancario
+> En industrias de alta demanda (hotelería/aerolíneas), las empresas suelen operar en redes o monopolios. Esto permite que, ante una sobreventa ("overbooking"), el sistema gestione un traslado a otro establecimiento de igual o mayor categoría (upgrade) para evitar quejas legales y proteger la reputación de la marca.
 > 
-> A continuación, se detalla cómo se estructuraría una aplicación bancaria bajo este paradigma:
+> ### Evolución de los Estados del Hardware (CPU)
 > 
-> ### Clase: `CuentaBancaria`
+> El modelado de estados no es exclusivo del software; es la base de la electrónica y las CPUs.
 > 
-> - **Atributos:** `numeroCuenta`, `propietario`, `CBU`, `montoDisponible` (privado), `limite`.
-> - **Métodos:**
->     - `getSaldo()`: Retorna el dinero disponible.
->     - `setLimite(nuevoLimite)`: Modifica el límite previa validación.
->     - `checkOperacion()`: Verifica si una transacción no supera el límite.
-> 
-> ### Relación entre Clases
-> 
-> Un sistema real conecta múltiples moldes:
-> 
-> 1. Un **Banco** (clase) tiene un atributo que es una **Lista/Array** de **Cuentas Bancarias**.
-> 2. Al ejecutar el método `aperturaCuenta()` en la clase `Cliente`, se invoca al **Constructor** de la clase `CuentaBancaria` para generar un nuevo objeto.
+> - **Sistemas Antiguos:** El arranque (boot) era visible y manual (ej. carga mediante disquetes).
+> - **Modo Real vs. Modo Protegido:** Las CPUs antiguas trabajaban en modo real (limitado a 1MB de memoria). El modo protegido permite reconocer toda la memoria física instalada.
+> - **Automatización:** Hoy en día, los estados de inicialización ocurren a velocidades que el ojo humano no percibe, saltando directamente a la interfaz del sistema operativo.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 7. Errores Comunes y Clarificaciones
+> ## 5. Ejemplos Prácticos de Flujo de Datos
 > 
-> - **Confusión entre Clase y Objeto:** Es frecuente intentar asignar un valor (como un nombre específico) a la clase. El valor pertenece al objeto; la clase solo define que _existirá_ un nombre.
-> - **Exceso de Atributos:** No realizar una abstracción correcta lleva a sistemas pesados con datos innecesarios.
-> - **Transparencia en Cambios:** Una gran ventaja del encapsulamiento es que si se cambia la lógica de un método (ej. cómo se autentica una contraseña), el resto del sistema no se entera ni se rompe, siempre que la respuesta final del método siga siendo la misma.
+> |   |   |   |   |
+> |---|---|---|---|
+> |Paso|Actor|Acción del Sistema|Estado Resultante|
+> |1|Cliente|Selecciona "Reservar"|Reserva Iniciada|
+> |2|Sistema|Consulta Base de Datos|Disponibilidad Verificada|
+> |3|Cliente|Ingresa Tarjeta de Crédito|Pago en Proceso|
+> |4|Pasarela|Valida Fondos|Pago Confirmado / Rechazado|
+> |5|Sistema|Emite Voucher / Factura|Reserva Finalizada|
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 6. Errores Comunes y Confusiones
+> 
+> 1. **Omisión del Stock:** Un error frecuente es no prever que el stock puede agotarse entre el momento en que se añade al carrito y se realiza el pago. El sistema debe validar el stock en el último paso.
+> 2. **Falta de Feedback:** No informar al usuario por qué falló un pago o una reserva genera fricción. Siempre se deben incluir estados de "Atención al Cliente" o "Reintento".
+> 3. **Rigidez del Sistema:** No permitir volver atrás para cambiar un método de pago obliga al usuario a iniciar todo el proceso de nuevo, aumentando el riesgo de abandono.
+> 4. **Ignorar la Normativa Fiscal:** En el diseño de facturación, se suele olvidar que existen diferentes condiciones frente al IVA (Monotributista, Responsable Inscripto) que deben estar contempladas en el sistema para la emisión de facturas legales (AFIP).
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 7. Síntesis y Conclusiones
+> 
+> - **Fidelidad del Modelo:** Los diagramas deben reflejar la realidad del negocio (ej. políticas de seña o sobreventa).
+> - **Interconectividad:** Un sistema de ventas no es una isla; se conecta con inventarios, pasarelas de pago y servicios de atención al cliente.
+> - **De lo Macro a lo Micro:** El diseño inicial debe capturar el flujo general ("macro"), para luego pulir los detalles finos ("micro"), como los tipos de factura o los tiempos exactos de expiración.
 > 
 > --------------------------------------------------------------------------------
 > 
 > ## 8. Fechas Importantes y Avisos Académicos
 > 
-> Basado en la planificación docente y los anuncios de clase, se establecen los siguientes hitos:
+> Tras el análisis de la sesión, se establecen las siguientes pautas:
 > 
-> |   |   |   |
-> |---|---|---|
-> |Fecha (Estimada/Fija)|Tipo de Evento|Descripción Detallada|
-> |**Clase 3 o 4**|Inicio de Proyecto|Comienzo del trabajo grupal y configuración de infraestructura (Node, bases de datos).|
-> |**Fines de Agosto - 20 Sept.**|Viaje del Profesor|El docente estará en Italia. Las clases podrían ser grabadas o reprogramadas ante problemas de conexión.|
-> |**Mediados de Octubre**|Trabajo Práctico (TP)|Entrega de TP de ejercicios (posiblemente un TP largo de ~20 ejercicios).|
-> |**22 de Octubre**|Clase Presencial|Tercera instancia presencial obligatoria (según planificación tentativa).|
-> |**29 de Octubre**|**Examen Parcial**|Evaluación presencial de contenidos teóricos y prácticos.|
-> |**Noviembre (Post-Parcial)**|Avances de Proyecto|Dinámica de tutorías: cada grupo tiene 30 min asignados para corrección.|
-> |**Fines de Noviembre**|Presentación Final|Exposición presencial de los proyectos grupales funcionales.|
-> 
-> **Recordatorios Importantes:**
-> 
-> - **Asistencia:** Hay 4 clases presenciales mínimas obligatorias.
-> - **Grupos:** El trabajo es grupal para simular entornos de desarrollo reales.
-> - **Entorno:** Es obligatorio tener Node.js instalado y funcional en las máquinas personales para el inicio del proyecto.
+> - **Fecha de entrega/finalización del TP:** La semana próxima (contada desde el 17 de octubre).
+> - **Formato de Presentación:** Los diagramas deben presentarse **impresos**.
+> - **Estado de los Trabajos:** Se permiten presentaciones de borradores o bocetos para corrección previa.
+> - **Recordatorio Académico:** Es fundamental que los diagramas (especialmente los de estado) incluyan realimentación y contemplen todas las opciones posibles de salida.
 > 
 > --------------------------------------------------------------------------------
 > 
 > ## 9. Preguntas de Repaso
 > 
-> ### Básicas
+> ### Nivel Básico
 > 
-> 1. ¿Cuál es la diferencia principal entre una Clase y un Objeto?
-> 2. Defina los conceptos de Atributo y Método.
-> 3. ¿Para qué sirve el método Constructor de una clase?
+> 1. ¿Cuál es la diferencia principal entre un diagrama de colaboración y uno de estado?
+> 2. ¿Por qué es importante el estado de "verificación de disponibilidad" en un hotel?
 > 
-> ### Intermedias
+> ### Nivel Intermedio
 > 
-> 4. Explique la importancia del Encapsulamiento con un ejemplo que no sea el del automóvil.
-> 5. ¿Por qué el paradigma procedimental dificulta el mantenimiento de sistemas grandes?
-> 6. ¿Qué diferencia hay entre un atributo de instancia y un atributo de clase?
+> 1. ¿Qué sucede técnicamente cuando un sistema de reserva llega a un "time-out"?
+> 2. Explique cómo funciona el proceso de "Upgrade" en una red de hoteles y por qué se considera una política de ética empresarial.
 > 
-> ### Avanzadas
+> ### Nivel Avanzado
 > 
-> 7. Describa el proceso de Abstracción al diseñar una clase `Producto` para un banco vs. para un supermercado.
-> 8. ¿Cómo se relaciona la herencia con la reutilización de código?
-> 9. Analice por qué JavaScript se considera un lenguaje apto para este paradigma a pesar de ser multiparadigma.
+> 1. Analice la transición del "Modo Real" al "Modo Protegido" en las CPUs y cómo esto afectó la gestión de estados en el software de los años 90.
+> 2. En un sistema de e-commerce, ¿qué medidas de diseño evitarían que dos personas compren el último producto disponible al mismo tiempo?
 
 > [!quote]- Video resumen, infografía y presentación
 > # 1. Video resumen
 > 
-> <iframe title="Clase 1 - Desarrollo de sistemas orientado a objetos" src="https://www.youtube.com/embed/vnjtJeCOHYM?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe title="Clase 8 - Modelado y diseño de software" src="https://www.youtube.com/embed/AYE68k-py0A?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 2. Infografía
 > 
-> <iframe src="https://drive.google.com/file/d/1fSpXQSUxFjlAgI2zsIKVRtyF_kkjPB_D/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1ZFid3tBvZunVoN99H6CFYeoeZIE008UG/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 3. Presentación
 > 
-> <iframe src="https://drive.google.com/file/d/1qvm3ckFbOSYjyvO2XjnR2_5t-FU_M-rf/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1XzvbPkuPraHnIXRLd0ABHX3lIKytcpt-/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>

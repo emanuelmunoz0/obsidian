@@ -3,176 +3,168 @@
 ---
 
 > [!quote]- Resumen
-> # Guía Integral de Estudio: Desarrollo de Sistemas Orientados a Objetos
+> # Guía de Estudio: Modelado y Diseño de Software - Diagramas de Clases y Estructura de Datos
 > 
-> Este documento constituye una síntesis exhaustiva de los fundamentos de la programación orientada a objetos (POO) y la configuración de entornos de desarrollo, diseñada como material de estudio principal para la materia.
+> Este documento constituye un material de estudio integral basado en la clase de Modelado y Diseño de Software. Explica desde los fundamentos del diseño orientado a objetos hasta la implementación técnica de diagramas de clases, tipos de datos y relaciones sistémicas.
 > 
-> --------------------------------------------------------------------------------
+> ## 1. Introducción General
 > 
-> ## 1. Introducción General al Paradigma
+> El modelado de software es una etapa crítica que permite traducir los requerimientos de un sistema en una estructura visual y lógica comprensible. A través del uso de herramientas de diseño (como Microsoft Visio), se busca representar la arquitectura de un sistema antes de su implementación técnica. El enfoque principal se centra en el **Diagrama de Clases**, que sirve como mapa para entender cómo se agrupa la información y cómo interactúan los diferentes componentes de un software.
 > 
-> El desarrollo de sistemas ha evolucionado a través de diferentes **paradigmas de programación**, que son esencialmente modelos o estilos de programación que definen cómo se estructura y ejecuta el código. La transición hacia la **Programación Orientada a Objetos (POO)** surge como una respuesta a las limitaciones de los modelos anteriores para gestionar la complejidad creciente de los sistemas informáticos.
+> ## 2. Contexto del Tema
 > 
-> Esta materia se define como un "híbrido": combina la teoría profunda de la POO con el aprendizaje práctico de la **infraestructura y el setup de desarrollo**. El objetivo es que el estudiante no solo comprenda la lógica de objetos, sino que también domine el ecosistema de herramientas (servidores, bases de datos, entornos de ejecución) necesarias para profesionalizar el desarrollo de aplicaciones.
+> El estudio del modelado se sitúa en la intersección entre el análisis de datos (base de datos) y la programación. Se utiliza software especializado para crear plantillas prediseñadas o diagramas desde cero, permitiendo la manipulación de elementos (agregado, modificación o eliminación) según las necesidades del proyecto. El diseño no es estático; se fomenta la mejora continua y la simplificación de estructuras complejas mediante el uso de conceptos avanzados como el empaquetamiento de clases.
 > 
-> --------------------------------------------------------------------------------
+> ## 3. Importancia y Relevancia
 > 
-> ## 2. Contexto e Importancia: Del Modelo Procedimental a la POO
+> La importancia del modelado radica en:
 > 
-> ### El Paradigma Procedimental
+> - **Claridad Organizativa:** Permite a los desarrolladores y analistas visualizar la jerarquía y las responsabilidades de cada parte del software.
+> - **Precisión de Datos:** Define qué tipo de información puede procesar el sistema, evitando errores de cálculo o de almacenamiento.
+> - **Comunicación:** Actúa como un lenguaje común entre los miembros de un equipo de trabajo.
+> - **Eficiencia:** Detecta redundancias o falta de relaciones antes de escribir código.
 > 
-> Históricamente, la programación era predominantemente procedimental. Se basaba en una secuencia de instrucciones con estructuras de control (condicionales e iteraciones). Aunque funcional, presentaba dos problemas críticos al escalar:
+> ## 4. Marco Conceptual y Definición de Conceptos Clave
 > 
-> 1. **Dificultad de Mantenimiento:** Modificar una funcionalidad en un sistema extenso implicaba rastrear infinitas líneas de código, con un alto riesgo de romper partes no relacionadas ("efecto dominó").
-> 2. **Baja Reutilización:** El código estaba tan entrelazado con funciones específicas de una aplicación que era casi imposible trasladarlo a otro proyecto.
+> Para entender el modelado de software, es necesario dominar los siguientes términos fundamentales:
 > 
-> ### El Surgimiento de la POO
+> ### A. Objetos y Clases
 > 
-> En la década de los 90, la POO se consolidó (con lenguajes como Java y C++) como la solución para organizar el software de manera similar a cómo percibimos el mundo real: a través de entidades con características y comportamientos definidos. Hoy en día, los lenguajes modernos como JavaScript o Python son multiparadigma, permitiendo combinar lo procedimental, lo lógico, lo funcional y lo orientado a objetos de forma fluida.
+> - **Objeto:** Es un referente específico que se analiza por sus atributos (características).
+> - **Clase:** Es un agrupamiento de objetos. Se utiliza para facilitar el estudio y la organización del sistema. Cada clase debe tener un nombre único y representativo.
 > 
-> --------------------------------------------------------------------------------
+> ### B. Atributos y Operaciones
 > 
-> ## 3. Marco Conceptual: Definición de Conceptos Clave
+> - **Atributos:** Son las características o datos que definen a la clase (ej. nombre, teléfono, ID).
+> - **Operaciones (o Métodos):** Son las acciones o funciones que la clase puede ejecutar. A menudo se representan en una sección separada del diagrama, a veces diferenciada por colores para mayor claridad estética.
 > 
-> Para entender la POO desde cero, es fundamental distinguir entre sus componentes básicos:
+> ### C. Visibilidad
 > 
-> ### A. Clase (El Molde)
+> Define quién puede acceder a la información dentro de una clase:
 > 
-> Es una abstracción que define la estructura de un tipo de objeto. Se escribe siempre en **singular** (ej. `Cliente`, no `Clientes`). Define qué datos tendrá el objeto y qué podrá hacer.
+> - **Público (+):** Acceso libre.
+> - **Privado (-):** Acceso restringido a la clase.
+> - **Protegido (#):** Acceso limitado a la clase y sus derivadas.
+> - **Derivado / Paquete:** Otras formas de organización de visibilidad según el entorno.
 > 
-> ### B. Objeto o Instancia (El Resultado)
+> ## 5. Desarrollo del Tema: Tipos de Datos y Relaciones
 > 
-> Es la materialización de la clase. Mientras que la clase es el "plano", el objeto es la "casa construida". Cada objeto ocupa un lugar en la memoria (variable) y tiene valores específicos para sus atributos.
+> ### Clasificación de Tipos de Datos
 > 
-> - _Sintaxis conceptual:_ `Variable = New Clase()`.
-> 
-> ### C. Atributos (Datos/Características)
-> 
-> Son las variables internas de la clase que definen las propiedades del objeto.
-> 
-> - **Públicos:** Accesibles desde cualquier parte del código.
-> - **Privados:** Solo pueden ser modificados por los métodos internos de la misma clase (crucial para la seguridad de datos como contraseñas o saldos).
-> - **De Instancia:** Valores que cambian entre objetos (ej. el nombre de cada cliente).
-> - **De Clase:** Valores compartidos por todos los objetos de esa clase (ej. la anatomía básica en una clase `Persona`).
-> 
-> ### D. Métodos (Funciones/Comportamientos)
-> 
-> Son las acciones que el objeto puede realizar.
-> 
-> - **Constructores:** El método especial que se ejecuta automáticamente al crear un objeto (`new`). Se encarga de inicializar los atributos.
-> - **Getters:** Métodos para obtener/leer el valor de un atributo.
-> - **Setters:** Métodos para establecer o modificar el valor de un atributo, permitiendo incluir validaciones.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 4. Los Cuatro Pilares de la POO
-> 
-> La solidez de este paradigma se apoya en cuatro conceptos fundamentales que guían el diseño de software:
+> El procesamiento de información requiere clasificar los datos para que la computadora sepa cómo manejarlos:
 > 
 > |   |   |   |
 > |---|---|---|
-> |Pilar|Descripción|Analogía / Ejemplo|
-> |**Abstracción**|Proceso de simplificar la realidad, seleccionando solo los atributos y métodos relevantes para el sistema y descartando el resto.|Para un banco, un `Cliente` es un DNI y un saldo; no importa su altura o color de ojos.|
-> |**Encapsulamiento**|Ocultar la complejidad interna. Los datos están "protegidos" dentro del objeto y solo se accede a ellos a través de métodos autorizados.|Para conducir un auto, presionas el acelerador (método); no necesitas saber cómo funciona la inyección de combustible (lógica interna).|
-> |**Herencia**|Capacidad de crear clases nuevas a partir de clases existentes, heredando sus atributos y métodos. Permite jerarquías (clase padre/hijo).|Una clase `Persona` (padre) hereda sus rasgos a `Empleado` y `Cliente` (hijos).|
-> |**Polimorfismo**|Capacidad de que diferentes clases respondan de manera distinta a un mismo mensaje o método.|El método `CerrarCuenta` actuará distinto si es una `Caja de Ahorro` o una `Cuenta Corriente`.|
+> |Tipo de Dato|Descripción|Ejemplo|
+> |**Entero sin signo**|Números positivos sin decimales.|Edad (0 a 150 años).|
+> |**Entero con signo**|Números positivos y negativos.|Operaciones matemáticas (ej. -127 a +128).|
+> |**Flotante (Float)**|Números con decimales y notación científica.|Divisiones (1/3 = 0.33) o exponentes (e+3).|
+> |**Cadena (String)**|Símbolos y caracteres alfanuméricos.|Nombres, DNI, números de transferencia bancaria.|
+> |**Booleano**|Datos lógicos binarios.|Verdadero/Falso (Sí/No).|
+> 
+> **Nota sobre Cadenas (Strings):** Aunque un dato parezca numérico (como el DNI o una cuenta bancaria), si no se realizarán operaciones algebraicas con él (sumar, promediar), debe tratarse como una **cadena**.
+> 
+> ### Relaciones y Asociaciones en Diagramas
+> 
+> Las líneas entre bloques indican cómo se comunican las clases:
+> 
+> 1. **Asociación:** Una línea recta simple que indica una relación general.
+> 2. **Injerencia / Herencia:** Línea recta de trazo continuo.
+> 3. **Realización:** Línea de trazo discontinuo.
+> 4. **Dependencia:** Línea con una flecha abierta; indica que una clase depende de otra superior.
+> 5. **Composición:** Una relación donde una clase es parte esencial de otra (forma integrada).
+> 6. **Multiplicidad:** Indica cuántos objetos de una clase se relacionan con otra:
+>     - `1`: Uno y solo uno.
+>     - `0..1`: Cero o uno.
+>     - `*` o `0..*`: Cero o muchos.
+>     - `1..*`: Uno o muchos.
+> 
+> ## 6. Relaciones entre Conceptos
+> 
+> El diseño de software hereda conceptos de las **Bases de Datos**, específicamente en la lógica de las relaciones (uno a uno, uno a muchos, muchos a muchos). Sin embargo, en el modelado de clases, se añade la capa de **comportamiento** (operaciones) y **visibilidad**. Las ideas se conectan de forma que una clase puede comunicarse con otra directamente o de forma indirecta a través de una red de asociaciones, formando una estructura global cerrada.
+> 
+> ## 7. Ejemplos Prácticos: Sistema de Alquiler de Autos
+> 
+> Un modelo de referencia para un servicio de alquiler de autos incluiría las siguientes clases y atributos:
+> 
+> - **Clase Empresa:** Atributos como Nombre, Teléfono, Número de cuenta bancaria.
+> - **Clase Cliente:** Atributos como ID de cliente, Datos bancarios, Dirección, Teléfono.
+> - **Clase Reservación:** Atributos como Modelo, Marca, Color, Matrícula, Disponibilidad.
+> - **Clase Pago:** Métodos para pago prepago o electrónico.
+> - **Relación de Acción:** Entre la clase "Pedido" y "Libro", la acción sería "necesita" o "solicita". Es vital colocar texto en las relaciones para describir la operación principal.
+> 
+> ## 8. Errores Comunes y Confusiones
+> 
+> - **Exceso de Complejidad:** Intentar crear diagramas de 8 o más clases desde el inicio. Se recomienda empezar con un máximo de 5 clases y luego simplificar usando "paquetes".
+> - **Confusión de Tipos de Datos:** Tratar documentos de identidad (DNI) como números en lugar de cadenas. Solo es número si se opera algebraicamente con él.
+> - **Trabajo Individual:** El modelado de software es una tarea colaborativa. No se recomienda trabajar solo, ya que el intercambio de ideas entre compañeros ayuda a detectar necesidades de nuevas clases o relaciones.
+> - **Falta de Texto:** No describir qué hace la relación entre dos clases. La "acción" debe estar explícita.
+> 
+> ## 9. Síntesis y Conclusiones
+> 
+> El modelado y diseño de software es un proceso progresivo que va de lo simple a lo complejo. Se basa en la definición clara de clases (objetos agrupados), sus atributos (datos) y sus operaciones (acciones). La correcta elección del tipo de dato y la definición precisa de las relaciones y su multiplicidad son fundamentales para que el sistema funcione lógicamente. El objetivo no es la perfección inicial, sino la construcción de borradores que evolucionen mediante la revisión y la colaboración grupal.
+> 
+> ## 10. Preguntas de Repaso
+> 
+> ### Nivel Básico
+> 
+> 1. ¿Cuál es la diferencia fundamental entre un objeto y una clase?
+> 2. ¿Qué herramienta de software se mencionó para realizar estos diagramas?
+> 3. ¿Cuáles son los tres tipos de visibilidad más comunes en una clase?
+> 
+> ### Nivel Intermedio
+> 
+> 4. ¿Por qué un número de transferencia bancaria de 16 dígitos debe clasificarse como "cadena" y no como "numérico"?
+> 5. Explique qué indica una multiplicidad de `1..*` en una relación entre clases.
+> 6. ¿En qué se diferencia una relación de "asociación" de una de "dependencia" visualmente?
+> 
+> ### Nivel Avanzado
+> 
+> 7. Describa cómo se puede reducir la complejidad de un diagrama que tiene demasiadas clases relacionadas.
+> 8. En un sistema de alquiler, ¿por qué la relación entre "Agencia" y "Auto" podría considerarse una composición?
+> 9. ¿Cómo influye el tipo de dato "booleano" en la eficiencia del procesamiento de una máquina?
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 5. Desarrollo del Entorno y Ecosistema Tecnológico
+> ## Fechas Importantes y Avisos Académicos
 > 
-> Un pilar de esta formación es el **Setup de Infraestructura**. No basta con programar la lógica; se debe configurar el entorno donde la aplicación "vive".
+> A continuación, se detallan las fechas y pautas organizativas extraídas de la sesión:
 > 
-> - **Ecosistema JavaScript:** Es la decisión estándar para el desarrollo en este curso.
-> - **Node.js:** El entorno que permite ejecutar JavaScript fuera del navegador (en el servidor). Es vital saber gestionar paquetes (instalar/desinstalar).
-> - **Express:** Framework de Node para crear servidores web y APIs que responden a solicitudes de navegadores.
-> - **Bases de Datos:** Se requiere conexión y capacidad de realizar consultas (queries) para crear, modificar y acceder a datos. Se mencionan opciones vectoriales para IA como Pinecone o Chroma.
-> - **Frontend:** El usuario interactúa mediante HTML y CSS. Se permite el uso de frameworks como Angular, React o Next para quienes deseen mayor complejidad.
-> - **Inteligencia Artificial (IA):** Se incentiva el uso de IAs (vía API o modelos locales) tanto para asistir en la codificación como para integrarlas como funcionalidades dentro de las aplicaciones.
+> ### Calendario de Evaluaciones y Entregas
 > 
-> --------------------------------------------------------------------------------
+> - **04/09 o 05/09 (Próxima Clase):** Existe una breve discrepancia en la fecha mencionada; el profesor mencionó el 4 de septiembre, pero tras la aclaración de que el viernes es 5, se establece como la fecha de la próxima sesión.
+>     - **Evento:** Presentación de borradores.
+>     - **Descripción:** Los grupos deben traer un borrador del primer diagrama de clases para revisión. No se exige perfección, sino un avance funcional.
+> - **Fecha Límite Flexible:** Se menciona que, aunque el 4 de septiembre (o 5) es para borradores, se podrían recibir borradores incluso el 11 de septiembre. Los diagramas finales se explicarán el último día de clase.
 > 
-> ## 6. Ejemplos Prácticos: Sistema Bancario
+> ### Indicaciones del Profesor
 > 
-> A continuación, se detalla cómo se estructuraría una aplicación bancaria bajo este paradigma:
+> - **Temática del Proyecto:** Libertad total para elegir el tema del trabajo práctico. Se debe consensuar dentro del grupo.
+> - **Complejidad del Trabajo:** Se recomienda un máximo de **5 clases** para el primer diagrama. Evitar excederse a 8 o más clases en esta etapa inicial.
+> - **Metodología de Exposición:** Todos los miembros del grupo deben estar preparados para explicar. Si un alumno explica un ejercicio, el resto debe explicar los demás; no puede una sola persona exponer todo.
+> - **Dinámica de Grupo:** Se asignaron números de grupo internos para el control administrativo de la materia "Modelado de Software" (Segundo Cuatrimestre).
 > 
-> ### Clase: `CuentaBancaria`
+> ### Organización de Grupos (Listado Interno)
 > 
-> - **Atributos:** `numeroCuenta`, `propietario`, `CBU`, `montoDisponible` (privado), `limite`.
-> - **Métodos:**
->     - `getSaldo()`: Retorna el dinero disponible.
->     - `setLimite(nuevoLimite)`: Modifica el límite previa validación.
->     - `checkOperacion()`: Verifica si una transacción no supera el límite.
+> |   |   |
+> |---|---|
+> |Grupo|Integrantes|
+> |**G1**|Ignacio Vidal, Lucía Corral, Carla Guisande, Ignacio Hernández, Pablo De Martini.|
+> |**G2**|María Pía, Ludmila Sánchez Rufanaj, Tatiana Peralta, Rodrigo Gómez Muñoz.|
+> |**G3**|Victoria Gómez Coria, Mariano Loreto, Julián Niegovic, Matías Sosa.|
+> |**G4**|Pablo Cau, Nicolás Beco, Tatiana Brepe, Paloma Madrid.|
 > 
-> ### Relación entre Clases
-> 
-> Un sistema real conecta múltiples moldes:
-> 
-> 1. Un **Banco** (clase) tiene un atributo que es una **Lista/Array** de **Cuentas Bancarias**.
-> 2. Al ejecutar el método `aperturaCuenta()` en la clase `Cliente`, se invoca al **Constructor** de la clase `CuentaBancaria` para generar un nuevo objeto.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 7. Errores Comunes y Clarificaciones
-> 
-> - **Confusión entre Clase y Objeto:** Es frecuente intentar asignar un valor (como un nombre específico) a la clase. El valor pertenece al objeto; la clase solo define que _existirá_ un nombre.
-> - **Exceso de Atributos:** No realizar una abstracción correcta lleva a sistemas pesados con datos innecesarios.
-> - **Transparencia en Cambios:** Una gran ventaja del encapsulamiento es que si se cambia la lógica de un método (ej. cómo se autentica una contraseña), el resto del sistema no se entera ni se rompe, siempre que la respuesta final del método siga siendo la misma.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 8. Fechas Importantes y Avisos Académicos
-> 
-> Basado en la planificación docente y los anuncios de clase, se establecen los siguientes hitos:
-> 
-> |   |   |   |
-> |---|---|---|
-> |Fecha (Estimada/Fija)|Tipo de Evento|Descripción Detallada|
-> |**Clase 3 o 4**|Inicio de Proyecto|Comienzo del trabajo grupal y configuración de infraestructura (Node, bases de datos).|
-> |**Fines de Agosto - 20 Sept.**|Viaje del Profesor|El docente estará en Italia. Las clases podrían ser grabadas o reprogramadas ante problemas de conexión.|
-> |**Mediados de Octubre**|Trabajo Práctico (TP)|Entrega de TP de ejercicios (posiblemente un TP largo de ~20 ejercicios).|
-> |**22 de Octubre**|Clase Presencial|Tercera instancia presencial obligatoria (según planificación tentativa).|
-> |**29 de Octubre**|**Examen Parcial**|Evaluación presencial de contenidos teóricos y prácticos.|
-> |**Noviembre (Post-Parcial)**|Avances de Proyecto|Dinámica de tutorías: cada grupo tiene 30 min asignados para corrección.|
-> |**Fines de Noviembre**|Presentación Final|Exposición presencial de los proyectos grupales funcionales.|
-> 
-> **Recordatorios Importantes:**
-> 
-> - **Asistencia:** Hay 4 clases presenciales mínimas obligatorias.
-> - **Grupos:** El trabajo es grupal para simular entornos de desarrollo reales.
-> - **Entorno:** Es obligatorio tener Node.js instalado y funcional en las máquinas personales para el inicio del proyecto.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 9. Preguntas de Repaso
-> 
-> ### Básicas
-> 
-> 1. ¿Cuál es la diferencia principal entre una Clase y un Objeto?
-> 2. Defina los conceptos de Atributo y Método.
-> 3. ¿Para qué sirve el método Constructor de una clase?
-> 
-> ### Intermedias
-> 
-> 4. Explique la importancia del Encapsulamiento con un ejemplo que no sea el del automóvil.
-> 5. ¿Por qué el paradigma procedimental dificulta el mantenimiento de sistemas grandes?
-> 6. ¿Qué diferencia hay entre un atributo de instancia y un atributo de clase?
-> 
-> ### Avanzadas
-> 
-> 7. Describa el proceso de Abstracción al diseñar una clase `Producto` para un banco vs. para un supermercado.
-> 8. ¿Cómo se relaciona la herencia con la reutilización de código?
-> 9. Analice por qué JavaScript se considera un lenguaje apto para este paradigma a pesar de ser multiparadigma.
+> _Nota: Se enfatiza la importancia de utilizar los nombres y apellidos tal cual aparecen en el DNI para la carga de notas._
 
 > [!quote]- Video resumen, infografía y presentación
 > # 1. Video resumen
 > 
-> <iframe title="Clase 1 - Desarrollo de sistemas orientado a objetos" src="https://www.youtube.com/embed/vnjtJeCOHYM?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe title="Clase 2 - Modelado y diseño de software" src="https://www.youtube.com/embed/c-o415Znvxo?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 2. Infografía
 > 
-> <iframe src="https://drive.google.com/file/d/1fSpXQSUxFjlAgI2zsIKVRtyF_kkjPB_D/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1j1LBUAaoGmmDfT5mqGb8cDDb6S_dpLXR/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 3. Presentación
 > 
-> <iframe src="https://drive.google.com/file/d/1qvm3ckFbOSYjyvO2XjnR2_5t-FU_M-rf/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1dbSmTouWlC3Rsd-zXTcyngfmxtev_cGl/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>

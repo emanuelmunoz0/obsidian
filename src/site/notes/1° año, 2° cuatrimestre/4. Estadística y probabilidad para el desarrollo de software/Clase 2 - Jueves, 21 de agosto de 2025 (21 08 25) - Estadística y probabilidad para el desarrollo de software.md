@@ -3,176 +3,188 @@
 ---
 
 > [!quote]- Resumen
-> # Guía Integral de Estudio: Desarrollo de Sistemas Orientados a Objetos
+> # Guía de Estudio: Estadística y Probabilidad para el Desarrollo de Software
 > 
-> Este documento constituye una síntesis exhaustiva de los fundamentos de la programación orientada a objetos (POO) y la configuración de entornos de desarrollo, diseñada como material de estudio principal para la materia.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 1. Introducción General al Paradigma
-> 
-> El desarrollo de sistemas ha evolucionado a través de diferentes **paradigmas de programación**, que son esencialmente modelos o estilos de programación que definen cómo se estructura y ejecuta el código. La transición hacia la **Programación Orientada a Objetos (POO)** surge como una respuesta a las limitaciones de los modelos anteriores para gestionar la complejidad creciente de los sistemas informáticos.
-> 
-> Esta materia se define como un "híbrido": combina la teoría profunda de la POO con el aprendizaje práctico de la **infraestructura y el setup de desarrollo**. El objetivo es que el estudiante no solo comprenda la lógica de objetos, sino que también domine el ecosistema de herramientas (servidores, bases de datos, entornos de ejecución) necesarias para profesionalizar el desarrollo de aplicaciones.
+> Este documento constituye un material de estudio integral basado en el análisis de datos agrupados, la construcción de tablas de frecuencia y su representación gráfica. Está diseñado para proporcionar una comprensión profunda de cómo organizar y visualizar información estadística para la toma de decisiones en el desarrollo de software.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 2. Contexto e Importancia: Del Modelo Procedimental a la POO
+> ## 1. Introducción General
 > 
-> ### El Paradigma Procedimental
+> En el análisis estadístico, el procesamiento de grandes volúmenes de datos requiere métodos de organización que faciliten su interpretación. Una de las herramientas más potentes es la agrupación de datos en **intervalos de clase**. Este método permite pasar de una "población" de datos dispersos a una estructura organizada que resalta tendencias, crecimientos y comportamientos predominantes.
 > 
-> Históricamente, la programación era predominantemente procedimental. Se basaba en una secuencia de instrucciones con estructuras de control (condicionales e iteraciones). Aunque funcional, presentaba dos problemas críticos al escalar:
-> 
-> 1. **Dificultad de Mantenimiento:** Modificar una funcionalidad en un sistema extenso implicaba rastrear infinitas líneas de código, con un alto riesgo de romper partes no relacionadas ("efecto dominó").
-> 2. **Baja Reutilización:** El código estaba tan entrelazado con funciones específicas de una aplicación que era casi imposible trasladarlo a otro proyecto.
-> 
-> ### El Surgimiento de la POO
-> 
-> En la década de los 90, la POO se consolidó (con lenguajes como Java y C++) como la solución para organizar el software de manera similar a cómo percibimos el mundo real: a través de entidades con características y comportamientos definidos. Hoy en día, los lenguajes modernos como JavaScript o Python son multiparadigma, permitiendo combinar lo procedimental, lo lógico, lo funcional y lo orientado a objetos de forma fluida.
+> El objetivo central de esta unidad es dominar la construcción de distribuciones de frecuencia y sus representaciones gráficas (histogramas, polígonos de frecuencia y ojivas), herramientas fundamentales para el análisis de rendimiento de sistemas, estudios de usuarios o control de calidad en software.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 3. Marco Conceptual: Definición de Conceptos Clave
+> ## 2. Marco Conceptual: Definiciones y Términos Fundamentales
 > 
-> Para entender la POO desde cero, es fundamental distinguir entre sus componentes básicos:
+> Para trabajar con datos agrupados, es esencial comprender los elementos que componen una tabla de frecuencias desde cero:
 > 
-> ### A. Clase (El Molde)
+> ### 2.1. Intervalos de Clase
 > 
-> Es una abstracción que define la estructura de un tipo de objeto. Se escribe siempre en **singular** (ej. `Cliente`, no `Clientes`). Define qué datos tendrá el objeto y qué podrá hacer.
+> Son los rangos en los que se dividen los datos. Cada intervalo tiene un **límite inferior** y un **límite superior**.
 > 
-> ### B. Objeto o Instancia (El Resultado)
+> - **Propósito:** Agrupar datos similares para simplificar el análisis.
 > 
-> Es la materialización de la clase. Mientras que la clase es el "plano", el objeto es la "casa construida". Cada objeto ocupa un lugar en la memoria (variable) y tiene valores específicos para sus atributos.
+> ### 2.2. Límites Reales (LRI y LRS)
 > 
-> - _Sintaxis conceptual:_ `Variable = New Clase()`.
+> A diferencia de los límites nominales, los límites reales aseguran que no haya "huecos" entre las clases. Permiten que los intervalos se conecten físicamente.
 > 
-> ### C. Atributos (Datos/Características)
+> - **Límite Real Inferior (LRI):** El punto de inicio exacto de un intervalo.
+> - **Límite Real Superior (LRS):** El punto final exacto de un intervalo.
+> - **Cálculo:** Se obtiene buscando el punto medio entre el límite superior de una clase y el inferior de la siguiente (semisuma). Por ejemplo, si una clase termina en 59.99 y la siguiente empieza en 60, el límite real es `(59.99 + 60) / 2 = 59.995`.
 > 
-> Son las variables internas de la clase que definen las propiedades del objeto.
+> ### 2.3. Marca de Clase (MC)
 > 
-> - **Públicos:** Accesibles desde cualquier parte del código.
-> - **Privados:** Solo pueden ser modificados por los métodos internos de la misma clase (crucial para la seguridad de datos como contraseñas o saldos).
-> - **De Instancia:** Valores que cambian entre objetos (ej. el nombre de cada cliente).
-> - **De Clase:** Valores compartidos por todos los objetos de esa clase (ej. la anatomía básica en una clase `Persona`).
+> Es el punto medio de cada intervalo. Representa a todos los datos contenidos en esa clase para cálculos posteriores (como la media).
 > 
-> ### D. Métodos (Funciones/Comportamientos)
+> - **Fórmula:** `(Límite Inferior + Límite Superior) / 2`.
 > 
-> Son las acciones que el objeto puede realizar.
+> ### 2.4. Frecuencia (f)
 > 
-> - **Constructores:** El método especial que se ejecuta automáticamente al crear un objeto (`new`). Se encarga de inicializar los atributos.
-> - **Getters:** Métodos para obtener/leer el valor de un atributo.
-> - **Setters:** Métodos para establecer o modificar el valor de un atributo, permitiendo incluir validaciones.
+> Indica la cantidad de datos que caen dentro de un intervalo específico. Por ejemplo, si en el intervalo [118-126] la frecuencia es 3, significa que hay 3 elementos cuyos valores están en ese rango.
 > 
-> --------------------------------------------------------------------------------
+> ### 2.5. Anchura de Clase (A)
 > 
-> ## 4. Los Cuatro Pilares de la POO
-> 
-> La solidez de este paradigma se apoya en cuatro conceptos fundamentales que guían el diseño de software:
-> 
-> |   |   |   |
-> |---|---|---|
-> |Pilar|Descripción|Analogía / Ejemplo|
-> |**Abstracción**|Proceso de simplificar la realidad, seleccionando solo los atributos y métodos relevantes para el sistema y descartando el resto.|Para un banco, un `Cliente` es un DNI y un saldo; no importa su altura o color de ojos.|
-> |**Encapsulamiento**|Ocultar la complejidad interna. Los datos están "protegidos" dentro del objeto y solo se accede a ellos a través de métodos autorizados.|Para conducir un auto, presionas el acelerador (método); no necesitas saber cómo funciona la inyección de combustible (lógica interna).|
-> |**Herencia**|Capacidad de crear clases nuevas a partir de clases existentes, heredando sus atributos y métodos. Permite jerarquías (clase padre/hijo).|Una clase `Persona` (padre) hereda sus rasgos a `Empleado` y `Cliente` (hijos).|
-> |**Polimorfismo**|Capacidad de que diferentes clases respondan de manera distinta a un mismo mensaje o método.|El método `CerrarCuenta` actuará distinto si es una `Caja de Ahorro` o una `Cuenta Corriente`.|
+> Es el tamaño del intervalo. Se calcula restando el Límite Real Superior menos el Límite Real Inferior de una misma clase.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 5. Desarrollo del Entorno y Ecosistema Tecnológico
+> ## 3. Desarrollo del Tema: Procesamiento de la Información
 > 
-> Un pilar de esta formación es el **Setup de Infraestructura**. No basta con programar la lógica; se debe configurar el entorno donde la aplicación "vive".
+> ### 3.1. Construcción de la Tabla de Frecuencias
 > 
-> - **Ecosistema JavaScript:** Es la decisión estándar para el desarrollo en este curso.
-> - **Node.js:** El entorno que permite ejecutar JavaScript fuera del navegador (en el servidor). Es vital saber gestionar paquetes (instalar/desinstalar).
-> - **Express:** Framework de Node para crear servidores web y APIs que responden a solicitudes de navegadores.
-> - **Bases de Datos:** Se requiere conexión y capacidad de realizar consultas (queries) para crear, modificar y acceder a datos. Se mencionan opciones vectoriales para IA como Pinecone o Chroma.
-> - **Frontend:** El usuario interactúa mediante HTML y CSS. Se permite el uso de frameworks como Angular, React o Next para quienes deseen mayor complejidad.
-> - **Inteligencia Artificial (IA):** Se incentiva el uso de IAs (vía API o modelos locales) tanto para asistir en la codificación como para integrarlas como funcionalidades dentro de las aplicaciones.
+> El proceso de organización sigue un orden lógico:
 > 
-> --------------------------------------------------------------------------------
+> 1. **Definir los intervalos:** Establecer los rangos de interés.
+> 2. **Calcular Límites Reales:** Para evitar la discontinuidad en los gráficos.
+> 3. **Determinar Marcas de Clase:** Para tener un representante numérico de cada grupo.
+> 4. **Asignar Frecuencias:** Contar cuántos elementos pertenecen a cada intervalo.
 > 
-> ## 6. Ejemplos Prácticos: Sistema Bancario
+> ### 3.2. Frecuencia Relativa y Porcentual
 > 
-> A continuación, se detalla cómo se estructuraría una aplicación bancaria bajo este paradigma:
+> La **Frecuencia Relativa** expresa qué parte del total representa cada intervalo.
 > 
-> ### Clase: `CuentaBancaria`
+> - **Fórmula:** `Frecuencia del intervalo / Total de la muestra (n)`.
+> - **Importancia:** La suma de todas las frecuencias relativas debe ser igual a 1 (o 100% si se expresa en porcentaje). Esto permite ver la importancia de cada clase respecto al todo.
 > 
-> - **Atributos:** `numeroCuenta`, `propietario`, `CBU`, `montoDisponible` (privado), `limite`.
-> - **Métodos:**
->     - `getSaldo()`: Retorna el dinero disponible.
->     - `setLimite(nuevoLimite)`: Modifica el límite previa validación.
->     - `checkOperacion()`: Verifica si una transacción no supera el límite.
+> ### 3.3. Frecuencias Acumuladas (Ojiva)
 > 
-> ### Relación entre Clases
+> La frecuencia acumulada indica cuántos datos son "inferiores a" un límite real determinado.
 > 
-> Un sistema real conecta múltiples moldes:
-> 
-> 1. Un **Banco** (clase) tiene un atributo que es una **Lista/Array** de **Cuentas Bancarias**.
-> 2. Al ejecutar el método `aperturaCuenta()` en la clase `Cliente`, se invoca al **Constructor** de la clase `CuentaBancaria` para generar un nuevo objeto.
+> - Se construye sumando progresivamente las frecuencias de cada clase.
+> - Permite observar el crecimiento o evolución de la muestra.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 7. Errores Comunes y Clarificaciones
+> ## 4. Representación Gráfica
 > 
-> - **Confusión entre Clase y Objeto:** Es frecuente intentar asignar un valor (como un nombre específico) a la clase. El valor pertenece al objeto; la clase solo define que _existirá_ un nombre.
-> - **Exceso de Atributos:** No realizar una abstracción correcta lleva a sistemas pesados con datos innecesarios.
-> - **Transparencia en Cambios:** Una gran ventaja del encapsulamiento es que si se cambia la lógica de un método (ej. cómo se autentica una contraseña), el resto del sistema no se entera ni se rompe, siempre que la respuesta final del método siga siendo la misma.
+> El análisis visual es clave para detectar comportamientos de la población sin necesidad de leer tablas extensas.
+> 
+> ### 4.1. El Histograma
+> 
+> Es un gráfico de barras donde las bases representan los intervalos (usando límites reales) y las alturas representan la frecuencia.
+> 
+> - **Característica clave:** Las barras deben estar pegadas entre sí (gracias a los límites reales) para demostrar continuidad.
+> 
+> ### 4.2. El Polígono de Frecuencias
+> 
+> Es un gráfico de líneas que une los puntos medios (marcas de clase) de cada intervalo.
+> 
+> - **Preparación para el gráfico:** Para que el polígono "nazca" y "muera" en el eje horizontal (frecuencia cero), se debe agregar un intervalo imaginario antes del primero y otro después del último, manteniendo la misma anchura de clase pero con frecuencia 0.
+> 
+> ### 4.3. La Ojiva (Gráfico de Frecuencia Acumulada)
+> 
+> Representa la acumulación de datos.
+> 
+> - **Forma:** Siempre es ascendente (nunca baja).
+> - **Eje X:** Se utilizan los Límites Reales Inferiores.
+> - **Eje Y:** Se utiliza la frecuencia acumulada.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 5. Ejemplos Prácticos Basados en Clase
+> 
+> ### Caso 1: Cálculo de Límites Reales y Marcas de Clase
+> 
+> Si tenemos los intervalos [50 - 59.99] y [60 - 69.99]:
+> 
+> 1. **Diferencia:** `60 - 59.99 = 0.01`.
+> 2. **Ajuste:** `0.01 / 2 = 0.005`.
+> 3. **LRS (Clase 1):** `59.99 + 0.005 = 59.995`.
+> 4. **LRI (Clase 2):** `60 - 0.005 = 59.995`.
+> 5. **Marca de Clase (Clase 1):** `(50 + 59.99) / 2 = 54.995`.
+> 
+> ### Caso 2: Preparación para Polígono de Frecuencia
+> 
+> Si la anchura es 10 y el primer intervalo empieza en 54.995:
+> 
+> - Se añade un punto en `44.995` con **frecuencia 0**.
+> - Se añade un punto al final (después del último límite) con **frecuencia 0**.
+> - Esto asegura que el gráfico sea una figura cerrada.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 6. Errores Comunes y Aclaraciones
+> 
+> - **Redondeo:** No se deben redondear los valores de los límites reales (ej. usar 59.995 en lugar de 60), ya que se pierde la precisión necesaria para conectar los intervalos.
+> - **Frecuencia vs. Datos Discriminados:** En una tabla de intervalos, sabemos cuántos sujetos hay (frecuencia), pero perdemos el valor exacto de cada uno. Solo sabemos que están "dentro del rango".
+> - **Gráfico de Ojiva Descendente:** Si una ojiva baja en algún punto, el cálculo de la frecuencia acumulada es incorrecto; por definición, siempre debe sumar o mantenerse igual.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 7. Síntesis y Conclusiones
+> 
+> - Los **intervalos** son herramientas para organizar poblaciones grandes y mejorar la atención en los datos relevantes.
+> - Los **límites reales** son el "pegamento" que une las clases para una representación gráfica continua.
+> - La **frecuencia acumulada** es fundamental para entender el crecimiento de la muestra.
+> - El uso de software como **Excel o LibreOffice** facilita el cálculo, pero requiere una configuración manual precisa (especialmente para añadir las frecuencias cero en los extremos de los gráficos).
 > 
 > --------------------------------------------------------------------------------
 > 
 > ## 8. Fechas Importantes y Avisos Académicos
 > 
-> Basado en la planificación docente y los anuncios de clase, se establecen los siguientes hitos:
+> A partir de las instrucciones del docente, se establecen los siguientes puntos clave:
 > 
 > |   |   |   |
 > |---|---|---|
-> |Fecha (Estimada/Fija)|Tipo de Evento|Descripción Detallada|
-> |**Clase 3 o 4**|Inicio de Proyecto|Comienzo del trabajo grupal y configuración de infraestructura (Node, bases de datos).|
-> |**Fines de Agosto - 20 Sept.**|Viaje del Profesor|El docente estará en Italia. Las clases podrían ser grabadas o reprogramadas ante problemas de conexión.|
-> |**Mediados de Octubre**|Trabajo Práctico (TP)|Entrega de TP de ejercicios (posiblemente un TP largo de ~20 ejercicios).|
-> |**22 de Octubre**|Clase Presencial|Tercera instancia presencial obligatoria (según planificación tentativa).|
-> |**29 de Octubre**|**Examen Parcial**|Evaluación presencial de contenidos teóricos y prácticos.|
-> |**Noviembre (Post-Parcial)**|Avances de Proyecto|Dinámica de tutorías: cada grupo tiene 30 min asignados para corrección.|
-> |**Fines de Noviembre**|Presentación Final|Exposición presencial de los proyectos grupales funcionales.|
+> |Fecha|Tipo de Evento|Descripción Detallada|
+> |**Viernes (Mañana)**|Clase de Modelado de Software|Horario: 18:45 a 20:00 hs. Se confirmó que será en modalidad **virtual** (no presencial).|
+> |**Próxima Semana**|Clase de Estadística|Tema: **Población**. Se comparará el trabajo con poblaciones grandes frente al trabajo con intervalos para ver ventajas de organización.|
+> |**Próxima Semana**|Entrega/Revisión|Se deben traer resueltos los ejercicios de construcción de gráficos (Histograma y Polígono) y tablas de frecuencia acumulada iniciados en la Clase 2.|
+> |**Próximamente**|Evaluación (Aviso)|Las evaluaciones serán presenciales, en hoja, pero se permite el uso de **Excel** para los cálculos. Se evaluarán temas como media, mediana y moda (próximos a ver).|
 > 
-> **Recordatorios Importantes:**
-> 
-> - **Asistencia:** Hay 4 clases presenciales mínimas obligatorias.
-> - **Grupos:** El trabajo es grupal para simular entornos de desarrollo reales.
-> - **Entorno:** Es obligatorio tener Node.js instalado y funcional en las máquinas personales para el inicio del proyecto.
+> **Recordatorio:** El docente enfatiza la importancia de no faltar a las primeras clases, ya que los conceptos de intervalos son la base para todo el cuatrimestre.
 > 
 > --------------------------------------------------------------------------------
 > 
 > ## 9. Preguntas de Repaso
 > 
-> ### Básicas
+> ### Nivel Básico
 > 
-> 1. ¿Cuál es la diferencia principal entre una Clase y un Objeto?
-> 2. Defina los conceptos de Atributo y Método.
-> 3. ¿Para qué sirve el método Constructor de una clase?
+> 1. ¿Cuál es la diferencia entre un límite nominal y un límite real?
+> 2. ¿Cómo se calcula la marca de clase y qué representa?
 > 
-> ### Intermedias
+> ### Nivel Intermedio
 > 
-> 4. Explique la importancia del Encapsulamiento con un ejemplo que no sea el del automóvil.
-> 5. ¿Por qué el paradigma procedimental dificulta el mantenimiento de sistemas grandes?
-> 6. ¿Qué diferencia hay entre un atributo de instancia y un atributo de clase?
+> 1. ¿Por qué es necesario agregar frecuencias de valor cero al inicio y al final de una tabla para construir un polígono de frecuencias?
+> 2. Si el total de una muestra es 100 y un intervalo tiene una frecuencia de 15, ¿cuál es su frecuencia relativa y qué porcentaje representa?
 > 
-> ### Avanzadas
+> ### Nivel Avanzado
 > 
-> 7. Describa el proceso de Abstracción al diseñar una clase `Producto` para un banco vs. para un supermercado.
-> 8. ¿Cómo se relaciona la herencia con la reutilización de código?
-> 9. Analice por qué JavaScript se considera un lenguaje apto para este paradigma a pesar de ser multiparadigma.
+> 1. Explique la relación entre la pendiente de una ojiva y la concentración de datos en un intervalo específico.
+> 2. Ante una muestra de 2,500 datos, ¿cuáles son las ventajas y desventajas de trabajar con intervalos de clase versus trabajar con la población completa?
 
 > [!quote]- Video resumen, infografía y presentación
 > # 1. Video resumen
 > 
-> <iframe title="Clase 1 - Desarrollo de sistemas orientado a objetos" src="https://www.youtube.com/embed/vnjtJeCOHYM?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe title="Clase 2 - Estadística y probabilidad para el desarrollo de software" src="https://www.youtube.com/embed/BQ_pePAIGto?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 2. Infografía
 > 
-> <iframe src="https://drive.google.com/file/d/1fSpXQSUxFjlAgI2zsIKVRtyF_kkjPB_D/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1eIvFX4TsIIc1VcGYtPBQQD2_ifDXFb4t/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 3. Presentación
 > 
-> <iframe src="https://drive.google.com/file/d/1qvm3ckFbOSYjyvO2XjnR2_5t-FU_M-rf/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1mgKBjeOPNnOrYzN51qpnbHSMXWaYBc0L/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>

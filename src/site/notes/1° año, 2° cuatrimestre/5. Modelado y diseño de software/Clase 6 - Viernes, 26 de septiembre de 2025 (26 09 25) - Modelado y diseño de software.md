@@ -3,176 +3,183 @@
 ---
 
 > [!quote]- Resumen
-> # Guía Integral de Estudio: Desarrollo de Sistemas Orientados a Objetos
+> # Guía de Estudio Avanzada: Modelado y Diseño de Software - Diagramas de Estado
 > 
-> Este documento constituye una síntesis exhaustiva de los fundamentos de la programación orientada a objetos (POO) y la configuración de entornos de desarrollo, diseñada como material de estudio principal para la materia.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 1. Introducción General al Paradigma
-> 
-> El desarrollo de sistemas ha evolucionado a través de diferentes **paradigmas de programación**, que son esencialmente modelos o estilos de programación que definen cómo se estructura y ejecuta el código. La transición hacia la **Programación Orientada a Objetos (POO)** surge como una respuesta a las limitaciones de los modelos anteriores para gestionar la complejidad creciente de los sistemas informáticos.
-> 
-> Esta materia se define como un "híbrido": combina la teoría profunda de la POO con el aprendizaje práctico de la **infraestructura y el setup de desarrollo**. El objetivo es que el estudiante no solo comprenda la lógica de objetos, sino que también domine el ecosistema de herramientas (servidores, bases de datos, entornos de ejecución) necesarias para profesionalizar el desarrollo de aplicaciones.
+> Este documento constituye un material de estudio integral sobre los **Diagramas de Estado**, basado en el análisis técnico de la sesión académica correspondiente. Explora desde los fundamentos hasta las aplicaciones complejas de esta herramienta de modelado.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 2. Contexto e Importancia: Del Modelo Procedimental a la POO
+> ## 1. Introducción General
 > 
-> ### El Paradigma Procedimental
+> El **Diagrama de Estado** es una de las herramientas de modelado más completas en la ingeniería de software. A diferencia de otros diagramas que se centran en la estructura o la interacción simple, el diagrama de estado encapsula la conducta dinámica de un sistema, integrando eventos, acciones y transiciones dentro de un marco coherente.
 > 
-> Históricamente, la programación era predominantemente procedimental. Se basaba en una secuencia de instrucciones con estructuras de control (condicionales e iteraciones). Aunque funcional, presentaba dos problemas críticos al escalar:
+> Históricamente, estos diagramas tienen sus raíces en la lógica booleana y el concepto de máquinas de estado finito. En la actualidad, son fundamentales para entender cómo un objeto o sistema reacciona ante estímulos externos a lo largo de su ciclo de vida.
 > 
-> 1. **Dificultad de Mantenimiento:** Modificar una funcionalidad en un sistema extenso implicaba rastrear infinitas líneas de código, con un alto riesgo de romper partes no relacionadas ("efecto dominó").
-> 2. **Baja Reutilización:** El código estaba tan entrelazado con funciones específicas de una aplicación que era casi imposible trasladarlo a otro proyecto.
+> ## 2. Contexto del Tema
 > 
-> ### El Surgimiento de la POO
+> ### Evolución y Naturaleza
 > 
-> En la década de los 90, la POO se consolidó (con lenguajes como Java y C++) como la solución para organizar el software de manera similar a cómo percibimos el mundo real: a través de entidades con características y comportamientos definidos. Hoy en día, los lenguajes modernos como JavaScript o Python son multiparadigma, permitiendo combinar lo procedimental, lo lógico, lo funcional y lo orientado a objetos de forma fluida.
+> Los diagramas de estado se originaron bajo una lógica binaria (0 y 1), pero han evolucionado hacia representaciones más ricas y visuales. Un ejemplo clásico de un diagrama de estado es la **computadora** misma, la cual funciona como una máquina de estado finito.
 > 
-> --------------------------------------------------------------------------------
+> ### Importancia y Relevancia
 > 
-> ## 3. Marco Conceptual: Definición de Conceptos Clave
-> 
-> Para entender la POO desde cero, es fundamental distinguir entre sus componentes básicos:
-> 
-> ### A. Clase (El Molde)
-> 
-> Es una abstracción que define la estructura de un tipo de objeto. Se escribe siempre en **singular** (ej. `Cliente`, no `Clientes`). Define qué datos tendrá el objeto y qué podrá hacer.
-> 
-> ### B. Objeto o Instancia (El Resultado)
-> 
-> Es la materialización de la clase. Mientras que la clase es el "plano", el objeto es la "casa construida". Cada objeto ocupa un lugar en la memoria (variable) y tiene valores específicos para sus atributos.
-> 
-> - _Sintaxis conceptual:_ `Variable = New Clase()`.
-> 
-> ### C. Atributos (Datos/Características)
-> 
-> Son las variables internas de la clase que definen las propiedades del objeto.
-> 
-> - **Públicos:** Accesibles desde cualquier parte del código.
-> - **Privados:** Solo pueden ser modificados por los métodos internos de la misma clase (crucial para la seguridad de datos como contraseñas o saldos).
-> - **De Instancia:** Valores que cambian entre objetos (ej. el nombre de cada cliente).
-> - **De Clase:** Valores compartidos por todos los objetos de esa clase (ej. la anatomía básica en una clase `Persona`).
-> 
-> ### D. Métodos (Funciones/Comportamientos)
-> 
-> Son las acciones que el objeto puede realizar.
-> 
-> - **Constructores:** El método especial que se ejecuta automáticamente al crear un objeto (`new`). Se encarga de inicializar los atributos.
-> - **Getters:** Métodos para obtener/leer el valor de un atributo.
-> - **Setters:** Métodos para establecer o modificar el valor de un atributo, permitiendo incluir validaciones.
+> Su relevancia radica en la capacidad de modelar comportamientos complejos y respuestas a eventos. Mientras que los diagramas de clases separan las cuestiones estructurales, el diagrama de estado une la conducta (qué hace) con el estado (cómo está) en un momento dado.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 4. Los Cuatro Pilares de la POO
+> ## 3. Marco Conceptual
 > 
-> La solidez de este paradigma se apoya en cuatro conceptos fundamentales que guían el diseño de software:
+> Para comprender los diagramas de estado, es necesario definir sus componentes fundamentales desde cero:
 > 
-> |   |   |   |
-> |---|---|---|
-> |Pilar|Descripción|Analogía / Ejemplo|
-> |**Abstracción**|Proceso de simplificar la realidad, seleccionando solo los atributos y métodos relevantes para el sistema y descartando el resto.|Para un banco, un `Cliente` es un DNI y un saldo; no importa su altura o color de ojos.|
-> |**Encapsulamiento**|Ocultar la complejidad interna. Los datos están "protegidos" dentro del objeto y solo se accede a ellos a través de métodos autorizados.|Para conducir un auto, presionas el acelerador (método); no necesitas saber cómo funciona la inyección de combustible (lógica interna).|
-> |**Herencia**|Capacidad de crear clases nuevas a partir de clases existentes, heredando sus atributos y métodos. Permite jerarquías (clase padre/hijo).|Una clase `Persona` (padre) hereda sus rasgos a `Empleado` y `Cliente` (hijos).|
-> |**Polimorfismo**|Capacidad de que diferentes clases respondan de manera distinta a un mismo mensaje o método.|El método `CerrarCuenta` actuará distinto si es una `Caja de Ahorro` o una `Cuenta Corriente`.|
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 5. Desarrollo del Entorno y Ecosistema Tecnológico
-> 
-> Un pilar de esta formación es el **Setup de Infraestructura**. No basta con programar la lógica; se debe configurar el entorno donde la aplicación "vive".
-> 
-> - **Ecosistema JavaScript:** Es la decisión estándar para el desarrollo en este curso.
-> - **Node.js:** El entorno que permite ejecutar JavaScript fuera del navegador (en el servidor). Es vital saber gestionar paquetes (instalar/desinstalar).
-> - **Express:** Framework de Node para crear servidores web y APIs que responden a solicitudes de navegadores.
-> - **Bases de Datos:** Se requiere conexión y capacidad de realizar consultas (queries) para crear, modificar y acceder a datos. Se mencionan opciones vectoriales para IA como Pinecone o Chroma.
-> - **Frontend:** El usuario interactúa mediante HTML y CSS. Se permite el uso de frameworks como Angular, React o Next para quienes deseen mayor complejidad.
-> - **Inteligencia Artificial (IA):** Se incentiva el uso de IAs (vía API o modelos locales) tanto para asistir en la codificación como para integrarlas como funcionalidades dentro de las aplicaciones.
+> - **Estado:** Condición o situación en la vida de un objeto durante la cual satisface alguna condición, realiza alguna actividad o espera algún evento. El objeto depende directamente de su estado actual para determinar su comportamiento.
+> - **Evento:** Una ocurrencia que puede disparar una respuesta en un estado. Los eventos pueden ser **locales** (dentro del ámbito del objeto) o **externos** (provenientes del entorno o de otros objetos).
+> - **Acción Atómica:** Se define como una acción que, a pesar de su nombre, puede contener múltiples componentes o elementos internos. Es una unidad de trabajo que ocurre durante una transición o dentro de un estado.
+> - **Transición:** Es el paso de un estado a otro, generalmente motivado por un evento externo.
+> - **Ámbito de Variables:**
+>     - **Locales:** Variables confinadas a un ámbito específico.
+>     - **Públicas:** Variables accesibles de forma global o externa.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 6. Ejemplos Prácticos: Sistema Bancario
+> ## 4. Desarrollo del Tema: Dinámica de los Diagramas de Estado
 > 
-> A continuación, se detalla cómo se estructuraría una aplicación bancaria bajo este paradigma:
+> ### El Ciclo de Vida del Diagrama
 > 
-> ### Clase: `CuentaBancaria`
+> Todo diagrama de estado debe seguir una estructura lógica de inicio y fin:
 > 
-> - **Atributos:** `numeroCuenta`, `propietario`, `CBU`, `montoDisponible` (privado), `limite`.
-> - **Métodos:**
->     - `getSaldo()`: Retorna el dinero disponible.
->     - `setLimite(nuevoLimite)`: Modifica el límite previa validación.
->     - `checkOperacion()`: Verifica si una transacción no supera el límite.
+> 1. **Punto de Inicio:** Es obligatorio. No existe un diagrama de estado sin un punto de partida definido.
+> 2. **Punto Final:** Generalmente requerido para indicar la conclusión del ciclo de vida del objeto. Sin embargo, existen casos especiales como el de un **ascensor**, que puede carecer de un punto final definitivo ya que está en constante ciclo de arranque, deteniéndose solo de forma transitoria para mantenimiento.
 > 
-> ### Relación entre Clases
+> ### Tipos de Respuestas a Eventos Externos
 > 
-> Un sistema real conecta múltiples moldes:
+> Cuando un estado es "excitado" o estimulado por un evento externo, existen dos tipos principales de respuestas:
 > 
-> 1. Un **Banco** (clase) tiene un atributo que es una **Lista/Array** de **Cuentas Bancarias**.
-> 2. Al ejecutar el método `aperturaCuenta()` en la clase `Cliente`, se invoca al **Constructor** de la clase `CuentaBancaria` para generar un nuevo objeto.
+> 1. **Transición:** Una respuesta momentánea que implica un cambio hacia un nuevo estado.
+> 2. **Permanente:** Una respuesta que mantiene al objeto en una condición estable post-evento.
 > 
-> --------------------------------------------------------------------------------
+> ### Acciones Implícitas
 > 
-> ## 7. Errores Comunes y Clarificaciones
+> Dentro de un estado, existen acciones automáticas o implícitas que ocurren sin necesidad de una instrucción externa detallada en cada momento, específicamente las acciones de **Entry** (entrada al estado) y **Exit** (salida del estado).
 > 
-> - **Confusión entre Clase y Objeto:** Es frecuente intentar asignar un valor (como un nombre específico) a la clase. El valor pertenece al objeto; la clase solo define que _existirá_ un nombre.
-> - **Exceso de Atributos:** No realizar una abstracción correcta lleva a sistemas pesados con datos innecesarios.
-> - **Transparencia en Cambios:** Una gran ventaja del encapsulamiento es que si se cambia la lógica de un método (ej. cómo se autentica una contraseña), el resto del sistema no se entera ni se rompe, siempre que la respuesta final del método siga siendo la misma.
+> ### Manejo de Interrupciones
 > 
-> --------------------------------------------------------------------------------
+> Una interrupción ocurre cuando un evento externo obliga al objeto a abandonar su estado actual antes de haber completado la actividad programada.
 > 
-> ## 8. Fechas Importantes y Avisos Académicos
+> - **Proceso de Interrupción:**
+>     1. El sistema recibe el evento de interrupción.
+>     2. Se asignan prioridades.
+>     3. Se guarda o memoriza el punto exacto donde se dejó la tarea.
+>     4. Se atiende la interrupción.
+>     5. Una vez finalizada, el sistema regresa al punto anterior para continuar.
 > 
-> Basado en la planificación docente y los anuncios de clase, se establecen los siguientes hitos:
+> ### Estados Compuestos
 > 
-> |   |   |   |
-> |---|---|---|
-> |Fecha (Estimada/Fija)|Tipo de Evento|Descripción Detallada|
-> |**Clase 3 o 4**|Inicio de Proyecto|Comienzo del trabajo grupal y configuración de infraestructura (Node, bases de datos).|
-> |**Fines de Agosto - 20 Sept.**|Viaje del Profesor|El docente estará en Italia. Las clases podrían ser grabadas o reprogramadas ante problemas de conexión.|
-> |**Mediados de Octubre**|Trabajo Práctico (TP)|Entrega de TP de ejercicios (posiblemente un TP largo de ~20 ejercicios).|
-> |**22 de Octubre**|Clase Presencial|Tercera instancia presencial obligatoria (según planificación tentativa).|
-> |**29 de Octubre**|**Examen Parcial**|Evaluación presencial de contenidos teóricos y prácticos.|
-> |**Noviembre (Post-Parcial)**|Avances de Proyecto|Dinámica de tutorías: cada grupo tiene 30 min asignados para corrección.|
-> |**Fines de Noviembre**|Presentación Final|Exposición presencial de los proyectos grupales funcionales.|
-> 
-> **Recordatorios Importantes:**
-> 
-> - **Asistencia:** Hay 4 clases presenciales mínimas obligatorias.
-> - **Grupos:** El trabajo es grupal para simular entornos de desarrollo reales.
-> - **Entorno:** Es obligatorio tener Node.js instalado y funcional en las máquinas personales para el inicio del proyecto.
+> Los estados no siempre son unidades simples. Existen **estados compuestos** que pueden contener sus propias transiciones y sub-estados internos, permitiendo un modelado mucho más profundo de sistemas complejos.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 9. Preguntas de Repaso
+> ## 5. Relaciones entre Conceptos y Estructuras
 > 
-> ### Básicas
+> La conexión entre los elementos del diagrama sigue una jerarquía lógica:
 > 
-> 1. ¿Cuál es la diferencia principal entre una Clase y un Objeto?
-> 2. Defina los conceptos de Atributo y Método.
-> 3. ¿Para qué sirve el método Constructor de una clase?
+> - **Objeto → Estado:** El objeto reside en un estado.
+> - **Estado → Evento:** El estado contiene y reacciona a eventos.
+> - **Evento → Transición:** El evento dispara la transición.
+> - **Transición → Acción:** La transición ejecuta acciones (atómicas o actividades).
 > 
-> ### Intermedias
+> |   |   |
+> |---|---|
+> |Concepto|Relación con el Sistema|
+> |**Secuencial**|Sigue un orden predeterminado, fijo y previsible.|
+> |**Aleatorio (Random)**|El orden no es fijo ni controlable por el observador; depende de probabilidades.|
 > 
-> 4. Explique la importancia del Encapsulamiento con un ejemplo que no sea el del automóvil.
-> 5. ¿Por qué el paradigma procedimental dificulta el mantenimiento de sistemas grandes?
-> 6. ¿Qué diferencia hay entre un atributo de instancia y un atributo de clase?
+> --------------------------------------------------------------------------------
 > 
-> ### Avanzadas
+> ## 6. Ejemplos Prácticos
 > 
-> 7. Describa el proceso de Abstracción al diseñar una clase `Producto` para un banco vs. para un supermercado.
-> 8. ¿Cómo se relaciona la herencia con la reutilización de código?
-> 9. Analice por qué JavaScript se considera un lenguaje apto para este paradigma a pesar de ser multiparadigma.
+> ### Caso 1: La Máquina de Café (Estado Finito)
+> 
+> Este es un ejemplo de un ciclo con inicio y fin claro:
+> 
+> 1. **Inicio:** El usuario coloca una moneda.
+> 2. **Evento:** Elección del menú.
+> 3. **Transiciones:** La máquina pasa por diversos estados de preparación.
+> 4. **Fin:** La máquina entrega el producto e inhibe al usuario de continuar hasta un nuevo inicio.
+> 
+> ### Caso 2: El Ascensor (Estado Continuo/Especial)
+> 
+> A diferencia de la máquina de café, el ascensor representa un sistema que parece no terminar:
+> 
+> - Está siempre "arrancando" o disponible.
+> - Su "punto final" es en realidad un **stop transitorio** o punto de suspensión para tareas de mantenimiento.
+> 
+> ### Caso 3: Máquina Tragamonedas (Lógica Aleatoria)
+> 
+> - Representa un sistema donde el resultado no es controlado por el usuario.
+> - Utiliza lógica de números aleatorios asociados a imágenes (frutas, por ejemplo).
+> - La probabilidad de éxito (ej. tres números iguales) es baja pero existente dentro del diagrama de estados del juego.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 7. Errores Comunes y Confusiones
+> 
+> - **Confundir Acción con Transición:** La transición es el movimiento entre estados; la acción es lo que ocurre durante ese movimiento o dentro del estado.
+> - **Omitir el Punto de Inicio:** Es un error técnico grave; todo sistema debe tener un estado inicial definido.
+> - **Asumir que lo Aleatorio es Predecible:** En el modelado, lo aleatorio (random) implica que el observador no controla la respuesta, a diferencia de los procesos secuenciales fijos.
+> - **Confundir Acción Atómica con Simplicidad:** Una acción atómica se denomina así por ser una unidad indivisible en un nivel de abstracción, pero puede contener muchos elementos internos.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 8. Síntesis y Conclusiones
+> 
+> Los diagramas de estado son representaciones dinámicas fundamentales para el diseño de software. Permiten visualizar cómo los objetos cambian y reaccionan ante estímulos. Sus puntos clave son:
+> 
+> - **Integralidad:** Contienen eventos y acciones dentro de los estados.
+> - **Determinismo:** Pueden ser secuenciales (predecibles) o aleatorios (probabilísticos).
+> - **Resiliencia:** Deben ser capaces de manejar interrupciones mediante la memorización del estado anterior.
+> - **Estructura:** Requieren obligatoriamente un inicio y, en la mayoría de los casos, un fin o punto de suspensión.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 9. Preguntas de Repaso (Tipo Examen)
+> 
+> ### Nivel Básico
+> 
+> 1. ¿Es posible que un diagrama de estado no tenga un punto de inicio?
+> 2. ¿Qué diferencia fundamental hay entre un proceso secuencial y uno aleatorio?
+> 3. ¿Cómo se define una acción atómica?
+> 
+> ### Nivel Intermedio
+> 
+> 4. Explique las acciones implícitas `Entry` y `Exit`.
+> 5. ¿Qué sucede técnicamente cuando ocurre una interrupción en un estado?
+> 6. ¿Los estados compuestos pueden tener transiciones propias? Justifique.
+> 
+> ### Nivel Avanzado
+> 
+> 7. Analice el caso del ascensor: ¿Por qué se considera un caso especial en cuanto al punto final del diagrama?
+> 8. Compare las dos respuestas posibles de un estado ante un evento externo (Transición vs. Permanente).
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 10. Fechas Importantes y Avisos Académicos
+> 
+> Basado en la comunicación docente durante la Clase 6:
+> 
+> - **Próxima Clase (Semana Siguiente):** Se continuará trabajando profundamente con el tema de **Diagramas de Estado**. El profesor reforzará los conceptos y resolverá dudas adicionales.
+> - **Actividad Reciente:** Se realizó una actividad asincrónica que incluyó un cuestionario para evaluar la lectura de los apuntes y la capacidad de razonamiento sobre el tema.
+> - **Sugerencia del Profesor:** Se insta a los alumnos a buscar diagramas de estado complejos o de una CPU para ser explicados técnicamente en clase. No deben temer a la complejidad técnica de estos ejemplos.
+> - **Estado de la Materia:** El cronograma se encuentra "bien en tiempo" según la planificación docente.
 
 > [!quote]- Video resumen, infografía y presentación
 > # 1. Video resumen
 > 
-> <iframe title="Clase 1 - Desarrollo de sistemas orientado a objetos" src="https://www.youtube.com/embed/vnjtJeCOHYM?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe title="Clase 6 - Modelado y diseño de software" src="https://www.youtube.com/embed/qjR3sbo9reg?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 2. Infografía
 > 
-> <iframe src="https://drive.google.com/file/d/1fSpXQSUxFjlAgI2zsIKVRtyF_kkjPB_D/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1GgBCDzlbG6PBtp-jGEr7adTvwv-5uAKS/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 3. Presentación
 > 
-> <iframe src="https://drive.google.com/file/d/1qvm3ckFbOSYjyvO2XjnR2_5t-FU_M-rf/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1fhN3degT6kHwtVbF2N3wNS8NIbEF7r2O/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>

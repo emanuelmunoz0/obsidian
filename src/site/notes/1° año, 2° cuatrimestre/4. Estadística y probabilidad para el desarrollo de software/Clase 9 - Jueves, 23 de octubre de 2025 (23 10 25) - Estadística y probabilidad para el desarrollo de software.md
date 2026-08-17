@@ -3,176 +3,175 @@
 ---
 
 > [!quote]- Resumen
-> # Guía Integral de Estudio: Desarrollo de Sistemas Orientados a Objetos
+> # Distribución Normal y la Curva de Gauss: Guía Completa de Estudio
 > 
-> Este documento constituye una síntesis exhaustiva de los fundamentos de la programación orientada a objetos (POO) y la configuración de entornos de desarrollo, diseñada como material de estudio principal para la materia.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 1. Introducción General al Paradigma
-> 
-> El desarrollo de sistemas ha evolucionado a través de diferentes **paradigmas de programación**, que son esencialmente modelos o estilos de programación que definen cómo se estructura y ejecuta el código. La transición hacia la **Programación Orientada a Objetos (POO)** surge como una respuesta a las limitaciones de los modelos anteriores para gestionar la complejidad creciente de los sistemas informáticos.
-> 
-> Esta materia se define como un "híbrido": combina la teoría profunda de la POO con el aprendizaje práctico de la **infraestructura y el setup de desarrollo**. El objetivo es que el estudiante no solo comprenda la lógica de objetos, sino que también domine el ecosistema de herramientas (servidores, bases de datos, entornos de ejecución) necesarias para profesionalizar el desarrollo de aplicaciones.
+> Este documento constituye un material de estudio integral sobre la distribución normal, basado en la clase de Estadística y Probabilidad para el Desarrollo de Software. Explora desde los fundamentos geométricos de la curva hasta la aplicación práctica de tablas de frecuencia y el cálculo de áreas bajo la curva.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 2. Contexto e Importancia: Del Modelo Procedimental a la POO
+> ## 1. Introducción General
 > 
-> ### El Paradigma Procedimental
+> La distribución normal, conocida comúnmente como la **Curva de Gauss**, es un modelo teórico fundamental en estadística. Su relevancia radica en que permite modelar una gran cantidad de fenómenos naturales y sociales, así como procesos en el desarrollo de software. Esta curva es la representación de una función de probabilidad que se caracteriza por su forma de campana y su comportamiento predecible respecto a la media de los datos.
 > 
-> Históricamente, la programación era predominantemente procedimental. Se basaba en una secuencia de instrucciones con estructuras de control (condicionales e iteraciones). Aunque funcional, presentaba dos problemas críticos al escalar:
+> ## 2. Contexto del Tema
 > 
-> 1. **Dificultad de Mantenimiento:** Modificar una funcionalidad en un sistema extenso implicaba rastrear infinitas líneas de código, con un alto riesgo de romper partes no relacionadas ("efecto dominó").
-> 2. **Baja Reutilización:** El código estaba tan entrelazado con funciones específicas de una aplicación que era casi imposible trasladarlo a otro proyecto.
+> ### Importancia y Relevancia
 > 
-> ### El Surgimiento de la POO
+> En el ámbito académico y profesional, el estudio de la campana de Gauss es crucial porque:
 > 
-> En la década de los 90, la POO se consolidó (con lenguajes como Java y C++) como la solución para organizar el software de manera similar a cómo percibimos el mundo real: a través de entidades con características y comportamientos definidos. Hoy en día, los lenguajes modernos como JavaScript o Python son multiparadigma, permitiendo combinar lo procedimental, lo lógico, lo funcional y lo orientado a objetos de forma fluida.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 3. Marco Conceptual: Definición de Conceptos Clave
-> 
-> Para entender la POO desde cero, es fundamental distinguir entre sus componentes básicos:
-> 
-> ### A. Clase (El Molde)
-> 
-> Es una abstracción que define la estructura de un tipo de objeto. Se escribe siempre en **singular** (ej. `Cliente`, no `Clientes`). Define qué datos tendrá el objeto y qué podrá hacer.
-> 
-> ### B. Objeto o Instancia (El Resultado)
-> 
-> Es la materialización de la clase. Mientras que la clase es el "plano", el objeto es la "casa construida". Cada objeto ocupa un lugar en la memoria (variable) y tiene valores específicos para sus atributos.
-> 
-> - _Sintaxis conceptual:_ `Variable = New Clase()`.
-> 
-> ### C. Atributos (Datos/Características)
-> 
-> Son las variables internas de la clase que definen las propiedades del objeto.
-> 
-> - **Públicos:** Accesibles desde cualquier parte del código.
-> - **Privados:** Solo pueden ser modificados por los métodos internos de la misma clase (crucial para la seguridad de datos como contraseñas o saldos).
-> - **De Instancia:** Valores que cambian entre objetos (ej. el nombre de cada cliente).
-> - **De Clase:** Valores compartidos por todos los objetos de esa clase (ej. la anatomía básica en una clase `Persona`).
-> 
-> ### D. Métodos (Funciones/Comportamientos)
-> 
-> Son las acciones que el objeto puede realizar.
-> 
-> - **Constructores:** El método especial que se ejecuta automáticamente al crear un objeto (`new`). Se encarga de inicializar los atributos.
-> - **Getters:** Métodos para obtener/leer el valor de un atributo.
-> - **Setters:** Métodos para establecer o modificar el valor de un atributo, permitiendo incluir validaciones.
+> - **Idealización de datos:** Permite estudiar comportamientos complejos bajo un modelo simétrico ideal.
+> - **Cálculo de Probabilidades:** A través de la estandarización de variables, se pueden determinar las probabilidades de que un evento ocurra dentro de ciertos rangos.
+> - **Aplicación Real:** Aunque los datos reales suelen presentar sesgos (hacia la izquierda o derecha), la curva ideal de Gauss sirve como punto de referencia para comparar desviaciones y tendencias.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 4. Los Cuatro Pilares de la POO
+> ## 3. Marco Conceptual
 > 
-> La solidez de este paradigma se apoya en cuatro conceptos fundamentales que guían el diseño de software:
+> ### Definición de Conceptos Clave
+> 
+> Para comprender la distribución normal, es necesario dominar los siguientes términos:
+> 
+> - **Curva de Gauss:** Gráfico de una distribución de probabilidad continua que es simétrica respecto a su eje vertical.
+> - **Simetría:** Propiedad por la cual la parte izquierda de la curva es un reflejo exacto de la parte derecha.
+> - **Área bajo la curva:** Representa la probabilidad total. En una distribución normalizada, el área total siempre es igual a **1**. Debido a la simetría, el área a la izquierda del eje central es **0,5** y a la derecha es **0,5**.
+> - **Z (Puntaje Z):** Es la variable tipificada que indica cuántas desviaciones estándar se aleja un valor de la media. El eje horizontal de la tabla representa estos valores.
+> - **\mu** **(Mu):** Representa la media aritmética o promedio de la distribución. Es el centro de la campana.
+> - **\sigma** **(Sigma):** Representa la desviación típica o estándar. Indica qué tan dispersos están los datos respecto a la media.
+> - **Varianza (****\sigma^2****):** Es el cuadrado de la desviación típica.
+> 
+> ### Resumen Parcial: Fundamentos
+> 
+> La curva normal es un modelo ideal simétrico donde el área total es 1. Se utiliza el valor de Z para localizar puntos en el eje horizontal y determinar áreas (probabilidades) específicas.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 4. Desarrollo del Tema: Uso de la Tabla de Z
+> 
+> ### Lectura de la Tabla de Distribución Normal
+> 
+> La tabla (Apéndice 2) proporciona el área bajo la curva desde el centro (Z = 0) hasta un valor específico de Z.
+> 
+> 1. **Coordenadas:** Para hallar un área, se debe combinar la columna izquierda (Z con su primer decimal) y la fila superior (el segundo decimal).
+>     - _Ejemplo:_ Si Z = 0,31, se busca "0,3" en la columna y "0,01" en la fila. La intersección dará el área (0,1217).
+> 2. **Valores Negativos:** Aunque la tabla suele mostrar solo valores de Z positivos, debido a la simetría, el área para un Z negativo (ej. -2,38) se busca en la tabla como si fuera positivo (2,38). El valor del área será el mismo.
+> 3. **Representación Numérica:** Los valores en la tabla aparecen como decimales (ej. .2054). Es vital entender que esto representa **0,2054**. Ningún área puede ser superior a 1.
+> 
+> ### Tipificación de Variables
+> 
+> Para convertir una variable real en una estandarizada (Z), se utiliza la ecuación: Z = \frac{X - \mu}{\sigma} Donde X es el valor a estudiar, \mu la media y \sigma la desviación típica.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 5. Relaciones entre Conceptos
+> 
+> El cálculo de áreas depende de la ubicación de los puntos Z respecto al centro:
 > 
 > |   |   |   |
 > |---|---|---|
-> |Pilar|Descripción|Analogía / Ejemplo|
-> |**Abstracción**|Proceso de simplificar la realidad, seleccionando solo los atributos y métodos relevantes para el sistema y descartando el resto.|Para un banco, un `Cliente` es un DNI y un saldo; no importa su altura o color de ojos.|
-> |**Encapsulamiento**|Ocultar la complejidad interna. Los datos están "protegidos" dentro del objeto y solo se accede a ellos a través de métodos autorizados.|Para conducir un auto, presionas el acelerador (método); no necesitas saber cómo funciona la inyección de combustible (lógica interna).|
-> |**Herencia**|Capacidad de crear clases nuevas a partir de clases existentes, heredando sus atributos y métodos. Permite jerarquías (clase padre/hijo).|Una clase `Persona` (padre) hereda sus rasgos a `Empleado` y `Cliente` (hijos).|
-> |**Polimorfismo**|Capacidad de que diferentes clases respondan de manera distinta a un mismo mensaje o método.|El método `CerrarCuenta` actuará distinto si es una `Caja de Ahorro` o una `Cuenta Corriente`.|
+> |Situación|Acción Matemática|Explicación|
+> |**Entre Z=0 y un Z positivo/negativo**|Lectura directa|Se busca el valor directamente en la tabla.|
+> |**Entre un Z negativo y un Z positivo**|**Suma** de áreas|Se suman las áreas individuales desde el centro hacia cada lado.|
+> |**Entre dos valores de Z del mismo lado (Solapamiento)**|**Resta** de áreas|Se resta el área mayor menos el área menor para obtener el "bloque" restante.|
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 5. Desarrollo del Entorno y Ecosistema Tecnológico
+> ## 6. Ejemplos Prácticos Paso a Paso
 > 
-> Un pilar de esta formación es el **Setup de Infraestructura**. No basta con programar la lógica; se debe configurar el entorno donde la aplicación "vive".
+> ### Caso 1: Área simple (Desde el centro)
 > 
-> - **Ecosistema JavaScript:** Es la decisión estándar para el desarrollo en este curso.
-> - **Node.js:** El entorno que permite ejecutar JavaScript fuera del navegador (en el servidor). Es vital saber gestionar paquetes (instalar/desinstalar).
-> - **Express:** Framework de Node para crear servidores web y APIs que responden a solicitudes de navegadores.
-> - **Bases de Datos:** Se requiere conexión y capacidad de realizar consultas (queries) para crear, modificar y acceder a datos. Se mencionan opciones vectoriales para IA como Pinecone o Chroma.
-> - **Frontend:** El usuario interactúa mediante HTML y CSS. Se permite el uso de frameworks como Angular, React o Next para quienes deseen mayor complejidad.
-> - **Inteligencia Artificial (IA):** Se incentiva el uso de IAs (vía API o modelos locales) tanto para asistir en la codificación como para integrarlas como funcionalidades dentro de las aplicaciones.
+> - **Problema:** Hallar el área entre Z = 0 y Z = 1,59.
+> - **Paso 1:** Buscar en la tabla 1,5 en la columna y 0,09 en la fila.
+> - **Resultado:** 0,4441.
 > 
-> --------------------------------------------------------------------------------
+> ### Caso 2: Z Negativo
 > 
-> ## 6. Ejemplos Prácticos: Sistema Bancario
+> - **Problema:** Hallar el área entre Z = 0 y Z = -2,38.
+> - **Paso 1:** Por simetría, buscar Z = 2,38.
+> - **Paso 2:** En la tabla, 2,3 (columna) y 0,08 (fila) da 0,4913.
+> - **Resultado:** 0,4913.
 > 
-> A continuación, se detalla cómo se estructuraría una aplicación bancaria bajo este paradigma:
+> ### Caso 3: Área entre dos puntos de distinto signo
 > 
-> ### Clase: `CuentaBancaria`
+> - **Problema:** Hallar el área entre Z = -0,46 y Z = 2,21.
+> - **Paso 1:** Área de Z = 0,46 \rightarrow 0,1772.
+> - **Paso 2:** Área de Z = 2,21 \rightarrow 0,4864.
+> - **Paso 3:** Sumar ambos: 0,1772 + 0,4864 = 0,6636.
+> - **Resultado:** 0,6636.
 > 
-> - **Atributos:** `numeroCuenta`, `propietario`, `CBU`, `montoDisponible` (privado), `limite`.
-> - **Métodos:**
->     - `getSaldo()`: Retorna el dinero disponible.
->     - `setLimite(nuevoLimite)`: Modifica el límite previa validación.
->     - `checkOperacion()`: Verifica si una transacción no supera el límite.
+> ### Caso 4: Solapamiento (Mismo lado del eje)
 > 
-> ### Relación entre Clases
-> 
-> Un sistema real conecta múltiples moldes:
-> 
-> 1. Un **Banco** (clase) tiene un atributo que es una **Lista/Array** de **Cuentas Bancarias**.
-> 2. Al ejecutar el método `aperturaCuenta()` en la clase `Cliente`, se invoca al **Constructor** de la clase `CuentaBancaria` para generar un nuevo objeto.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 7. Errores Comunes y Clarificaciones
-> 
-> - **Confusión entre Clase y Objeto:** Es frecuente intentar asignar un valor (como un nombre específico) a la clase. El valor pertenece al objeto; la clase solo define que _existirá_ un nombre.
-> - **Exceso de Atributos:** No realizar una abstracción correcta lleva a sistemas pesados con datos innecesarios.
-> - **Transparencia en Cambios:** Una gran ventaja del encapsulamiento es que si se cambia la lógica de un método (ej. cómo se autentica una contraseña), el resto del sistema no se entera ni se rompe, siempre que la respuesta final del método siga siendo la misma.
+> - **Problema:** Hallar el área entre Z = 0,81 y Z = 1,94.
+> - **Paso 1:** Área total hasta 1,94 \rightarrow 0,4738.
+> - **Paso 2:** Área hasta 0,81 (pedazo a quitar) \rightarrow 0,2910.
+> - **Paso 3:** Restar el menor al mayor: 0,4738 - 0,2910 = 0,1828.
+> - **Resultado:** 0,1828.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 8. Fechas Importantes y Avisos Académicos
+> ## 7. Errores Comunes y Confusiones
 > 
-> Basado en la planificación docente y los anuncios de clase, se establecen los siguientes hitos:
+> 1. **Omitir el punto decimal:** Confundir un valor de tabla como "2054" en lugar de "0,2054". El área nunca supera la unidad (1).
+> 2. **Confusión en solapamiento:** Sumar áreas cuando ambos puntos Z están del mismo lado del eje vertical. En estos casos, las áreas se "pisan" y debe aplicarse una resta.
+> 3. **Resultados negativos:** Al restar áreas por solapamiento, siempre se debe restar el área mayor menos la menor; la probabilidad/área resultante siempre debe ser positiva.
+> 4. **Asumir simetría en datos reales:** En la práctica, las curvas pueden estar **sesgadas** (hacia la izquierda o derecha), a diferencia de la curva ideal de Gauss que es perfectamente simétrica.
 > 
-> |   |   |   |
-> |---|---|---|
-> |Fecha (Estimada/Fija)|Tipo de Evento|Descripción Detallada|
-> |**Clase 3 o 4**|Inicio de Proyecto|Comienzo del trabajo grupal y configuración de infraestructura (Node, bases de datos).|
-> |**Fines de Agosto - 20 Sept.**|Viaje del Profesor|El docente estará en Italia. Las clases podrían ser grabadas o reprogramadas ante problemas de conexión.|
-> |**Mediados de Octubre**|Trabajo Práctico (TP)|Entrega de TP de ejercicios (posiblemente un TP largo de ~20 ejercicios).|
-> |**22 de Octubre**|Clase Presencial|Tercera instancia presencial obligatoria (según planificación tentativa).|
-> |**29 de Octubre**|**Examen Parcial**|Evaluación presencial de contenidos teóricos y prácticos.|
-> |**Noviembre (Post-Parcial)**|Avances de Proyecto|Dinámica de tutorías: cada grupo tiene 30 min asignados para corrección.|
-> |**Fines de Noviembre**|Presentación Final|Exposición presencial de los proyectos grupales funcionales.|
+> --------------------------------------------------------------------------------
 > 
-> **Recordatorios Importantes:**
+> ## 8. Síntesis y Conclusiones
 > 
-> - **Asistencia:** Hay 4 clases presenciales mínimas obligatorias.
-> - **Grupos:** El trabajo es grupal para simular entornos de desarrollo reales.
-> - **Entorno:** Es obligatorio tener Node.js instalado y funcional en las máquinas personales para el inicio del proyecto.
+> - La **distribución normal** es simétrica y su área total bajo la curva es **1**.
+> - El **eje vertical** divide la campana en dos mitades de **0,5** cada una.
+> - La **tabla de Z** es la herramienta principal para calcular probabilidades basándose en la desviación estándar.
+> - La **tipificación** permite llevar cualquier problema de la vida real al modelo estándar de Gauss para su análisis.
 > 
 > --------------------------------------------------------------------------------
 > 
 > ## 9. Preguntas de Repaso
 > 
-> ### Básicas
+> ### Nivel Básico
 > 
-> 1. ¿Cuál es la diferencia principal entre una Clase y un Objeto?
-> 2. Defina los conceptos de Atributo y Método.
-> 3. ¿Para qué sirve el método Constructor de una clase?
+> 1. ¿Cuál es el valor del área total bajo la curva de Gauss normalizada?
+> 2. Si la curva es simétrica, ¿cuánto vale el área a la derecha del eje vertical?
+> 3. ¿Qué representa el valor Z en el eje horizontal?
 > 
-> ### Intermedias
+> ### Nivel Intermedio
 > 
-> 4. Explique la importancia del Encapsulamiento con un ejemplo que no sea el del automóvil.
-> 5. ¿Por qué el paradigma procedimental dificulta el mantenimiento de sistemas grandes?
-> 6. ¿Qué diferencia hay entre un atributo de instancia y un atributo de clase?
+> 4. Si tengo un valor de Z negativo, ¿cómo debo proceder para encontrar su área en una tabla que solo contiene valores positivos?
+> 5. ¿En qué caso se deben sumar las áreas obtenidas de la tabla de Z?
+> 6. Explique la diferencia entre una curva ideal de Gauss y una curva con sesgo a la derecha.
 > 
-> ### Avanzadas
+> ### Nivel Avanzado
 > 
-> 7. Describa el proceso de Abstracción al diseñar una clase `Producto` para un banco vs. para un supermercado.
-> 8. ¿Cómo se relaciona la herencia con la reutilización de código?
-> 9. Analice por qué JavaScript se considera un lenguaje apto para este paradigma a pesar de ser multiparadigma.
+> 7. Dado un rango entre Z = 0,31 y Z = 1,46, describa el procedimiento lógico para hallar el área neta y por qué no se realiza una suma.
+> 8. ¿Cómo se relaciona la desviación típica (\sigma) con la varianza en el contexto de los parámetros de la curva?
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 10. Fechas Importantes y Avisos Académicos
+> 
+> Basado en la comunicación del profesor durante la sesión:
+> 
+> |   |   |   |
+> |---|---|---|
+> |Fecha|Evento / Tipo|Descripción Detallada|
+> |**Jueves (próxima clase)**|Clase Práctica|Se resolverán más ejercicios y casos sobre la curva de distribución normal para "ampliar la mente" sobre su uso.|
+> |**Mañana**|Clase Virtual|El profesor aclaró explícitamente que **no hay presencialidad** mañana; la clase continúa de forma remota.|
+> |**3ra Semana de Noviembre**|Defensa de Trabajos|Fecha estimada para la defensa presencial de los proyectos/trabajos prácticos.|
+> 
+> **Recordatorios académicos:**
+> 
+> - Se recomienda practicar con el archivo Excel enviado por WhatsApp que contiene los ejercicios vistos en clase.
+> - Es fundamental dominar el uso del "Apéndice 2" (Tabla de Z) para las evaluaciones, asegurándose de identificar correctamente las coordenadas de filas y columnas.
 
 > [!quote]- Video resumen, infografía y presentación
 > # 1. Video resumen
 > 
-> <iframe title="Clase 1 - Desarrollo de sistemas orientado a objetos" src="https://www.youtube.com/embed/vnjtJeCOHYM?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe title="Clase 9 - Estadística y probabilidad para el desarrollo de software" src="https://www.youtube.com/embed/A0mT0P0akRA?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 2. Infografía
 > 
-> <iframe src="https://drive.google.com/file/d/1fSpXQSUxFjlAgI2zsIKVRtyF_kkjPB_D/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1uQ7-FTLPbIFEPKpsMs4VK8E_BUcg1GLv/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 3. Presentación
 > 
-> <iframe src="https://drive.google.com/file/d/1qvm3ckFbOSYjyvO2XjnR2_5t-FU_M-rf/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1XEbGpc-U6jFfW7I-8DNQnu5Ai-Gy5IkA/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>

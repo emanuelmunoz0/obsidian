@@ -3,176 +3,164 @@
 ---
 
 > [!quote]- Resumen
-> # Guía Integral de Estudio: Desarrollo de Sistemas Orientados a Objetos
+> # Guía Integral de Estadística Descriptiva: Medidas de Tendencia Central y Organización de Datos
 > 
-> Este documento constituye una síntesis exhaustiva de los fundamentos de la programación orientada a objetos (POO) y la configuración de entornos de desarrollo, diseñada como material de estudio principal para la materia.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 1. Introducción General al Paradigma
-> 
-> El desarrollo de sistemas ha evolucionado a través de diferentes **paradigmas de programación**, que son esencialmente modelos o estilos de programación que definen cómo se estructura y ejecuta el código. La transición hacia la **Programación Orientada a Objetos (POO)** surge como una respuesta a las limitaciones de los modelos anteriores para gestionar la complejidad creciente de los sistemas informáticos.
-> 
-> Esta materia se define como un "híbrido": combina la teoría profunda de la POO con el aprendizaje práctico de la **infraestructura y el setup de desarrollo**. El objetivo es que el estudiante no solo comprenda la lógica de objetos, sino que también domine el ecosistema de herramientas (servidores, bases de datos, entornos de ejecución) necesarias para profesionalizar el desarrollo de aplicaciones.
+> Este documento constituye un material de estudio exhaustivo basado en las sesiones académicas sobre estadística y probabilidad aplicadas al desarrollo de software. El objetivo es proporcionar una comprensión profunda de la gestión de datos, desde su ordenamiento básico hasta el cálculo de medias complejas y la estructuración en intervalos de frecuencia.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 2. Contexto e Importancia: Del Modelo Procedimental a la POO
+> ## 1. Introducción General
 > 
-> ### El Paradigma Procedimental
+> La estadística descriptiva es una herramienta fundamental en el desarrollo de software y el análisis de datos. Su propósito principal es sintetizar conjuntos de datos para extraer información significativa. A través de este documento, se exploran las diversas formas de medir la tendencia central y la dispersión, así como la importancia de organizar la información de manera lógica para facilitar su interpretación mediante herramientas computacionales como Excel.
 > 
-> Históricamente, la programación era predominantemente procedimental. Se basaba en una secuencia de instrucciones con estructuras de control (condicionales e iteraciones). Aunque funcional, presentaba dos problemas críticos al escalar:
+> ### Contexto Académico
 > 
-> 1. **Dificultad de Mantenimiento:** Modificar una funcionalidad en un sistema extenso implicaba rastrear infinitas líneas de código, con un alto riesgo de romper partes no relacionadas ("efecto dominó").
-> 2. **Baja Reutilización:** El código estaba tan entrelazado con funciones específicas de una aplicación que era casi imposible trasladarlo a otro proyecto.
-> 
-> ### El Surgimiento de la POO
-> 
-> En la década de los 90, la POO se consolidó (con lenguajes como Java y C++) como la solución para organizar el software de manera similar a cómo percibimos el mundo real: a través de entidades con características y comportamientos definidos. Hoy en día, los lenguajes modernos como JavaScript o Python son multiparadigma, permitiendo combinar lo procedimental, lo lógico, lo funcional y lo orientado a objetos de forma fluida.
+> El contenido aquí presentado se deriva de ejercicios prácticos orientados al análisis de poblaciones de datos. Se enfatiza no solo el cálculo matemático, sino también la metodología de trabajo colaborativo y el uso de funciones específicas en hojas de cálculo para optimizar el procesamiento de información.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 3. Marco Conceptual: Definición de Conceptos Clave
+> ## 2. Marco Conceptual y Definiciones Clave
 > 
-> Para entender la POO desde cero, es fundamental distinguir entre sus componentes básicos:
+> Para abordar el análisis estadístico, es imperativo comprender los conceptos que sirven de base para cualquier cálculo posterior.
 > 
-> ### A. Clase (El Molde)
+> ### Definiciones Fundamentales
 > 
-> Es una abstracción que define la estructura de un tipo de objeto. Se escribe siempre en **singular** (ej. `Cliente`, no `Clientes`). Define qué datos tendrá el objeto y qué podrá hacer.
-> 
-> ### B. Objeto o Instancia (El Resultado)
-> 
-> Es la materialización de la clase. Mientras que la clase es el "plano", el objeto es la "casa construida". Cada objeto ocupa un lugar en la memoria (variable) y tiene valores específicos para sus atributos.
-> 
-> - _Sintaxis conceptual:_ `Variable = New Clase()`.
-> 
-> ### C. Atributos (Datos/Características)
-> 
-> Son las variables internas de la clase que definen las propiedades del objeto.
-> 
-> - **Públicos:** Accesibles desde cualquier parte del código.
-> - **Privados:** Solo pueden ser modificados por los métodos internos de la misma clase (crucial para la seguridad de datos como contraseñas o saldos).
-> - **De Instancia:** Valores que cambian entre objetos (ej. el nombre de cada cliente).
-> - **De Clase:** Valores compartidos por todos los objetos de esa clase (ej. la anatomía básica en una clase `Persona`).
-> 
-> ### D. Métodos (Funciones/Comportamientos)
-> 
-> Son las acciones que el objeto puede realizar.
-> 
-> - **Constructores:** El método especial que se ejecuta automáticamente al crear un objeto (`new`). Se encarga de inicializar los atributos.
-> - **Getters:** Métodos para obtener/leer el valor de un atributo.
-> - **Setters:** Métodos para establecer o modificar el valor de un atributo, permitiendo incluir validaciones.
+> - **Población y Muestra:** El conjunto total de elementos a estudiar. En los ejercicios prácticos analizados, se trabaja con muestras de datos (por ejemplo, un conjunto de 40 muestras) que representan una población.
+> - **Rango:** Es la medida de dispersión más simple. Se define como la diferencia entre el valor máximo y el valor mínimo de un conjunto de datos ordenados.
+> - **Ordenamiento de Datos:** El paso inicial crítico que consiste en disponer los valores de menor a mayor para permitir el cálculo preciso de la mediana y la moda.
+> - **Frecuencia:** El número de veces que un valor o un grupo de valores (intervalo) se repite dentro del conjunto de datos.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 4. Los Cuatro Pilares de la POO
+> ## 3. Desarrollo del Tema: Medidas de Tendencia Central y Medias Especializadas
 > 
-> La solidez de este paradigma se apoya en cuatro conceptos fundamentales que guían el diseño de software:
+> El análisis se centra en diferentes tipos de "promedios" o medias, cada una con aplicaciones específicas según la naturaleza de los datos.
+> 
+> ### A. Media Aritmética
+> 
+> Es el promedio estándar. Se obtiene sumando todos los valores del conjunto y dividiendo el resultado por el número total de elementos (n).
+> 
+> ### B. Media Geométrica
+> 
+> Es una medida de tendencia central que se utiliza frecuentemente en el análisis de variables que presentan un crecimiento porcentual. En herramientas como Excel, su cálculo se realiza mediante funciones predefinidas (ej. `MEDIA.GEOM`).
+> 
+> ### C. Media Armónica
+> 
+> Se define como el recíproco de la media aritmética de los recíprocos de los valores. Es particularmente útil en situaciones donde se promedian velocidades, tiempos o relaciones.
+> 
+> ### D. Media Cuadrática (RMS - Root Mean Square)
+> 
+> Este concepto requiere un procedimiento manual más detallado si no se cuenta con una función directa:
+> 
+> 1. Elevar cada valor del conjunto al cuadrado.
+> 2. Calcular la media aritmética de esos cuadrados.
+> 3. Obtener la raíz cuadrada del resultado final.
+> 
+> ### E. Mediana y Moda
+> 
+> - **Mediana:** Es el valor central de un conjunto de datos cuando estos están ordenados. Si el número de datos es par, es el promedio de los dos valores centrales.
+> - **Moda:** Es el valor que más se repite. En casos donde existen múltiples valores con la misma frecuencia máxima, se habla de distribuciones bimodales o multimodales.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 4. Organización y Estructuración de Datos
+> 
+> Una vez calculadas las medidas de tendencia central, el siguiente nivel de análisis es la agrupación de datos.
+> 
+> ### Creación de Intervalos
+> 
+> Cuando se manejan grandes volúmenes de datos, estos se agrupan en **intervalos** (por ejemplo, rangos de 5 unidades). Esto permite:
+> 
+> - Reducir la complejidad visual de la información.
+> - Identificar la **frecuencia** de aparición de datos dentro de rangos específicos.
+> - Facilitar la creación de histogramas y tablas de distribución.
+> 
+> ### Relación entre Conceptos
+> 
+> El orden lógico de un análisis estadístico completo sigue esta estructura:
+> 
+> 1. **Conteo y Ordenamiento:** Determinar el tamaño de la muestra (n) y organizar los valores.
+> 2. **Cálculo de Dispersión Inicial:** Determinar el Rango.
+> 3. **Cálculo de Medias:** Aritmética, Geométrica, Armónica y Cuadrática.
+> 4. **Identificación de Posición:** Mediana y Moda.
+> 5. **Agrupación:** Establecer intervalos y calcular frecuencias.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 5. Ejemplos Prácticos y Metodología en Excel
+> 
+> Basado en las exposiciones grupales, el proceso de resolución paso a paso es el siguiente:
 > 
 > |   |   |   |
 > |---|---|---|
-> |Pilar|Descripción|Analogía / Ejemplo|
-> |**Abstracción**|Proceso de simplificar la realidad, seleccionando solo los atributos y métodos relevantes para el sistema y descartando el resto.|Para un banco, un `Cliente` es un DNI y un saldo; no importa su altura o color de ojos.|
-> |**Encapsulamiento**|Ocultar la complejidad interna. Los datos están "protegidos" dentro del objeto y solo se accede a ellos a través de métodos autorizados.|Para conducir un auto, presionas el acelerador (método); no necesitas saber cómo funciona la inyección de combustible (lógica interna).|
-> |**Herencia**|Capacidad de crear clases nuevas a partir de clases existentes, heredando sus atributos y métodos. Permite jerarquías (clase padre/hijo).|Una clase `Persona` (padre) hereda sus rasgos a `Empleado` y `Cliente` (hijos).|
-> |**Polimorfismo**|Capacidad de que diferentes clases respondan de manera distinta a un mismo mensaje o método.|El método `CerrarCuenta` actuará distinto si es una `Caja de Ahorro` o una `Cuenta Corriente`.|
+> |Paso|Acción|Herramienta/Fórmula sugerida|
+> |1|Contar elementos|Función `CONTAR` en Excel.|
+> |2|Ordenar datos|Herramienta de ordenamiento de A a Z.|
+> |3|Calcular Medias|Funciones `PROMEDIO`, `MEDIA.GEOM`, `MEDIA.ARMO`.|
+> |4|Calcular Media Cuadrática|Crear columna con x^2, promediar y aplicar `RAIZ`.|
+> |5|Determinar Moda Múltiple|Función `MODA.VARIOS` (requiere seleccionar varias celdas y `Ctrl+Shift+Enter`).|
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 5. Desarrollo del Entorno y Ecosistema Tecnológico
+> ## 6. Errores Comunes y Aclaraciones Importantes
 > 
-> Un pilar de esta formación es el **Setup de Infraestructura**. No basta con programar la lógica; se debe configurar el entorno donde la aplicación "vive".
-> 
-> - **Ecosistema JavaScript:** Es la decisión estándar para el desarrollo en este curso.
-> - **Node.js:** El entorno que permite ejecutar JavaScript fuera del navegador (en el servidor). Es vital saber gestionar paquetes (instalar/desinstalar).
-> - **Express:** Framework de Node para crear servidores web y APIs que responden a solicitudes de navegadores.
-> - **Bases de Datos:** Se requiere conexión y capacidad de realizar consultas (queries) para crear, modificar y acceder a datos. Se mencionan opciones vectoriales para IA como Pinecone o Chroma.
-> - **Frontend:** El usuario interactúa mediante HTML y CSS. Se permite el uso de frameworks como Angular, React o Next para quienes deseen mayor complejidad.
-> - **Inteligencia Artificial (IA):** Se incentiva el uso de IAs (vía API o modelos locales) tanto para asistir en la codificación como para integrarlas como funcionalidades dentro de las aplicaciones.
+> - **Uso de Decimales:** Se recomienda trabajar con un máximo de **dos dígitos decimales** para mantener la claridad y precisión académica. Un exceso de decimales puede dificultar la lectura de las tablas.
+> - **Cálculo de la Moda:** Un error frecuente es reportar una sola moda cuando el conjunto de datos es multimodal. Si la fórmula de Excel solo muestra un valor, se debe verificar manualmente o usar la función matricial correspondiente.
+> - **Media Cuadrática:** No confundirla con la media aritmética. El paso de elevar al cuadrado es esencial para tratar valores que podrían ser negativos o para enfatizar valores grandes.
+> - **Individualismo vs. Trabajo Grupal:** El proceso de aprendizaje en esta disciplina se potencia mediante el intercambio en grupo. El trabajo individual excesivo suele llevar a omisiones en cálculos complejos como los intervalos de frecuencia.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 6. Ejemplos Prácticos: Sistema Bancario
+> ## 7. Síntesis y Conclusiones
 > 
-> A continuación, se detalla cómo se estructuraría una aplicación bancaria bajo este paradigma:
-> 
-> ### Clase: `CuentaBancaria`
-> 
-> - **Atributos:** `numeroCuenta`, `propietario`, `CBU`, `montoDisponible` (privado), `limite`.
-> - **Métodos:**
->     - `getSaldo()`: Retorna el dinero disponible.
->     - `setLimite(nuevoLimite)`: Modifica el límite previa validación.
->     - `checkOperacion()`: Verifica si una transacción no supera el límite.
-> 
-> ### Relación entre Clases
-> 
-> Un sistema real conecta múltiples moldes:
-> 
-> 1. Un **Banco** (clase) tiene un atributo que es una **Lista/Array** de **Cuentas Bancarias**.
-> 2. Al ejecutar el método `aperturaCuenta()` en la clase `Cliente`, se invoca al **Constructor** de la clase `CuentaBancaria` para generar un nuevo objeto.
+> El análisis estadístico descriptivo no es simplemente la aplicación de fórmulas, sino un proceso estructurado de organización de la información. El flujo de trabajo comienza con la preparación de los datos (ordenamiento), sigue con la caracterización del centro de la muestra (diversas medias, mediana y moda) y concluye con la estructuración de la distribución (intervalos y frecuencias). El dominio de estas herramientas en software de hojas de cálculo es un requisito indispensable para el desarrollo profesional en tecnología.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 7. Errores Comunes y Clarificaciones
+> ## 8. Preguntas de Repaso
 > 
-> - **Confusión entre Clase y Objeto:** Es frecuente intentar asignar un valor (como un nombre específico) a la clase. El valor pertenece al objeto; la clase solo define que _existirá_ un nombre.
-> - **Exceso de Atributos:** No realizar una abstracción correcta lleva a sistemas pesados con datos innecesarios.
-> - **Transparencia en Cambios:** Una gran ventaja del encapsulamiento es que si se cambia la lógica de un método (ej. cómo se autentica una contraseña), el resto del sistema no se entera ni se rompe, siempre que la respuesta final del método siga siendo la misma.
+> ### Nivel Básico
 > 
-> --------------------------------------------------------------------------------
+> 1. ¿Cuál es la diferencia fundamental entre el rango y la frecuencia?
+> 2. ¿Por qué es necesario ordenar los datos antes de calcular la mediana?
+> 3. ¿Cómo se calcula la media aritmética simple?
 > 
-> ## 8. Fechas Importantes y Avisos Académicos
+> ### Nivel Intermedio
 > 
-> Basado en la planificación docente y los anuncios de clase, se establecen los siguientes hitos:
+> 4. Describa los pasos necesarios para calcular la media cuadrática de forma manual.
+> 5. ¿En qué situaciones es más representativa la media geométrica que la aritmética?
+> 6. ¿Cómo se determinan los intervalos en una muestra de 40 datos?
 > 
-> |   |   |   |
-> |---|---|---|
-> |Fecha (Estimada/Fija)|Tipo de Evento|Descripción Detallada|
-> |**Clase 3 o 4**|Inicio de Proyecto|Comienzo del trabajo grupal y configuración de infraestructura (Node, bases de datos).|
-> |**Fines de Agosto - 20 Sept.**|Viaje del Profesor|El docente estará en Italia. Las clases podrían ser grabadas o reprogramadas ante problemas de conexión.|
-> |**Mediados de Octubre**|Trabajo Práctico (TP)|Entrega de TP de ejercicios (posiblemente un TP largo de ~20 ejercicios).|
-> |**22 de Octubre**|Clase Presencial|Tercera instancia presencial obligatoria (según planificación tentativa).|
-> |**29 de Octubre**|**Examen Parcial**|Evaluación presencial de contenidos teóricos y prácticos.|
-> |**Noviembre (Post-Parcial)**|Avances de Proyecto|Dinámica de tutorías: cada grupo tiene 30 min asignados para corrección.|
-> |**Fines de Noviembre**|Presentación Final|Exposición presencial de los proyectos grupales funcionales.|
+> ### Nivel Avanzado
 > 
-> **Recordatorios Importantes:**
-> 
-> - **Asistencia:** Hay 4 clases presenciales mínimas obligatorias.
-> - **Grupos:** El trabajo es grupal para simular entornos de desarrollo reales.
-> - **Entorno:** Es obligatorio tener Node.js instalado y funcional en las máquinas personales para el inicio del proyecto.
+> 7. Explique el procedimiento en Excel para obtener múltiples modas de un mismo conjunto de datos.
+> 8. Analice la relación entre la frecuencia de un intervalo y la interpretación de la tendencia central de la muestra.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 9. Preguntas de Repaso
+> ## 9. Fechas Importantes y Avisos Académicos
 > 
-> ### Básicas
+> Tras el análisis de la sesión, se establecen las siguientes indicaciones y cronograma:
 > 
-> 1. ¿Cuál es la diferencia principal entre una Clase y un Objeto?
-> 2. Defina los conceptos de Atributo y Método.
-> 3. ¿Para qué sirve el método Constructor de una clase?
-> 
-> ### Intermedias
-> 
-> 4. Explique la importancia del Encapsulamiento con un ejemplo que no sea el del automóvil.
-> 5. ¿Por qué el paradigma procedimental dificulta el mantenimiento de sistemas grandes?
-> 6. ¿Qué diferencia hay entre un atributo de instancia y un atributo de clase?
-> 
-> ### Avanzadas
-> 
-> 7. Describa el proceso de Abstracción al diseñar una clase `Producto` para un banco vs. para un supermercado.
-> 8. ¿Cómo se relaciona la herencia con la reutilización de código?
-> 9. Analice por qué JavaScript se considera un lenguaje apto para este paradigma a pesar de ser multiparadigma.
+> - **Entrega de Notas:** El profesor comunicará las calificaciones de los trabajos presentados durante la **próxima semana**.
+> - **Próxima Clase (Martes/Jueves según corresponda):**
+>     - **Continuación de Temas:** Se profundizará en la sección de "abajo" de los ejercicios (Frecuencias e Intervalos).
+>     - **Presentaciones Pendientes:** Aquellos alumnos con estado "Borrador" deberán completar y presentar sus intervalos y frecuencias.
+> - **Indicaciones Específicas:**
+>     - Es obligatorio guardar los archivos trabajados hoy para continuar con la segunda parte la semana entrante.
+>     - Se incentiva fuertemente la integración en grupos para aquellos que han trabajado de forma individual.
+>     - **Alumnos en estado "Borrador":** Griselda Publicí, Carlos Cortés, Luciano Guzmán, Sánchez Rofanach, Muñoz y Varela.
+>     - **Alumnos con OK (Nota y Presente):** Grupos de De Martini, Corral, Vidal, Hernández, Guisande, Pablo, Paloma Madrid, Tatiana Peralta, Coria, Loreto, Niegovic y Sosa.
 
 > [!quote]- Video resumen, infografía y presentación
 > # 1. Video resumen
 > 
-> <iframe title="Clase 1 - Desarrollo de sistemas orientado a objetos" src="https://www.youtube.com/embed/vnjtJeCOHYM?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe title="Clase 6 - Estadística y probabilidad para el desarrollo de software" src="https://www.youtube.com/embed/dzHrq1ux1w8?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 2. Infografía
 > 
-> <iframe src="https://drive.google.com/file/d/1fSpXQSUxFjlAgI2zsIKVRtyF_kkjPB_D/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1iMZbWDiGhILa-9L6a-kyG1vy6zj4-f5z/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 3. Presentación
 > 
-> <iframe src="https://drive.google.com/file/d/1qvm3ckFbOSYjyvO2XjnR2_5t-FU_M-rf/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/10GWQmNi73xEgPxIhnBCt2MeqawpLV4PD/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
