@@ -4,6 +4,88 @@
 
 Este sitio es un espacio colaborativo creado por estudiantes de la **Tecnicatura en Desarrollo de Software** del **IFTS N°16 (CABA)**. Usando Obsidian, Digital Garden, GitHub y Vercel, compartimos resúmenes, infografías y videos generados con NotebookLM sobre la carrera. Desde 2025, el proyecto funciona como un recurso abierto para futuras cohortes, ofreciendo una visión general de la formación. Todo se desarrolla con **herramientas** preferentemente **open source**, asegurando que nunca se pierda acceso al contenido y pueda preservarse a lo largo del tiempo.
 <br>
+> [!info] 1° año, 1° cuatrimestre - 2025
+
+> > [!example]- Técnicas de programación  
+> > **[[1° año, 1° cuatrimestre/1. Técnicas de programación/Clase 2 - Lunes, 31 de marzo de 2025 (31 03 25) - Técnicas de programación\|Clase 2 - Lunes, 31 de marzo de 2025 (31 03 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/1. Técnicas de programación/Clase 3 - Lunes, 07 de abril de 2025 (07 04 25) - Técnicas de programación\|Clase 3 - Lunes, 07 de abril de 2025 (07 04 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/1. Técnicas de programación/Clase 4 - Lunes, 14 de abril de 2025 (14 04 25) - Técnicas de programación\|Clase 4 - Lunes, 14 de abril de 2025 (14 04 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/1. Técnicas de programación/Clase 5 - Lunes, 21 de abril de 2025 (21 04 25) - Técnicas de programación\|Clase 5 - Lunes, 21 de abril de 2025 (21 04 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/1. Técnicas de programación/Clase 6 - Lunes, 28 de abril de 2025 (28 04 25) - Técnicas de programación\|Clase 6 - Lunes, 28 de abril de 2025 (28 04 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/1. Técnicas de programación/Clase 7 - Lunes, 05 de mayo de 2025 (05 05 25) - Técnicas de programación\|Clase 7 - Lunes, 05 de mayo de 2025 (05 05 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/1. Técnicas de programación/Clase 8 - Lunes, 19 de mayo de 2025 (19 05 25) - Técnicas de programación\|Clase 8 - Lunes, 19 de mayo de 2025 (19 05 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/1. Técnicas de programación/Clase 9 - Lunes, 26 de mayo de 2025 (26 05 25) - Técnicas de programación\|Clase 9 - Lunes, 26 de mayo de 2025 (26 05 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/1. Técnicas de programación/Clase 10 - Lunes, 02 de junio de 2025 (02 06 25) - Técnicas de programación\|Clase 10 - Lunes, 02 de junio de 2025 (02 06 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/1. Técnicas de programación/Clase 11 - Lunes, 09 de junio de 2025 (09 06 25) - Técnicas de programación\|Clase 11 - Lunes, 09 de junio de 2025 (09 06 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/1. Técnicas de programación/Clase 12 - Lunes, 23 de junio de 2025 (23 06 25) - Técnicas de programación\|Clase 12 - Lunes, 23 de junio de 2025 (23 06 25)]]**
+
+> > [!example]- Análisis matemático  
+> > **[[1° año, 1° cuatrimestre/2. Análisis matemático/Clase 2 - Miércoles, 26 de marzo de 2025 (25 03 25) - Análisis matemático\|Clase 2 - Miércoles, 26 de marzo de 2025 (25 03 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/2. Análisis matemático/Clase 3 - Miércoles, 09 de abril de 2025 (09 04 25) - Análisis matemático\|Clase 3 - Miércoles, 09 de abril de 2025 (09 04 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/2. Análisis matemático/Clase 4 - Miércoles, 16 de abril de 2025 (16 04 25) - Análisis matemático\|Clase 4 - Miércoles, 16 de abril de 2025 (16 04 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/2. Análisis matemático/Clase 5 - Miércoles, 23 de abril de 2025 (23 04 25) - Análisis matemático\|Clase 5 - Miércoles, 23 de abril de 2025 (23 04 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/2. Análisis matemático/Clase 6 - Miércoles, 14 de mayo de 2025 (14 05 25) - Análisis matemático\|Clase 6 - Miércoles, 14 de mayo de 2025 (14 05 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/2. Análisis matemático/Clase 7 - Miércoles, 21 de mayo de 2025 (21 05 25) - Análisis matemático\|Clase 7 - Miércoles, 21 de mayo de 2025 (21 05 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/2. Análisis matemático/Clase 8 - Miércoles, 04 de junio de 2025 (04 06 25) - Análisis matemático\|Clase 8 - Miércoles, 04 de junio de 2025 (04 06 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/2. Análisis matemático/Clase 9 - Miércoles, 11 de junio de 2025 (11 06 25) - Análisis matemático\|Clase 9 - Miércoles, 11 de junio de 2025 (11 06 25)]]**
+
+> > [!example]- Lógica computacional  
+> > **[[1° año, 1° cuatrimestre/3. Lógica computacional/Clase 2 - Jueves, 27 de marzo de 2025 (27 03 25) - Lógica computacional\|Clase 2 - Jueves, 27 de marzo de 2025 (27 03 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/3. Lógica computacional/Clase 3 - Jueves, 03 de abril de 2025 (03 04 25) - Lógica computacional\|Clase 3 - Jueves, 03 de abril de 2025 (03 04 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/3. Lógica computacional/Clase 4 - Jueves, 10 de abril de 2025 (10 04 25) - Lógica computacional\|Clase 4 - Jueves, 10 de abril de 2025 (10 04 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/3. Lógica computacional/Clase 5 - Jueves, 24 de abril de 2025 (24 04 25) - Lógica computacional\|Clase 5 - Jueves, 24 de abril de 2025 (24 04 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/3. Lógica computacional/Clase 6 - Jueves, 22 de mayo de 2025 (22 05 25) - Lógica computacional\|Clase 6 - Jueves, 22 de mayo de 2025 (22 05 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/3. Lógica computacional/Clase 7 - Jueves, 29 de mayo de 2025 (29 05 25) - Lógica computacional\|Clase 7 - Jueves, 29 de mayo de 2025 (29 05 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/3. Lógica computacional/Clase 8 - Jueves, 05 de junio de 2025 (05 06 25) - Lógica computacional\|Clase 8 - Jueves, 05 de junio de 2025 (05 06 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/3. Lógica computacional/Clase 9 - Jueves, 12 de junio de 2025 (12 06 25) - Lógica computacional\|Clase 9 - Jueves, 12 de junio de 2025 (12 06 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/3. Lógica computacional/Clase 10 - Jueves, 19 de junio de 2025 (19 06 25) - Lógica computacional\|Clase 10 - Jueves, 19 de junio de 2025 (19 06 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/3. Lógica computacional/Clase 11 - Jueves, 26 de junio de 2025 (26 06 25) - Lógica computacional\|Clase 11 - Jueves, 26 de junio de 2025 (26 06 25)]]**
+
+> > [!example]- Administración de base de datos  
+> > **[[1° año, 1° cuatrimestre/4. Administración de base de datos/Clase 2 - Viernes, 28 de marzo de 2025 (28 03 25) - Administración de base de datos\|Clase 2 - Viernes, 28 de marzo de 2025 (28 03 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/4. Administración de base de datos/Clase 3 - Viernes, 04 de abril de 2025 (04 04 25) - Administración de base de datos\|Clase 3 - Viernes, 04 de abril de 2025 (04 04 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/4. Administración de base de datos/Clase 4 - Viernes, 11 de abril de 2025 (11 04 25) - Administración de base de datos\|Clase 4 - Viernes, 11 de abril de 2025 (11 04 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/4. Administración de base de datos/Clase 5 - Viernes, 25 de abril de 2025 (25 04 25) - Administración de base de datos\|Clase 5 - Viernes, 25 de abril de 2025 (25 04 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/4. Administración de base de datos/Clase 6 - Viernes, 09 de mayo de 2025 (09 05 25) - Administración de base de datos\|Clase 6 - Viernes, 09 de mayo de 2025 (09 05 25)]]**
+> > 
+> > **[[1° año, 1° cuatrimestre/4. Administración de base de datos/Clase 7 - Viernes, 23 de mayo de 2025 (23 05 25) - Administración de base de datos\|Clase 7 - Viernes, 23 de mayo de 2025 (23 05 25)]]**
+> > 
+> > **Clases 8 y 9 eran individuales de cada grupo**
+> > 
+> > **[[1° año, 1° cuatrimestre/4. Administración de base de datos/Clase 10 - Viernes, 13 de junio de 2025 (13 06 25) - Administración de base de datos\|Clase 10 - Viernes, 13 de junio de 2025 (13 06 25)]]**
+
+<br>
+
 > [!info] 1° año, 2° cuatrimestre - 2025
 
 > > [!example]- Aproximación al campo profesional del desarrollo de software
