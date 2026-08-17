@@ -3,176 +3,163 @@
 ---
 
 > [!quote]- Resumen
-> # Guía Integral de Estudio: Desarrollo de Sistemas Orientados a Objetos
+> # Guía Integral de Modelado y Diseño de Software: Diagramas de Colaboración y Objetos
 > 
-> Este documento constituye una síntesis exhaustiva de los fundamentos de la programación orientada a objetos (POO) y la configuración de entornos de desarrollo, diseñada como material de estudio principal para la materia.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 1. Introducción General al Paradigma
-> 
-> El desarrollo de sistemas ha evolucionado a través de diferentes **paradigmas de programación**, que son esencialmente modelos o estilos de programación que definen cómo se estructura y ejecuta el código. La transición hacia la **Programación Orientada a Objetos (POO)** surge como una respuesta a las limitaciones de los modelos anteriores para gestionar la complejidad creciente de los sistemas informáticos.
-> 
-> Esta materia se define como un "híbrido": combina la teoría profunda de la POO con el aprendizaje práctico de la **infraestructura y el setup de desarrollo**. El objetivo es que el estudiante no solo comprenda la lógica de objetos, sino que también domine el ecosistema de herramientas (servidores, bases de datos, entornos de ejecución) necesarias para profesionalizar el desarrollo de aplicaciones.
+> Esta guía constituye un material de estudio exhaustivo diseñado para abordar los conceptos fundamentales y avanzados del modelado de software, centrándose específicamente en los **Diagramas de Colaboración** y su relación con los **Diagramas de Objetos**. El objetivo es proporcionar al estudiante una comprensión profunda que le permita diseñar sistemas robustos, lógicos y bien documentados.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 2. Contexto e Importancia: Del Modelo Procedimental a la POO
+> ## 1. Introducción General
 > 
-> ### El Paradigma Procedimental
-> 
-> Históricamente, la programación era predominantemente procedimental. Se basaba en una secuencia de instrucciones con estructuras de control (condicionales e iteraciones). Aunque funcional, presentaba dos problemas críticos al escalar:
-> 
-> 1. **Dificultad de Mantenimiento:** Modificar una funcionalidad en un sistema extenso implicaba rastrear infinitas líneas de código, con un alto riesgo de romper partes no relacionadas ("efecto dominó").
-> 2. **Baja Reutilización:** El código estaba tan entrelazado con funciones específicas de una aplicación que era casi imposible trasladarlo a otro proyecto.
-> 
-> ### El Surgimiento de la POO
-> 
-> En la década de los 90, la POO se consolidó (con lenguajes como Java y C++) como la solución para organizar el software de manera similar a cómo percibimos el mundo real: a través de entidades con características y comportamientos definidos. Hoy en día, los lenguajes modernos como JavaScript o Python son multiparadigma, permitiendo combinar lo procedimental, lo lógico, lo funcional y lo orientado a objetos de forma fluida.
+> En el diseño de software, la representación visual de cómo interactúan los componentes de un sistema es crucial. Este documento explora la transición desde el modelado estático hacia un enfoque que integra las interacciones dinámicas. Se profundiza en la estructura, sintaxis y aplicación de los diagramas de colaboración, entendiéndolos no como entidades aisladas, sino como una extensión y mejora de los diagramas de objetos ya existentes.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 3. Marco Conceptual: Definición de Conceptos Clave
+> ## 2. Marco Conceptual y Definición de Conceptos Clave
 > 
-> Para entender la POO desde cero, es fundamental distinguir entre sus componentes básicos:
+> Para comprender el modelado de software desde cero, es necesario definir los pilares que sustentan estas representaciones gráficas:
 > 
-> ### A. Clase (El Molde)
+> ### Conceptos Fundamentales
 > 
-> Es una abstracción que define la estructura de un tipo de objeto. Se escribe siempre en **singular** (ej. `Cliente`, no `Clientes`). Define qué datos tendrá el objeto y qué podrá hacer.
-> 
-> ### B. Objeto o Instancia (El Resultado)
-> 
-> Es la materialización de la clase. Mientras que la clase es el "plano", el objeto es la "casa construida". Cada objeto ocupa un lugar en la memoria (variable) y tiene valores específicos para sus atributos.
-> 
-> - _Sintaxis conceptual:_ `Variable = New Clase()`.
-> 
-> ### C. Atributos (Datos/Características)
-> 
-> Son las variables internas de la clase que definen las propiedades del objeto.
-> 
-> - **Públicos:** Accesibles desde cualquier parte del código.
-> - **Privados:** Solo pueden ser modificados por los métodos internos de la misma clase (crucial para la seguridad de datos como contraseñas o saldos).
-> - **De Instancia:** Valores que cambian entre objetos (ej. el nombre de cada cliente).
-> - **De Clase:** Valores compartidos por todos los objetos de esa clase (ej. la anatomía básica en una clase `Persona`).
-> 
-> ### D. Métodos (Funciones/Comportamientos)
-> 
-> Son las acciones que el objeto puede realizar.
-> 
-> - **Constructores:** El método especial que se ejecuta automáticamente al crear un objeto (`new`). Se encarga de inicializar los atributos.
-> - **Getters:** Métodos para obtener/leer el valor de un atributo.
-> - **Setters:** Métodos para establecer o modificar el valor de un atributo, permitiendo incluir validaciones.
+> - **Objeto:** Es una instancia de una clase que posee estado y comportamiento. En los diagramas, se representan como los entes que interactúan entre sí.
+> - **Diagrama de Colaboración:** Es una estructura espacial estática que describe cómo colabora un grupo de objetos para realizar una tarea específica. Su característica distintiva es la **simultaneidad**: muestra al mismo tiempo las interacciones entre objetos y las relaciones estructurales que las permiten.
+> - **Mensaje:** Es la comunicación enviada entre objetos. En el modelado, el mensaje indica la acción que el objeto receptor debe ejecutar. Se representa mediante flechas y texto descriptivo.
+> - **Enlace (Link):** Es el camino de comunicación entre dos objetos, representado generalmente por una línea que los une.
+> - **Secuencia:** El orden cronológico en el que ocurren los mensajes, indicado mediante una numeración (ej. 1, 2, 3).
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 4. Los Cuatro Pilares de la POO
+> ## 3. Desarrollo del Tema: El Diagrama de Colaboración
 > 
-> La solidez de este paradigma se apoya en cuatro conceptos fundamentales que guían el diseño de software:
+> El diagrama de colaboración permite visualizar la interacción de los objetos en un formato que destaca la organización del sistema.
 > 
-> |   |   |   |
-> |---|---|---|
-> |Pilar|Descripción|Analogía / Ejemplo|
-> |**Abstracción**|Proceso de simplificar la realidad, seleccionando solo los atributos y métodos relevantes para el sistema y descartando el resto.|Para un banco, un `Cliente` es un DNI y un saldo; no importa su altura o color de ojos.|
-> |**Encapsulamiento**|Ocultar la complejidad interna. Los datos están "protegidos" dentro del objeto y solo se accede a ellos a través de métodos autorizados.|Para conducir un auto, presionas el acelerador (método); no necesitas saber cómo funciona la inyección de combustible (lógica interna).|
-> |**Herencia**|Capacidad de crear clases nuevas a partir de clases existentes, heredando sus atributos y métodos. Permite jerarquías (clase padre/hijo).|Una clase `Persona` (padre) hereda sus rasgos a `Empleado` y `Cliente` (hijos).|
-> |**Polimorfismo**|Capacidad de que diferentes clases respondan de manera distinta a un mismo mensaje o método.|El método `CerrarCuenta` actuará distinto si es una `Caja de Ahorro` o una `Cuenta Corriente`.|
+> ### Estructura y Funcionamiento
 > 
-> --------------------------------------------------------------------------------
+> A diferencia de otros diagramas que se centran exclusivamente en el tiempo, el diagrama de colaboración se organiza en el espacio. Las características principales incluyen:
 > 
-> ## 5. Desarrollo del Entorno y Ecosistema Tecnológico
+> 1. **Identificación de Objetos y Clases:** Se definen los objetos participantes y sus clases correspondientes.
+> 2. **Definición de Acciones:** Representadas por flechas orientadas hacia el destinatario del mensaje.
+> 3. **Priorización y Orden:** Se utiliza una sintaxis numérica para establecer la secuencia de las acciones.
 > 
-> Un pilar de esta formación es el **Setup de Infraestructura**. No basta con programar la lógica; se debe configurar el entorno donde la aplicación "vive".
+> ### Objetos Activos
 > 
-> - **Ecosistema JavaScript:** Es la decisión estándar para el desarrollo en este curso.
-> - **Node.js:** El entorno que permite ejecutar JavaScript fuera del navegador (en el servidor). Es vital saber gestionar paquetes (instalar/desinstalar).
-> - **Express:** Framework de Node para crear servidores web y APIs que responden a solicitudes de navegadores.
-> - **Bases de Datos:** Se requiere conexión y capacidad de realizar consultas (queries) para crear, modificar y acceder a datos. Se mencionan opciones vectoriales para IA como Pinecone o Chroma.
-> - **Frontend:** El usuario interactúa mediante HTML y CSS. Se permite el uso de frameworks como Angular, React o Next para quienes deseen mayor complejidad.
-> - **Inteligencia Artificial (IA):** Se incentiva el uso de IAs (vía API o modelos locales) tanto para asistir en la codificación como para integrarlas como funcionalidades dentro de las aplicaciones.
+> Un concepto avanzado en estos diagramas es el **Objeto Activo**.
 > 
-> --------------------------------------------------------------------------------
+> - **Definición:** Es un objeto que controla el flujo de ejecución o que tiene la capacidad de realizar multitareas.
+> - **Representación Visual:** Se distinguen por tener **bordes reforzados o líneas más gruesas**.
+> - **Función:** Actúan como iniciadores o controladores principales de una secuencia de acciones compleja (ej. un escáner o un procesador de texto en un flujo de impresión).
 > 
-> ## 6. Ejemplos Prácticos: Sistema Bancario
+> ### El Rol del Actor (Ente Concreto)
 > 
-> A continuación, se detalla cómo se estructuraría una aplicación bancaria bajo este paradigma:
+> Todo sistema requiere un punto de partida. Basándose en principios similares a la termodinámica (donde nada se mueve por sí mismo sin un agente externo), el diagrama debe incluir un **Actor**.
 > 
-> ### Clase: `CuentaBancaria`
-> 
-> - **Atributos:** `numeroCuenta`, `propietario`, `CBU`, `montoDisponible` (privado), `limite`.
-> - **Métodos:**
->     - `getSaldo()`: Retorna el dinero disponible.
->     - `setLimite(nuevoLimite)`: Modifica el límite previa validación.
->     - `checkOperacion()`: Verifica si una transacción no supera el límite.
-> 
-> ### Relación entre Clases
-> 
-> Un sistema real conecta múltiples moldes:
-> 
-> 1. Un **Banco** (clase) tiene un atributo que es una **Lista/Array** de **Cuentas Bancarias**.
-> 2. Al ejecutar el método `aperturaCuenta()` en la clase `Cliente`, se invoca al **Constructor** de la clase `CuentaBancaria` para generar un nuevo objeto.
+> - **Naturaleza:** Representa a un ser humano o un ente físico concreto.
+> - **Importancia:** Es quien desencadena las interacciones. Sin un actor que inicie la acción (como insertar una moneda en una máquina de café), el sistema permanece estático.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 7. Errores Comunes y Clarificaciones
+> ## 4. Relaciones entre Conceptos y Estructuras
 > 
-> - **Confusión entre Clase y Objeto:** Es frecuente intentar asignar un valor (como un nombre específico) a la clase. El valor pertenece al objeto; la clase solo define que _existirá_ un nombre.
-> - **Exceso de Atributos:** No realizar una abstracción correcta lleva a sistemas pesados con datos innecesarios.
-> - **Transparencia en Cambios:** Una gran ventaja del encapsulamiento es que si se cambia la lógica de un método (ej. cómo se autentica una contraseña), el resto del sistema no se entera ni se rompe, siempre que la respuesta final del método siga siendo la misma.
+> ### Sinergia entre Diagramas de Objetos y Colaboración
+> 
+> Existe una dependencia directa entre estos dos modelos:
+> 
+> - El Diagrama de Colaboración es, esencialmente, una **extensión del Diagrama de Objetos**.
+> - **Mejora incremental:** No es necesario crear un diagrama nuevo desde cero. El proceso consiste en tomar la estructura del diagrama de objetos y "embellecerla" o completarla añadiendo la sintaxis de colaboración (mensajes, flechas de acción y actores).
+> - **Complementariedad:** Lo que falta en el diagrama de objetos (la dinámica de interacción) lo aporta el de colaboración.
+> 
+> ### Sintaxis de Mensajes Complejos
+> 
+> Los mensajes pueden tener estructuras sintácticas avanzadas para representar condiciones de satisfacción. Por ejemplo, un mensaje puede enviarse solo cuando otros procesos previos han terminado (ej. `A.1` y `B.3`). También se pueden representar envíos múltiples o comunicaciones masivas (como en un sistema de _mailing_).
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 5. Ejemplos Prácticos y Aplicaciones Reales
+> 
+> ### Caso A: El Sistema de Ascensor
+> 
+> 1. **Actor:** Una persona presiona el botón.
+> 2. **Objeto Cabina:** Recibe la orden.
+> 3. **Secuencia de Acciones:**
+>     - 1: Encender la luz de la cabina.
+>     - 2: Cerrar la puerta.
+>     - 3: Iniciar movimiento.
+> 4. **Interacción:** La cabina solicita a la puerta que se cierre (Mensaje orientado).
+> 
+> ### Caso B: Operación de Supermercado (Grupo 3)
+> 
+> - Se modela la compra en una sucursal.
+> - **Clase:** Cliente / **Objeto:** Compra.
+> - Se integra el ente concreto (Persona) arriba de la estructura para iniciar el circuito.
+> 
+> ### Caso C: Reserva de Hotel (Grupo 2)
+> 
+> - **Flujo:** Comienza con el Pago -> Generación de Reserva -> Asignación de Cliente -> Asignación de Habitación.
+> - El hotel actúa como ente central que recibe la visita del cliente y contrata al personal.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 6. Errores Comunes y Aclaraciones Importantes
+> 
+> |   |   |
+> |---|---|
+> |Error Común|Aclaración Correcta|
+> |**Omitir el Actor**|El diagrama parece incompleto si no hay un ente concreto que inicie la acción. Siempre se recomienda incluir al ser humano.|
+> |**No realizar copias de seguridad**|En el diseño de software, al destruir un objeto (Acción de destrucción), es una política fundamental crear previamente una copia de seguridad (_backup_) para permitir la anulación de acciones o recuperación de datos.|
+> |**Confundir la simultaneidad con caos**|La simultaneidad en el diagrama de colaboración no significa que todo ocurra al azar; la numeración secuencial es la que mantiene el orden lógico.|
+> |**Pensar que son diagramas aislados**|El diagrama de colaboración debe "vivir" dentro de la estructura que ya se definió para el diagrama de objetos.|
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 7. Síntesis y Conclusiones
+> 
+> - **Integración:** El modelado efectivo requiere combinar la estructura estática (objetos) con la dinámica de interacción (colaboración).
+> - **Secuencialidad:** El uso de números para ordenar mensajes es vital para la claridad del flujo.
+> - **Actores:** La presencia de un ente concreto (humano) es lo que otorga realismo y punto de partida al modelo.
+> - **Mejora Continua:** Los diagramas son documentos vivos; se pueden y deben refinar agregando flechas, textos de acción y bordes reforzados para objetos activos.
 > 
 > --------------------------------------------------------------------------------
 > 
 > ## 8. Fechas Importantes y Avisos Académicos
 > 
-> Basado en la planificación docente y los anuncios de clase, se establecen los siguientes hitos:
+> Tras el análisis de las directrices docentes, se establecen los siguientes puntos clave para la organización de la materia:
 > 
-> |   |   |   |
-> |---|---|---|
-> |Fecha (Estimada/Fija)|Tipo de Evento|Descripción Detallada|
-> |**Clase 3 o 4**|Inicio de Proyecto|Comienzo del trabajo grupal y configuración de infraestructura (Node, bases de datos).|
-> |**Fines de Agosto - 20 Sept.**|Viaje del Profesor|El docente estará en Italia. Las clases podrían ser grabadas o reprogramadas ante problemas de conexión.|
-> |**Mediados de Octubre**|Trabajo Práctico (TP)|Entrega de TP de ejercicios (posiblemente un TP largo de ~20 ejercicios).|
-> |**22 de Octubre**|Clase Presencial|Tercera instancia presencial obligatoria (según planificación tentativa).|
-> |**29 de Octubre**|**Examen Parcial**|Evaluación presencial de contenidos teóricos y prácticos.|
-> |**Noviembre (Post-Parcial)**|Avances de Proyecto|Dinámica de tutorías: cada grupo tiene 30 min asignados para corrección.|
-> |**Fines de Noviembre**|Presentación Final|Exposición presencial de los proyectos grupales funcionales.|
-> 
-> **Recordatorios Importantes:**
-> 
-> - **Asistencia:** Hay 4 clases presenciales mínimas obligatorias.
-> - **Grupos:** El trabajo es grupal para simular entornos de desarrollo reales.
-> - **Entorno:** Es obligatorio tener Node.js instalado y funcional en las máquinas personales para el inicio del proyecto.
+> - **Próxima Clase (Viernes siguiente):** Será una **Actividad Asincrónica**. El profesor no estará presente de forma sincrónica debido a su participación en una jornada por el Día del Estudiante en Cañuelas.
+> - **Plataforma:** La actividad será subida al Aula Virtual.
+> - **Tema de la Actividad:** **Diagramas de Estado**. Se enfocará en la investigación de estados y diagramas de computadoras.
+> - **Fecha de Entrega:** **3 de octubre**.
+> - **Metodología:** Se recomienda el trabajo en equipo. La tarea consistirá en buscar un diagrama sencillo de una computadora y responder pautas escritas o preguntas.
 > 
 > --------------------------------------------------------------------------------
 > 
 > ## 9. Preguntas de Repaso
 > 
-> ### Básicas
+> ### Nivel Básico
 > 
-> 1. ¿Cuál es la diferencia principal entre una Clase y un Objeto?
-> 2. Defina los conceptos de Atributo y Método.
-> 3. ¿Para qué sirve el método Constructor de una clase?
+> 1. ¿Qué diferencia principal existe entre un diagrama de objetos y uno de colaboración?
+> 2. ¿Cómo se representa visualmente un mensaje en un diagrama de colaboración?
+> 3. ¿Por qué es fundamental incluir un "Actor" en el diagrama?
 > 
-> ### Intermedias
+> ### Nivel Intermedio
 > 
-> 4. Explique la importancia del Encapsulamiento con un ejemplo que no sea el del automóvil.
-> 5. ¿Por qué el paradigma procedimental dificulta el mantenimiento de sistemas grandes?
-> 6. ¿Qué diferencia hay entre un atributo de instancia y un atributo de clase?
+> 4. Explique la función de la numeración en las secuencias de mensajes.
+> 5. ¿Qué representa un objeto con bordes reforzados y qué nombre recibe?
+> 6. En un sistema de software, ¿cuál es la importancia de la acción de "copia" antes de eliminar un objeto B?
 > 
-> ### Avanzadas
+> ### Nivel Avanzado
 > 
-> 7. Describa el proceso de Abstracción al diseñar una clase `Producto` para un banco vs. para un supermercado.
-> 8. ¿Cómo se relaciona la herencia con la reutilización de código?
-> 9. Analice por qué JavaScript se considera un lenguaje apto para este paradigma a pesar de ser multiparadigma.
+> 7. Analice la frase: "El diagrama de colaboración muestra simultáneamente interacciones y relaciones estructurales". ¿Cómo se logra esto gráficamente?
+> 8. Describa cómo se aplicaría la sintaxis de mensajes múltiples en un sistema de combinación de correspondencia (_mailing_).
 
 > [!quote]- Video resumen, infografía y presentación
 > # 1. Video resumen
 > 
-> <iframe title="Clase 1 - Desarrollo de sistemas orientado a objetos" src="https://www.youtube.com/embed/vnjtJeCOHYM?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe title="Clase 5 - Modelado y diseño de software" src="https://www.youtube.com/embed/8RNbO7jO29c?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 2. Infografía
 > 
-> <iframe src="https://drive.google.com/file/d/1fSpXQSUxFjlAgI2zsIKVRtyF_kkjPB_D/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/179Y_q2Be8A8gE8siZSUlJR3uzNdwZJ_6/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 3. Presentación
 > 
-> <iframe src="https://drive.google.com/file/d/1qvm3ckFbOSYjyvO2XjnR2_5t-FU_M-rf/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1-XhI-qnTswulWawUXy79-r5gRNG7LNTV/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>

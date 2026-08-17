@@ -3,176 +3,163 @@
 ---
 
 > [!quote]- Resumen
-> # Guía Integral de Estudio: Desarrollo de Sistemas Orientados a Objetos
+> # Guía de Estudio: Medidas de Tendencia Central y Dispersión en Estadística
 > 
-> Este documento constituye una síntesis exhaustiva de los fundamentos de la programación orientada a objetos (POO) y la configuración de entornos de desarrollo, diseñada como material de estudio principal para la materia.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 1. Introducción General al Paradigma
-> 
-> El desarrollo de sistemas ha evolucionado a través de diferentes **paradigmas de programación**, que son esencialmente modelos o estilos de programación que definen cómo se estructura y ejecuta el código. La transición hacia la **Programación Orientada a Objetos (POO)** surge como una respuesta a las limitaciones de los modelos anteriores para gestionar la complejidad creciente de los sistemas informáticos.
-> 
-> Esta materia se define como un "híbrido": combina la teoría profunda de la POO con el aprendizaje práctico de la **infraestructura y el setup de desarrollo**. El objetivo es que el estudiante no solo comprenda la lógica de objetos, sino que también domine el ecosistema de herramientas (servidores, bases de datos, entornos de ejecución) necesarias para profesionalizar el desarrollo de aplicaciones.
+> Este documento constituye un material de estudio exhaustivo basado en la sesión académica del 18 de septiembre sobre Estadística y Probabilidad aplicada al desarrollo de software. El contenido profundiza en el cálculo de la mediana mediante interpolación en intervalos de clase y proporciona una introducción técnica a la desviación media.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 2. Contexto e Importancia: Del Modelo Procedimental a la POO
+> ## 1. Introducción General
 > 
-> ### El Paradigma Procedimental
+> En el análisis estadístico, el manejo de grandes volúmenes de datos requiere su agrupación en **intervalos de clase**. A diferencia de los datos aislados, los datos agrupados demandan métodos matemáticos específicos para hallar valores representativos. Esta guía se centra en la transición de conceptos básicos a la aplicación de fórmulas de interpolación para determinar la mediana y el estudio de la variabilidad mediante la desviación media.
 > 
-> Históricamente, la programación era predominantemente procedimental. Se basaba en una secuencia de instrucciones con estructuras de control (condicionales e iteraciones). Aunque funcional, presentaba dos problemas críticos al escalar:
+> ### Contexto y Relevancia
 > 
-> 1. **Dificultad de Mantenimiento:** Modificar una funcionalidad en un sistema extenso implicaba rastrear infinitas líneas de código, con un alto riesgo de romper partes no relacionadas ("efecto dominó").
-> 2. **Baja Reutilización:** El código estaba tan entrelazado con funciones específicas de una aplicación que era casi imposible trasladarlo a otro proyecto.
-> 
-> ### El Surgimiento de la POO
-> 
-> En la década de los 90, la POO se consolidó (con lenguajes como Java y C++) como la solución para organizar el software de manera similar a cómo percibimos el mundo real: a través de entidades con características y comportamientos definidos. Hoy en día, los lenguajes modernos como JavaScript o Python son multiparadigma, permitiendo combinar lo procedimental, lo lógico, lo funcional y lo orientado a objetos de forma fluida.
+> El estudio de estas medidas permite comprender la distribución de una muestra o población. Mientras que la media aritmética proporciona un promedio ponderado, la mediana identifica el centro exacto de la distribución, siendo menos sensible a valores extremos. Estas herramientas son fundamentales para la creación de gráficas y la toma de decisiones basada en datos en el ámbito del desarrollo de software.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 3. Marco Conceptual: Definición de Conceptos Clave
+> ## 2. Marco Conceptual: Definiciones Clave
 > 
-> Para entender la POO desde cero, es fundamental distinguir entre sus componentes básicos:
+> Para abordar los temas avanzados, es imperativo comprender los siguientes términos fundamentales:
 > 
-> ### A. Clase (El Molde)
-> 
-> Es una abstracción que define la estructura de un tipo de objeto. Se escribe siempre en **singular** (ej. `Cliente`, no `Clientes`). Define qué datos tendrá el objeto y qué podrá hacer.
-> 
-> ### B. Objeto o Instancia (El Resultado)
-> 
-> Es la materialización de la clase. Mientras que la clase es el "plano", el objeto es la "casa construida". Cada objeto ocupa un lugar en la memoria (variable) y tiene valores específicos para sus atributos.
-> 
-> - _Sintaxis conceptual:_ `Variable = New Clase()`.
-> 
-> ### C. Atributos (Datos/Características)
-> 
-> Son las variables internas de la clase que definen las propiedades del objeto.
-> 
-> - **Públicos:** Accesibles desde cualquier parte del código.
-> - **Privados:** Solo pueden ser modificados por los métodos internos de la misma clase (crucial para la seguridad de datos como contraseñas o saldos).
-> - **De Instancia:** Valores que cambian entre objetos (ej. el nombre de cada cliente).
-> - **De Clase:** Valores compartidos por todos los objetos de esa clase (ej. la anatomía básica en una clase `Persona`).
-> 
-> ### D. Métodos (Funciones/Comportamientos)
-> 
-> Son las acciones que el objeto puede realizar.
-> 
-> - **Constructores:** El método especial que se ejecuta automáticamente al crear un objeto (`new`). Se encarga de inicializar los atributos.
-> - **Getters:** Métodos para obtener/leer el valor de un atributo.
-> - **Setters:** Métodos para establecer o modificar el valor de un atributo, permitiendo incluir validaciones.
+> - **Frecuencia (****f****):** Cantidad de veces que se repite un valor o cae dentro de un intervalo.
+> - **Marca de Clase:** El punto medio de un intervalo de clase.
+> - **Límites Reales (Inferior y Superior):** Los puntos exactos que delimitan un intervalo, evitando brechas entre ellos (ej. 144.5 a 149.5).
+> - **Mediana (****Me****):** Parámetro que indica el centro de la muestra, dividiéndola en dos partes iguales (50% por encima y 50% por debajo).
+> - **Media (****\bar{x}****):** Promedio de los datos. En intervalos, se sitúa cerca de los rangos con mayor población o frecuencia.
+> - **Interpolación:** Método matemático para estimar un valor intermedio dentro de un intervalo de clase cuando se conoce la posición de la mediana pero no su valor exacto.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 4. Los Cuatro Pilares de la POO
+> ## 3. Desarrollo del Tema: La Mediana en Datos Agrupados
 > 
-> La solidez de este paradigma se apoya en cuatro conceptos fundamentales que guían el diseño de software:
+> Cuando se trabaja con intervalos, la mediana no se encuentra simplemente seleccionando un número, sino mediante un proceso de **interpolación lineal**.
 > 
-> |   |   |   |
-> |---|---|---|
-> |Pilar|Descripción|Analogía / Ejemplo|
-> |**Abstracción**|Proceso de simplificar la realidad, seleccionando solo los atributos y métodos relevantes para el sistema y descartando el resto.|Para un banco, un `Cliente` es un DNI y un saldo; no importa su altura o color de ojos.|
-> |**Encapsulamiento**|Ocultar la complejidad interna. Los datos están "protegidos" dentro del objeto y solo se accede a ellos a través de métodos autorizados.|Para conducir un auto, presionas el acelerador (método); no necesitas saber cómo funciona la inyección de combustible (lógica interna).|
-> |**Herencia**|Capacidad de crear clases nuevas a partir de clases existentes, heredando sus atributos y métodos. Permite jerarquías (clase padre/hijo).|Una clase `Persona` (padre) hereda sus rasgos a `Empleado` y `Cliente` (hijos).|
-> |**Polimorfismo**|Capacidad de que diferentes clases respondan de manera distinta a un mismo mensaje o método.|El método `CerrarCuenta` actuará distinto si es una `Caja de Ahorro` o una `Cuenta Corriente`.|
+> ### 3.1. Procedimiento de Cálculo (Paso a Paso)
 > 
-> --------------------------------------------------------------------------------
+> 1. **Identificar el Total de la Muestra (****N****):** Sumar todas las frecuencias.
+> 2. **Determinar la Posición de la Mediana:** Dividir N por 2 (N/2).
+>     - _Nota:_ Si N es impar (ej. 41), se puede redondear o usar el valor exacto (20.5), ya que la diferencia en el resultado final es mínima.
+> 3. **Localizar el Intervalo de la Mediana:** Sumar las frecuencias de forma acumulada desde el primer intervalo hasta llegar o sobrepasar el valor de N/2.
+> 4. **Aplicar el Concepto de "Préstamo":** Si la suma de las frecuencias anteriores no alcanza a N/2, se identifica cuánto falta y se le "pide" esa cantidad al intervalo siguiente (el intervalo donde reside la mediana).
 > 
-> ## 5. Desarrollo del Entorno y Ecosistema Tecnológico
+> ### 3.2. Fórmulas de Interpolación
 > 
-> Un pilar de esta formación es el **Setup de Infraestructura**. No basta con programar la lógica; se debe configurar el entorno donde la aplicación "vive".
+> El documento identifica dos variantes de la fórmula, siendo la versión reducida la más práctica para el uso en herramientas como Excel:
 > 
-> - **Ecosistema JavaScript:** Es la decisión estándar para el desarrollo en este curso.
-> - **Node.js:** El entorno que permite ejecutar JavaScript fuera del navegador (en el servidor). Es vital saber gestionar paquetes (instalar/desinstalar).
-> - **Express:** Framework de Node para crear servidores web y APIs que responden a solicitudes de navegadores.
-> - **Bases de Datos:** Se requiere conexión y capacidad de realizar consultas (queries) para crear, modificar y acceder a datos. Se mencionan opciones vectoriales para IA como Pinecone o Chroma.
-> - **Frontend:** El usuario interactúa mediante HTML y CSS. Se permite el uso de frameworks como Angular, React o Next para quienes deseen mayor complejidad.
-> - **Inteligencia Artificial (IA):** Se incentiva el uso de IAs (vía API o modelos locales) tanto para asistir en la codificación como para integrarlas como funcionalidades dentro de las aplicaciones.
+> **Fórmula Reducida:** Me = LRI + \left( \frac{\text{Cantidad faltante para llegar a } N/2}{\text{Frecuencia del intervalo actual}} \right) \times \text{Amplitud del intervalo}
+> 
+> Donde:
+> 
+> - **LRI:** Límite Real Inferior del intervalo donde se encuentra la mediana.
+> - **Amplitud:** Diferencia entre el Límite Real Superior y el Límite Real Inferior.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 6. Ejemplos Prácticos: Sistema Bancario
+> ## 4. Relación entre Conceptos y Parámetros
 > 
-> A continuación, se detalla cómo se estructuraría una aplicación bancaria bajo este paradigma:
+> Es crucial distinguir cómo interactúan la media, la mediana y la moda:
 > 
-> ### Clase: `CuentaBancaria`
-> 
-> - **Atributos:** `numeroCuenta`, `propietario`, `CBU`, `montoDisponible` (privado), `limite`.
-> - **Métodos:**
->     - `getSaldo()`: Retorna el dinero disponible.
->     - `setLimite(nuevoLimite)`: Modifica el límite previa validación.
->     - `checkOperacion()`: Verifica si una transacción no supera el límite.
-> 
-> ### Relación entre Clases
-> 
-> Un sistema real conecta múltiples moldes:
-> 
-> 1. Un **Banco** (clase) tiene un atributo que es una **Lista/Array** de **Cuentas Bancarias**.
-> 2. Al ejecutar el método `aperturaCuenta()` en la clase `Cliente`, se invoca al **Constructor** de la clase `CuentaBancaria` para generar un nuevo objeto.
+> - **Proximidad:** Idealmente, en una distribución simétrica, la media y la mediana deberían coincidir o estar muy próximas.
+> - **Sensibilidad a la Población:** La media siempre se desplazará hacia el intervalo con mayor frecuencia o población (ponderación), mientras que la mediana se mantiene estrictamente en el centro geométrico de los datos.
+> - **Utilidad Gráfica:** La mediana sirve como el parámetro central para construir y entender la simetría de las gráficas estadísticas.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 7. Errores Comunes y Clarificaciones
+> ## 5. Ejemplos Prácticos
 > 
-> - **Confusión entre Clase y Objeto:** Es frecuente intentar asignar un valor (como un nombre específico) a la clase. El valor pertenece al objeto; la clase solo define que _existirá_ un nombre.
-> - **Exceso de Atributos:** No realizar una abstracción correcta lleva a sistemas pesados con datos innecesarios.
-> - **Transparencia en Cambios:** Una gran ventaja del encapsulamiento es que si se cambia la lógica de un método (ej. cómo se autentica una contraseña), el resto del sistema no se entera ni se rompe, siempre que la respuesta final del método siga siendo la misma.
+> ### Caso 1: Muestra Par (N=40)
+> 
+> Se tiene una tabla con frecuencias acumuladas. El objetivo es hallar la mediana.
+> 
+> 1. **Posición:** 40 / 2 = 20.
+> 2. **Acumulación:** La suma de las primeras tres frecuencias da 17 (3 + 5 + 9 = 17).
+> 3. **Diferencia:** Faltan 3 para llegar a 20.
+> 4. **Intervalo Siguiente:** El siguiente intervalo tiene una frecuencia de 12 y un LRI de 144.5.
+> 5. **Cálculo:**
+>     - Proporción: 3 / 12 = 0.25.
+>     - Amplitud del intervalo: 149.5 - 144.5 = 5.
+>     - Ajuste: 0.25 \times 5 = 1.25.
+>     - **Resultado Final:** 144.5 + 1.25 = 145.75 (o valores cercanos según la precisión del Excel, ej. 146.35 en el caso discutido en clase).
+> 
+> ### Caso 2: Muestra Impar (N=41)
+> 
+> 6. **Posición:** 41 / 2 = 20.5 (se puede tomar 20 para facilitar el cálculo).
+> 7. **Acumulación:** Se llega a una frecuencia de 11 antes del intervalo crítico.
+> 8. **Diferencia:** Se necesitan 9 adicionales para llegar a 20.
+> 9. **Cálculo:** Se toma el LRI del intervalo actual, se suma la proporción de 9 sobre la frecuencia del intervalo, multiplicada por la diferencia de los límites reales.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 6. Introducción a la Desviación Media
+> 
+> La **Desviación Media** mide cuánto se alejan, en promedio, los valores de una población respecto a su media aritmética.
+> 
+> ### Proceso de Cálculo para Poblaciones (Datos No Agrupados)
+> 
+> 10. **Calcular la Media (****\bar{x}****):** Promedio simple de todos los valores.
+> 11. **Calcular Desviaciones:** Restar la media a cada valor individual (x - \bar{x}).
+>     - _Verificación:_ La suma de todas las desviaciones (con sus signos) debe ser **cero**.
+> 12. **Aplicar Valor Absoluto (Función ABS en Excel):** Convertir todos los resultados negativos en positivos.
+> 13. **Promediar:** Sumar los valores absolutos y dividir por el total de la población (N).
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 7. Errores Comunes y Aclaraciones
+> 
+> - **Confusión de Límites:** No utilizar los límites reales (con decimales .5) puede sesgar el resultado de la interpolación.
+> - **Signos en Desviación:** Un error frecuente es sumar las desviaciones sin aplicar el valor absoluto, lo cual resultará siempre en cero y no proporcionará información sobre la dispersión.
+> - **Uso de Fórmulas en Excel:** Para poblaciones directas (datos no agrupados), es más eficiente usar las funciones integradas de Excel en lugar de la fórmula manual de interpolación.
+> - **Redondeo en Impares:** En muestras impares, redondear la posición N/2 no afecta significativamente la validez académica del ejercicio en este nivel.
 > 
 > --------------------------------------------------------------------------------
 > 
 > ## 8. Fechas Importantes y Avisos Académicos
 > 
-> Basado en la planificación docente y los anuncios de clase, se establecen los siguientes hitos:
+> Basado en la comunicación directa durante la sesión, se establecen los siguientes puntos:
 > 
 > |   |   |   |
 > |---|---|---|
-> |Fecha (Estimada/Fija)|Tipo de Evento|Descripción Detallada|
-> |**Clase 3 o 4**|Inicio de Proyecto|Comienzo del trabajo grupal y configuración de infraestructura (Node, bases de datos).|
-> |**Fines de Agosto - 20 Sept.**|Viaje del Profesor|El docente estará en Italia. Las clases podrían ser grabadas o reprogramadas ante problemas de conexión.|
-> |**Mediados de Octubre**|Trabajo Práctico (TP)|Entrega de TP de ejercicios (posiblemente un TP largo de ~20 ejercicios).|
-> |**22 de Octubre**|Clase Presencial|Tercera instancia presencial obligatoria (según planificación tentativa).|
-> |**29 de Octubre**|**Examen Parcial**|Evaluación presencial de contenidos teóricos y prácticos.|
-> |**Noviembre (Post-Parcial)**|Avances de Proyecto|Dinámica de tutorías: cada grupo tiene 30 min asignados para corrección.|
-> |**Fines de Noviembre**|Presentación Final|Exposición presencial de los proyectos grupales funcionales.|
+> |Fecha|Evento / Actividad|Descripción Detallada|
+> |**02 de octubre**|**Primer Examen Parcial**|Evaluación bajo modalidad "Blitz". Duración estimada: 15 minutos.|
+> |**25 de septiembre**|Clase de Desarrollo|Se profundizará en Desviación Media y otros parámetros de dispersión.|
+> |**30 de noviembre**|Fin de cursada|Fecha estimada de finalización del periodo lectivo.|
 > 
-> **Recordatorios Importantes:**
+> **Recordatorios Académicos:**
 > 
-> - **Asistencia:** Hay 4 clases presenciales mínimas obligatorias.
-> - **Grupos:** El trabajo es grupal para simular entornos de desarrollo reales.
-> - **Entorno:** Es obligatorio tener Node.js instalado y funcional en las máquinas personales para el inicio del proyecto.
+> - **Metodología del Parcial:** Los cálculos se realizan en Excel para mayor agilidad, pero los resultados finales deben entregarse de forma manuscrita (a mano).
+> - **Material de Estudio:** Es vital dominar el cálculo de la **media**, ya que es el parámetro de referencia para todos los temas subsiguientes (como la desviación media).
+> - **Uso de Fórmulas:** El profesor permite tener las fórmulas disponibles durante los ejercicios, priorizando la comprensión del proceso sobre la memorización.
 > 
 > --------------------------------------------------------------------------------
 > 
 > ## 9. Preguntas de Repaso
 > 
-> ### Básicas
+> ### Nivel Básico
 > 
-> 1. ¿Cuál es la diferencia principal entre una Clase y un Objeto?
-> 2. Defina los conceptos de Atributo y Método.
-> 3. ¿Para qué sirve el método Constructor de una clase?
+> 1. ¿Cuál es la diferencia principal entre la media y la mediana en términos de qué representan?
+> 2. ¿Por qué la suma de las desviaciones respecto a la media (x - \bar{x}) siempre da cero?
 > 
-> ### Intermedias
+> ### Nivel Intermedio
 > 
-> 4. Explique la importancia del Encapsulamiento con un ejemplo que no sea el del automóvil.
-> 5. ¿Por qué el paradigma procedimental dificulta el mantenimiento de sistemas grandes?
-> 6. ¿Qué diferencia hay entre un atributo de instancia y un atributo de clase?
+> 1. En una muestra de 60 datos agrupados, si las frecuencias acumuladas hasta el intervalo 2 suman 25, ¿cuántas unidades debes "pedirle" al intervalo 3 para hallar la mediana?
+> 2. ¿Qué función de Excel se utiliza para convertir las desviaciones negativas en positivas al calcular la desviación media?
 > 
-> ### Avanzadas
+> ### Nivel Avanzado
 > 
-> 7. Describa el proceso de Abstracción al diseñar una clase `Producto` para un banco vs. para un supermercado.
-> 8. ¿Cómo se relaciona la herencia con la reutilización de código?
-> 9. Analice por qué JavaScript se considera un lenguaje apto para este paradigma a pesar de ser multiparadigma.
+> 1. Explique por qué en una distribución con una frecuencia muy alta en los valores iniciales, la media tiende a alejarse del centro geométrico mientras que la mediana permanece en él.
+> 2. Realice el cálculo de la mediana para un intervalo con LRI = 100, LRS = 110, frecuencia del intervalo = 10, y una necesidad de "préstamo" de 4 unidades. (Respuesta esperada: 100 + (4/10) \times 10 = 104).
 
 > [!quote]- Video resumen, infografía y presentación
 > # 1. Video resumen
 > 
-> <iframe title="Clase 1 - Desarrollo de sistemas orientado a objetos" src="https://www.youtube.com/embed/vnjtJeCOHYM?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe title="Clase 5 - Estadística y probabilidad para el desarrollo de software" src="https://www.youtube.com/embed/slsvfHDOybA?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 2. Infografía
 > 
-> <iframe src="https://drive.google.com/file/d/1fSpXQSUxFjlAgI2zsIKVRtyF_kkjPB_D/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1gX1OWmff6_X2o0402KJklQX3O9kssHag/preview" width="640" height="480"></iframe>
 > 
 > # 3. Presentación
 > 
-> <iframe src="https://drive.google.com/file/d/1qvm3ckFbOSYjyvO2XjnR2_5t-FU_M-rf/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1PihhJ4a8zoLFcATTmkEWj-_7ENON4W-l/preview" width="640" height="480"></iframe>

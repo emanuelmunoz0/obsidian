@@ -3,176 +3,180 @@
 ---
 
 > [!quote]- Resumen
-> # Guía Integral de Estudio: Desarrollo de Sistemas Orientados a Objetos
+> # Guía de Estudio Completa: Diagramas de Secuencia y Modelado de Software
 > 
-> Este documento constituye una síntesis exhaustiva de los fundamentos de la programación orientada a objetos (POO) y la configuración de entornos de desarrollo, diseñada como material de estudio principal para la materia.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 1. Introducción General al Paradigma
-> 
-> El desarrollo de sistemas ha evolucionado a través de diferentes **paradigmas de programación**, que son esencialmente modelos o estilos de programación que definen cómo se estructura y ejecuta el código. La transición hacia la **Programación Orientada a Objetos (POO)** surge como una respuesta a las limitaciones de los modelos anteriores para gestionar la complejidad creciente de los sistemas informáticos.
-> 
-> Esta materia se define como un "híbrido": combina la teoría profunda de la POO con el aprendizaje práctico de la **infraestructura y el setup de desarrollo**. El objetivo es que el estudiante no solo comprenda la lógica de objetos, sino que también domine el ecosistema de herramientas (servidores, bases de datos, entornos de ejecución) necesarias para profesionalizar el desarrollo de aplicaciones.
+> Este documento constituye un material de estudio integral basado en la clase de Modelado y Diseño de Software. Su propósito es proporcionar una comprensión profunda de los diagramas de secuencia, su integración con otros modelos de software y las mejores prácticas de documentación técnica exigidas en el ámbito académico y profesional.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 2. Contexto e Importancia: Del Modelo Procedimental a la POO
+> ## 1. Introducción general
 > 
-> ### El Paradigma Procedimental
+> El modelado de software no es un proceso estático; es una evolución que parte de estructuras fundamentales (clases) para llegar a la representación de comportamientos dinámicos. Dentro de este proceso, el **diagrama de secuencia** se presenta como una herramienta crítica de interacción que permite visualizar cómo los componentes de un sistema trabajan en conjunto para cumplir una tarea específica.
 > 
-> Históricamente, la programación era predominantemente procedimental. Se basaba en una secuencia de instrucciones con estructuras de control (condicionales e iteraciones). Aunque funcional, presentaba dos problemas críticos al escalar:
+> ### Contexto e importancia
 > 
-> 1. **Dificultad de Mantenimiento:** Modificar una funcionalidad en un sistema extenso implicaba rastrear infinitas líneas de código, con un alto riesgo de romper partes no relacionadas ("efecto dominó").
-> 2. **Baja Reutilización:** El código estaba tan entrelazado con funciones específicas de una aplicación que era casi imposible trasladarlo a otro proyecto.
+> El diagrama de secuencia es un tipo de **diagrama de interacción** que describe el "cómo" y el "en qué orden" un grupo de objetos funciona en conjunto. Su relevancia radica en:
 > 
-> ### El Surgimiento de la POO
-> 
-> En la década de los 90, la POO se consolidó (con lenguajes como Java y C++) como la solución para organizar el software de manera similar a cómo percibimos el mundo real: a través de entidades con características y comportamientos definidos. Hoy en día, los lenguajes modernos como JavaScript o Python son multiparadigma, permitiendo combinar lo procedimental, lo lógico, lo funcional y lo orientado a objetos de forma fluida.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 3. Marco Conceptual: Definición de Conceptos Clave
-> 
-> Para entender la POO desde cero, es fundamental distinguir entre sus componentes básicos:
-> 
-> ### A. Clase (El Molde)
-> 
-> Es una abstracción que define la estructura de un tipo de objeto. Se escribe siempre en **singular** (ej. `Cliente`, no `Clientes`). Define qué datos tendrá el objeto y qué podrá hacer.
-> 
-> ### B. Objeto o Instancia (El Resultado)
-> 
-> Es la materialización de la clase. Mientras que la clase es el "plano", el objeto es la "casa construida". Cada objeto ocupa un lugar en la memoria (variable) y tiene valores específicos para sus atributos.
-> 
-> - _Sintaxis conceptual:_ `Variable = New Clase()`.
-> 
-> ### C. Atributos (Datos/Características)
-> 
-> Son las variables internas de la clase que definen las propiedades del objeto.
-> 
-> - **Públicos:** Accesibles desde cualquier parte del código.
-> - **Privados:** Solo pueden ser modificados por los métodos internos de la misma clase (crucial para la seguridad de datos como contraseñas o saldos).
-> - **De Instancia:** Valores que cambian entre objetos (ej. el nombre de cada cliente).
-> - **De Clase:** Valores compartidos por todos los objetos de esa clase (ej. la anatomía básica en una clase `Persona`).
-> 
-> ### D. Métodos (Funciones/Comportamientos)
-> 
-> Son las acciones que el objeto puede realizar.
-> 
-> - **Constructores:** El método especial que se ejecuta automáticamente al crear un objeto (`new`). Se encarga de inicializar los atributos.
-> - **Getters:** Métodos para obtener/leer el valor de un atributo.
-> - **Setters:** Métodos para establecer o modificar el valor de un atributo, permitiendo incluir validaciones.
+> - **Jerarquización del trabajo:** Permite organizar las tareas asignando intervalos de tiempo específicos a cada objeto.
+> - **Claridad operativa:** Muestra el flujo de un proceso desde su inicio por un usuario hasta su finalización o retorno al origen.
+> - **Personalización del diseño:** No existe un orden preestablecido por terceros; el diseñador es quien administra la lógica de la secuencia según la necesidad del sistema.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 4. Los Cuatro Pilares de la POO
+> ## 2. Marco conceptual
 > 
-> La solidez de este paradigma se apoya en cuatro conceptos fundamentales que guían el diseño de software:
+> Para comprender los diagramas de secuencia, es necesario definir sus componentes fundamentales y el lenguaje visual que los sustenta.
 > 
-> |   |   |   |
-> |---|---|---|
-> |Pilar|Descripción|Analogía / Ejemplo|
-> |**Abstracción**|Proceso de simplificar la realidad, seleccionando solo los atributos y métodos relevantes para el sistema y descartando el resto.|Para un banco, un `Cliente` es un DNI y un saldo; no importa su altura o color de ojos.|
-> |**Encapsulamiento**|Ocultar la complejidad interna. Los datos están "protegidos" dentro del objeto y solo se accede a ellos a través de métodos autorizados.|Para conducir un auto, presionas el acelerador (método); no necesitas saber cómo funciona la inyección de combustible (lógica interna).|
-> |**Herencia**|Capacidad de crear clases nuevas a partir de clases existentes, heredando sus atributos y métodos. Permite jerarquías (clase padre/hijo).|Una clase `Persona` (padre) hereda sus rasgos a `Empleado` y `Cliente` (hijos).|
-> |**Polimorfismo**|Capacidad de que diferentes clases respondan de manera distinta a un mismo mensaje o método.|El método `CerrarCuenta` actuará distinto si es una `Caja de Ahorro` o una `Cuenta Corriente`.|
+> ### Conceptos clave
 > 
-> --------------------------------------------------------------------------------
-> 
-> ## 5. Desarrollo del Entorno y Ecosistema Tecnológico
-> 
-> Un pilar de esta formación es el **Setup de Infraestructura**. No basta con programar la lógica; se debe configurar el entorno donde la aplicación "vive".
-> 
-> - **Ecosistema JavaScript:** Es la decisión estándar para el desarrollo en este curso.
-> - **Node.js:** El entorno que permite ejecutar JavaScript fuera del navegador (en el servidor). Es vital saber gestionar paquetes (instalar/desinstalar).
-> - **Express:** Framework de Node para crear servidores web y APIs que responden a solicitudes de navegadores.
-> - **Bases de Datos:** Se requiere conexión y capacidad de realizar consultas (queries) para crear, modificar y acceder a datos. Se mencionan opciones vectoriales para IA como Pinecone o Chroma.
-> - **Frontend:** El usuario interactúa mediante HTML y CSS. Se permite el uso de frameworks como Angular, React o Next para quienes deseen mayor complejidad.
-> - **Inteligencia Artificial (IA):** Se incentiva el uso de IAs (vía API o modelos locales) tanto para asistir en la codificación como para integrarlas como funcionalidades dentro de las aplicaciones.
+> - **Interacción:** Es el diálogo o intercambio de información entre distintas interfaces u objetos del sistema.
+> - **Línea de vida (Lifeline):** Representa la existencia de un objeto a lo largo del tiempo durante la interacción.
+> - **Mensajes:** Son las acciones o comunicaciones enviadas entre objetos. Se representan mediante flechas:
+>     - **Trazo grueso:** Mensajes de acción o envío.
+>     - **Trazo discontinuo:** Mensajes de respuesta.
+> - **Objeto:** Representado por un símbolo de rectángulo (a menudo sin relleno o casilla de verificación).
+> - **Actor:** Entidad externa (generalmente un usuario) que inicia la secuencia.
+> - **Interfaz:** Se representa mediante rectángulos y sirve como punto de diálogo en un lenguaje coloquial con otras interfaces.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 6. Ejemplos Prácticos: Sistema Bancario
+> ## 3. Desarrollo del tema: El Diagrama de Secuencia
 > 
-> A continuación, se detalla cómo se estructuraría una aplicación bancaria bajo este paradigma:
+> El diagrama de secuencia se apoya fuertemente en el **diagrama de clases** previo. Mientras que el de clases define la estructura, el de secuencia define la dinámica temporal.
 > 
-> ### Clase: `CuentaBancaria`
+> ### Lógica y estructura de la secuencia
 > 
-> - **Atributos:** `numeroCuenta`, `propietario`, `CBU`, `montoDisponible` (privado), `limite`.
-> - **Métodos:**
->     - `getSaldo()`: Retorna el dinero disponible.
->     - `setLimite(nuevoLimite)`: Modifica el límite previa validación.
->     - `checkOperacion()`: Verifica si una transacción no supera el límite.
+> La secuencia no debe entenderse como una lista de prioridades rígidas (primero, segundo, tercero), sino como un flujo administrado por el diseñador.
 > 
-> ### Relación entre Clases
+> 1. **Inicio:** Todo comienza con un disparador, usualmente un usuario o actor.
+> 2. **Intervalos de tiempo:** A cada objeto se le asigna un tiempo entre una tarea y otra.
+> 3. **Escenarios:** Se pueden crear múltiples escenarios (ida y vuelta) para prever funcionalidades presentes y futuras.
+> 4. **Bifurcaciones y Decisiones:** Aunque el fuerte del diagrama no es el uso de rombos (típicos de diagramas de flujo), las decisiones están implícitas. Por ejemplo, en un proceso de pago, existen dos líneas de secuencia posibles: "pago aceptado" o "pago rechazado".
 > 
-> Un sistema real conecta múltiples moldes:
+> ### Elementos avanzados
 > 
-> 1. Un **Banco** (clase) tiene un atributo que es una **Lista/Array** de **Cuentas Bancarias**.
-> 2. Al ejecutar el método `aperturaCuenta()` en la clase `Cliente`, se invoca al **Constructor** de la clase `CuentaBancaria` para generar un nuevo objeto.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 7. Errores Comunes y Clarificaciones
-> 
-> - **Confusión entre Clase y Objeto:** Es frecuente intentar asignar un valor (como un nombre específico) a la clase. El valor pertenece al objeto; la clase solo define que _existirá_ un nombre.
-> - **Exceso de Atributos:** No realizar una abstracción correcta lleva a sistemas pesados con datos innecesarios.
-> - **Transparencia en Cambios:** Una gran ventaja del encapsulamiento es que si se cambia la lógica de un método (ej. cómo se autentica una contraseña), el resto del sistema no se entera ni se rompe, siempre que la respuesta final del método siga siendo la misma.
+> - **Paquetes:** Se pueden agrupar elementos relacionados para organizar diagramas complejos.
+> - **Lazos (Loops):** Representan operaciones repetitivas dentro de la secuencia.
+> - **Time out:** Se puede especificar un tiempo límite para una respuesta.
+> - **Auto-destrucción de mensajes:** Siguiendo la lógica de algunas redes sociales, el diagrama puede contemplar que un mensaje desaparezca tras ser visualizado o leído.
+> - **Secuencias seriales y paralelas:** El diseñador tiene la libertad de utilizar técnicas de ejecución en serie o en paralelo según la arquitectura del software.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 8. Fechas Importantes y Avisos Académicos
+> ## 4. Relaciones entre conceptos
 > 
-> Basado en la planificación docente y los anuncios de clase, se establecen los siguientes hitos:
+> El modelado de software es un ecosistema de diagramas interconectados:
 > 
-> |   |   |   |
-> |---|---|---|
-> |Fecha (Estimada/Fija)|Tipo de Evento|Descripción Detallada|
-> |**Clase 3 o 4**|Inicio de Proyecto|Comienzo del trabajo grupal y configuración de infraestructura (Node, bases de datos).|
-> |**Fines de Agosto - 20 Sept.**|Viaje del Profesor|El docente estará en Italia. Las clases podrían ser grabadas o reprogramadas ante problemas de conexión.|
-> |**Mediados de Octubre**|Trabajo Práctico (TP)|Entrega de TP de ejercicios (posiblemente un TP largo de ~20 ejercicios).|
-> |**22 de Octubre**|Clase Presencial|Tercera instancia presencial obligatoria (según planificación tentativa).|
-> |**29 de Octubre**|**Examen Parcial**|Evaluación presencial de contenidos teóricos y prácticos.|
-> |**Noviembre (Post-Parcial)**|Avances de Proyecto|Dinámica de tutorías: cada grupo tiene 30 min asignados para corrección.|
-> |**Fines de Noviembre**|Presentación Final|Exposición presencial de los proyectos grupales funcionales.|
-> 
-> **Recordatorios Importantes:**
-> 
-> - **Asistencia:** Hay 4 clases presenciales mínimas obligatorias.
-> - **Grupos:** El trabajo es grupal para simular entornos de desarrollo reales.
-> - **Entorno:** Es obligatorio tener Node.js instalado y funcional en las máquinas personales para el inicio del proyecto.
+> - **Diagrama de Clases** **\rightarrow** **Diagrama de Secuencia:** El diagrama de secuencia jerarquiza el trabajo iniciado en el de clases. No se puede construir una secuencia efectiva sin conocer los objetos y métodos definidos previamente.
+> - **Diagrama de Colaboración:** Funciona en conjunto con el de secuencia para mostrar cómo los objetos se comunican, permitiendo mejoras continuas (iteraciones) sobre el diseño original.
+> - **Documentación** **\rightarrow** **Diagrama:** El diagrama es la representación visual, pero la documentación es la "espalda" del trabajo; explica el contexto y la funcionalidad que el gráfico por sí solo podría no agotar.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 9. Preguntas de Repaso
+> ## 5. Ejemplos prácticos y casos aplicados
 > 
-> ### Básicas
+> ### Caso 1: Reserva de Hotel (Sistema de Gestión)
 > 
-> 1. ¿Cuál es la diferencia principal entre una Clase y un Objeto?
-> 2. Defina los conceptos de Atributo y Método.
-> 3. ¿Para qué sirve el método Constructor de una clase?
+> En un sistema de reservas, la secuencia incluiría:
 > 
-> ### Intermedias
+> 1. El usuario consulta disponibilidad.
+> 2. La interfaz de reserva comunica con el objeto "Habitación".
+> 3. Se procesa el pago.
+> 4. La reserva vuelve a comunicarse con la habitación para confirmar el cupo y retirarla de la disponibilidad.
+> 5. Se emite un voucher electrónico como respuesta.
 > 
-> 4. Explique la importancia del Encapsulamiento con un ejemplo que no sea el del automóvil.
-> 5. ¿Por qué el paradigma procedimental dificulta el mantenimiento de sistemas grandes?
-> 6. ¿Qué diferencia hay entre un atributo de instancia y un atributo de clase?
+> ### Caso 2: Comunicación de Hardware (Impresoras Matriciales)
 > 
-> ### Avanzadas
+> Un ejemplo histórico de secuencia es la comunicación entre una computadora y una impresora a través de un puerto paralelo:
 > 
-> 7. Describa el proceso de Abstracción al diseñar una clase `Producto` para un banco vs. para un supermercado.
-> 8. ¿Cómo se relaciona la herencia con la reutilización de código?
-> 9. Analice por qué JavaScript se considera un lenguaje apto para este paradigma a pesar de ser multiparadigma.
+> 6. Envío de datos (8 líneas de datos).
+> 7. Señales de control (Buffer lleno, Ok, Reintentar).
+> 8. Manejo de errores: Si no hay papel (_Auto paper_), el sistema genera un mensaje en el display o mantiene la cola de impresión en el software hasta que se solucione el factor externo.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 6. Errores comunes y confusiones
+> 
+> - **Rigidez en el orden:** Creer que alguien externo debe definir qué va primero o último. La secuencia es una decisión de diseño lógica del autor.
+> - **Confusión con Diagramas de Estado:** A diferencia del diagrama de estado, el de secuencia no prioriza quién está primero, sino cómo es el diálogo y la interacción entre interfaces.
+> - **Falta de Fin:** No todos los diagramas necesitan un nodo de "fin" explícito; muchos regresan al origen para reiniciar el ciclo.
+> - **Omitir lo Transversal:** No considerar factores externos (como problemas de conexión o situaciones del entorno) que pueden condicionar la secuencia normal.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 7. Protocolo de Documentación Técnica
+> 
+> Documentar no es describir cómo se hizo el dibujo, sino explicar qué hace el sistema. Se debe entregar un documento tipo **Brief** con las siguientes especificaciones:
+> 
+> |   |   |
+> |---|---|
+> |Elemento|Requisito de Formato|
+> |**Herramienta**|Microsoft Word.|
+> |**Encabezado**|Incluir: FTS1, Nombre de la materia (Modelado de Software), Lenguaje.|
+> |**Pie de página**|Número de página.|
+> |**Carátula**|Integrantes y datos institucionales.|
+> |**Contenido**|Descripción del contexto, funcionalidad y escenarios.|
+> 
+> ### Control de Versiones
+> 
+> Es fundamental registrar las modificaciones:
+> 
+> - **Versión 1.0:** Versión inicial aprobada.
+> - **Versión 1.1:** Modificaciones puntuales o menores.
+> - **Versión 2.0:** Modificaciones estructurales o cambios de fondo.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 8. Fechas importantes y avisos académicos
+> 
+> A partir del análisis de la sesión, se establecen los siguientes hitos y obligaciones:
+> 
+> - **Fecha: 31 de octubre**
+>     - **Evento:** Entrega de borrador.
+>     - **Descripción:** Presentación de un borrador del **Diagrama de Secuencia**. El tema es de libre elección (pueden continuar con el proyecto actual o elegir uno nuevo).
+> - **Fecha: Próxima clase (31 de octubre)**
+>     - **Evento:** Entrega de documentación técnica.
+>     - **Descripción:** Elegir un diagrama realizado previamente y entregar su documentación completa (manual/brief) en Word, siguiendo las normas de formato (encabezado, pie de página y carátula).
+> - **Recordatorio General:**
+>     - Se enfatiza la importancia de **documentar todo**. "La documentación es la espalda de su trabajo".
+>     - Cualquier ausencia por motivos de salud o fuerza mayor debe ser comunicada a través del **grupo de mensajería**, no por privado, para mantener la transparencia académica.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 9. Síntesis y conclusiones
+> 
+> El diagrama de secuencia es una herramienta esencial para definir la lógica operativa de un sistema. Su construcción requiere apoyarse en el diagrama de clases y permite una personalización total del flujo de mensajes. La calidad de un modelo de software no reside solo en el diagrama, sino en la documentación que lo acompaña, la cual debe ser tratada como un manual de usuario resumido que evolucione mediante un control de versiones riguroso.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 10. Preguntas de repaso
+> 
+> ### Nivel Básico
+> 
+> 1. ¿Qué representa la "línea de vida" en un diagrama de secuencia?
+> 2. ¿Cuál es la diferencia visual entre un mensaje de acción y uno de respuesta?
+> 3. ¿Quién es el encargado de definir el orden de las tareas en la secuencia?
+> 
+> ### Nivel Intermedio
+> 
+> 4. ¿Por qué se dice que el diagrama de secuencia jerarquiza el trabajo del diagrama de clases?
+> 5. Explique cómo se representaría una toma de decisiones (condicional) en este diagrama sin usar necesariamente un rombo.
+> 6. ¿Qué función cumplen los "lazos" u operaciones repetitivas?
+> 
+> ### Nivel Avanzado
+> 
+> 7. Describa la importancia de la documentación técnica y el control de versiones (1.0 vs 2.0) en el desarrollo de software.
+> 8. Analice cómo un factor externo transversal (ej. falta de papel en una impresora o inasistencia de usuarios) puede afectar el diseño de una secuencia automatizada.
 
 > [!quote]- Video resumen, infografía y presentación
 > # 1. Video resumen
 > 
-> <iframe title="Clase 1 - Desarrollo de sistemas orientado a objetos" src="https://www.youtube.com/embed/vnjtJeCOHYM?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe title="Clase 9 - Modelado y diseño de software" src="https://www.youtube.com/embed/pk2eK4hlc24?feature=oembed" height="150" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.33333 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 2. Infografía
 > 
-> <iframe src="https://drive.google.com/file/d/1fSpXQSUxFjlAgI2zsIKVRtyF_kkjPB_D/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/15sLwfKjxH3iEHRe6O8pbZte_2Rms9bgx/preview" height="150" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.33333 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 3. Presentación
 > 
-> <iframe src="https://drive.google.com/file/d/1qvm3ckFbOSYjyvO2XjnR2_5t-FU_M-rf/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/12u4h78jThyp085ICebGVa8UAj6QSrpz3/preview" height="150" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.33333 / 1; width: 100%; height: 100%;"></iframe>

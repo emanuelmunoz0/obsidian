@@ -3,176 +3,190 @@
 ---
 
 > [!quote]- Resumen
-> # Guía Integral de Estudio: Desarrollo de Sistemas Orientados a Objetos
+> # Guía Académica: Estadística y Probabilidad - Desviación y Tipificación de Variables
 > 
-> Este documento constituye una síntesis exhaustiva de los fundamentos de la programación orientada a objetos (POO) y la configuración de entornos de desarrollo, diseñada como material de estudio principal para la materia.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 1. Introducción General al Paradigma
-> 
-> El desarrollo de sistemas ha evolucionado a través de diferentes **paradigmas de programación**, que son esencialmente modelos o estilos de programación que definen cómo se estructura y ejecuta el código. La transición hacia la **Programación Orientada a Objetos (POO)** surge como una respuesta a las limitaciones de los modelos anteriores para gestionar la complejidad creciente de los sistemas informáticos.
-> 
-> Esta materia se define como un "híbrido": combina la teoría profunda de la POO con el aprendizaje práctico de la **infraestructura y el setup de desarrollo**. El objetivo es que el estudiante no solo comprenda la lógica de objetos, sino que también domine el ecosistema de herramientas (servidores, bases de datos, entornos de ejecución) necesarias para profesionalizar el desarrollo de aplicaciones.
+> Este documento constituye un material de estudio integral sobre las medidas de dispersión y la transformación de variables, basado en las sesiones de la cátedra de Estadística y Probabilidad para el desarrollo de software.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 2. Contexto e Importancia: Del Modelo Procedimental a la POO
+> ## 1. Introducción General
 > 
-> ### El Paradigma Procedimental
+> En el análisis de datos para el desarrollo de software, no basta con conocer el promedio (media) de un conjunto de datos. Es fundamental comprender qué tan dispersos se encuentran esos datos respecto a su centro. Este documento aborda tres pilares del análisis estadístico descriptivo: la **desviación media**, la **desviación típica** y la **tipificación de variables**. Estos conceptos permiten realizar un análisis más fino, preparar los datos para su visualización y establecer las bases para modelos de probabilidad avanzados.
 > 
-> Históricamente, la programación era predominantemente procedimental. Se basaba en una secuencia de instrucciones con estructuras de control (condicionales e iteraciones). Aunque funcional, presentaba dos problemas críticos al escalar:
+> ## 2. Contexto e Importancia
 > 
-> 1. **Dificultad de Mantenimiento:** Modificar una funcionalidad en un sistema extenso implicaba rastrear infinitas líneas de código, con un alto riesgo de romper partes no relacionadas ("efecto dominó").
-> 2. **Baja Reutilización:** El código estaba tan entrelazado con funciones específicas de una aplicación que era casi imposible trasladarlo a otro proyecto.
-> 
-> ### El Surgimiento de la POO
-> 
-> En la década de los 90, la POO se consolidó (con lenguajes como Java y C++) como la solución para organizar el software de manera similar a cómo percibimos el mundo real: a través de entidades con características y comportamientos definidos. Hoy en día, los lenguajes modernos como JavaScript o Python son multiparadigma, permitiendo combinar lo procedimental, lo lógico, lo funcional y lo orientado a objetos de forma fluida.
+> El estudio de la variabilidad permite determinar la confiabilidad de la media. Si los datos están muy dispersos, la media es menos representativa. En el desarrollo de software, esto es vital para el análisis de rendimiento, tiempos de respuesta y pruebas de calidad, donde se busca que los procesos sean consistentes y las desviaciones sean mínimas o estén controladas.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 3. Marco Conceptual: Definición de Conceptos Clave
+> ## 3. Marco Conceptual: Definiciones Clave
 > 
-> Para entender la POO desde cero, es fundamental distinguir entre sus componentes básicos:
+> Para abordar estos temas desde cero, es necesario clarificar los siguientes términos:
 > 
-> ### A. Clase (El Molde)
-> 
-> Es una abstracción que define la estructura de un tipo de objeto. Se escribe siempre en **singular** (ej. `Cliente`, no `Clientes`). Define qué datos tendrá el objeto y qué podrá hacer.
-> 
-> ### B. Objeto o Instancia (El Resultado)
-> 
-> Es la materialización de la clase. Mientras que la clase es el "plano", el objeto es la "casa construida". Cada objeto ocupa un lugar en la memoria (variable) y tiene valores específicos para sus atributos.
-> 
-> - _Sintaxis conceptual:_ `Variable = New Clase()`.
-> 
-> ### C. Atributos (Datos/Características)
-> 
-> Son las variables internas de la clase que definen las propiedades del objeto.
-> 
-> - **Públicos:** Accesibles desde cualquier parte del código.
-> - **Privados:** Solo pueden ser modificados por los métodos internos de la misma clase (crucial para la seguridad de datos como contraseñas o saldos).
-> - **De Instancia:** Valores que cambian entre objetos (ej. el nombre de cada cliente).
-> - **De Clase:** Valores compartidos por todos los objetos de esa clase (ej. la anatomía básica en una clase `Persona`).
-> 
-> ### D. Métodos (Funciones/Comportamientos)
-> 
-> Son las acciones que el objeto puede realizar.
-> 
-> - **Constructores:** El método especial que se ejecuta automáticamente al crear un objeto (`new`). Se encarga de inicializar los atributos.
-> - **Getters:** Métodos para obtener/leer el valor de un atributo.
-> - **Setters:** Métodos para establecer o modificar el valor de un atributo, permitiendo incluir validaciones.
+> - **Rango:** Es la diferencia entre el valor máximo y el valor mínimo de un conjunto de datos (R = V_{max} - V_{min}). Indica la amplitud total de la muestra.
+> - **Media (****\bar{x}****):** El promedio aritmético de los valores. Es el punto de referencia central sobre el cual se calculan las desviaciones.
+> - **Valor Absoluto (****|x|****):** Función que convierte cualquier número en positivo. Es esencial en la desviación media para evitar que las diferencias positivas y negativas se anulen entre sí.
+> - **Varianza (****S^2****):** Es el promedio de los cuadrados de las desviaciones respecto a la media. Es el paso previo al cálculo de la desviación típica.
+> - **Desviación Típica o Estándar (****\sigma****):** Es la raíz cuadrada de la varianza. Proporciona una medida de dispersión en las mismas unidades que los datos originales.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 4. Los Cuatro Pilares de la POO
+> ## 4. Desarrollo del Tema
 > 
-> La solidez de este paradigma se apoya en cuatro conceptos fundamentales que guían el diseño de software:
+> ### 4.1 Desviación Media (DM)
 > 
-> |   |   |   |
-> |---|---|---|
-> |Pilar|Descripción|Analogía / Ejemplo|
-> |**Abstracción**|Proceso de simplificar la realidad, seleccionando solo los atributos y métodos relevantes para el sistema y descartando el resto.|Para un banco, un `Cliente` es un DNI y un saldo; no importa su altura o color de ojos.|
-> |**Encapsulamiento**|Ocultar la complejidad interna. Los datos están "protegidos" dentro del objeto y solo se accede a ellos a través de métodos autorizados.|Para conducir un auto, presionas el acelerador (método); no necesitas saber cómo funciona la inyección de combustible (lógica interna).|
-> |**Herencia**|Capacidad de crear clases nuevas a partir de clases existentes, heredando sus atributos y métodos. Permite jerarquías (clase padre/hijo).|Una clase `Persona` (padre) hereda sus rasgos a `Empleado` y `Cliente` (hijos).|
-> |**Polimorfismo**|Capacidad de que diferentes clases respondan de manera distinta a un mismo mensaje o método.|El método `CerrarCuenta` actuará distinto si es una `Caja de Ahorro` o una `Cuenta Corriente`.|
+> La desviación media mide la distancia promedio de cada dato respecto a la media aritmética, utilizando valores absolutos.
 > 
-> --------------------------------------------------------------------------------
+> #### Procedimiento de Cálculo (Datos Individuales):
 > 
-> ## 5. Desarrollo del Entorno y Ecosistema Tecnológico
+> 1. **Ordenar los datos:** Aunque no es estrictamente obligatorio para la fórmula, se recomienda para facilitar el cálculo del rango y mantener el orden.
+> 2. **Calcular el Rango:** Identificar los extremos de la muestra.
+> 3. **Calcular la Media (****\bar{x}****):** Sumar todos los valores y dividir por n (cantidad de elementos).
+> 4. **Calcular la diferencia:** Restar la media a cada valor (x_i - \bar{x}).
+>     - _Nota de validación:_ La suma de todas estas diferencias (sin valor absoluto) **siempre debe ser cero**.
+> 5. **Aplicar Valor Absoluto:** Convertir todos los resultados del paso anterior en positivos (|x_i - \bar{x}|).
+> 6. **Sumar y dividir:** Sumar todos los valores absolutos y dividir el resultado por n.
 > 
-> Un pilar de esta formación es el **Setup de Infraestructura**. No basta con programar la lógica; se debe configurar el entorno donde la aplicación "vive".
+> #### Desviación Media con Intervalos de Clase:
 > 
-> - **Ecosistema JavaScript:** Es la decisión estándar para el desarrollo en este curso.
-> - **Node.js:** El entorno que permite ejecutar JavaScript fuera del navegador (en el servidor). Es vital saber gestionar paquetes (instalar/desinstalar).
-> - **Express:** Framework de Node para crear servidores web y APIs que responden a solicitudes de navegadores.
-> - **Bases de Datos:** Se requiere conexión y capacidad de realizar consultas (queries) para crear, modificar y acceder a datos. Se mencionan opciones vectoriales para IA como Pinecone o Chroma.
-> - **Frontend:** El usuario interactúa mediante HTML y CSS. Se permite el uso de frameworks como Angular, React o Next para quienes deseen mayor complejidad.
-> - **Inteligencia Artificial (IA):** Se incentiva el uso de IAs (vía API o modelos locales) tanto para asistir en la codificación como para integrarlas como funcionalidades dentro de las aplicaciones.
+> Cuando los datos están agrupados, se utiliza la **Marca de Clase** (X_i).
 > 
-> --------------------------------------------------------------------------------
-> 
-> ## 6. Ejemplos Prácticos: Sistema Bancario
-> 
-> A continuación, se detalla cómo se estructuraría una aplicación bancaria bajo este paradigma:
-> 
-> ### Clase: `CuentaBancaria`
-> 
-> - **Atributos:** `numeroCuenta`, `propietario`, `CBU`, `montoDisponible` (privado), `limite`.
-> - **Métodos:**
->     - `getSaldo()`: Retorna el dinero disponible.
->     - `setLimite(nuevoLimite)`: Modifica el límite previa validación.
->     - `checkOperacion()`: Verifica si una transacción no supera el límite.
-> 
-> ### Relación entre Clases
-> 
-> Un sistema real conecta múltiples moldes:
-> 
-> 1. Un **Banco** (clase) tiene un atributo que es una **Lista/Array** de **Cuentas Bancarias**.
-> 2. Al ejecutar el método `aperturaCuenta()` en la clase `Cliente`, se invoca al **Constructor** de la clase `CuentaBancaria` para generar un nuevo objeto.
+> - Se calcula la diferencia entre la marca de clase y la media.
+> - Se aplica el valor absoluto.
+> - **Crucial:** Se debe multiplicar cada valor absoluto por la **frecuencia** (f_i) de ese intervalo antes de realizar la suma total y dividir por N (total de la población).
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 7. Errores Comunes y Clarificaciones
+> ### 4.2 Desviación Típica o Estándar
 > 
-> - **Confusión entre Clase y Objeto:** Es frecuente intentar asignar un valor (como un nombre específico) a la clase. El valor pertenece al objeto; la clase solo define que _existirá_ un nombre.
-> - **Exceso de Atributos:** No realizar una abstracción correcta lleva a sistemas pesados con datos innecesarios.
-> - **Transparencia en Cambios:** Una gran ventaja del encapsulamiento es que si se cambia la lógica de un método (ej. cómo se autentica una contraseña), el resto del sistema no se entera ni se rompe, siempre que la respuesta final del método siga siendo la misma.
+> Es un análisis más refinado que la desviación media. Al elevar las diferencias al cuadrado, se penalizan más las desviaciones grandes, lo que permite un estudio más preciso.
+> 
+> #### Procedimiento de Cálculo:
+> 
+> 1. **Calcular la Media.**
+> 2. **Diferencia al cuadrado:** Restar la media a cada valor y elevar el resultado al cuadrado: (x_i - \bar{x})^2. Esto garantiza resultados positivos.
+> 3. **Varianza:** Sumar esos cuadrados y dividir por n (o n-1 según el tipo de muestra).
+> 4. **Raíz Cuadrada:** Aplicar la raíz cuadrada al resultado de la varianza para obtener la desviación típica.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 8. Fechas Importantes y Avisos Académicos
+> ### 4.3 Tipificación de Variables (Puntaje Z)
 > 
-> Basado en la planificación docente y los anuncios de clase, se establecen los siguientes hitos:
+> La tipificación consiste en transformar una variable para que tenga una escala estándar. Esto permite comparar datos de diferentes poblaciones o con diferentes unidades.
 > 
-> |   |   |   |
-> |---|---|---|
-> |Fecha (Estimada/Fija)|Tipo de Evento|Descripción Detallada|
-> |**Clase 3 o 4**|Inicio de Proyecto|Comienzo del trabajo grupal y configuración de infraestructura (Node, bases de datos).|
-> |**Fines de Agosto - 20 Sept.**|Viaje del Profesor|El docente estará en Italia. Las clases podrían ser grabadas o reprogramadas ante problemas de conexión.|
-> |**Mediados de Octubre**|Trabajo Práctico (TP)|Entrega de TP de ejercicios (posiblemente un TP largo de ~20 ejercicios).|
-> |**22 de Octubre**|Clase Presencial|Tercera instancia presencial obligatoria (según planificación tentativa).|
-> |**29 de Octubre**|**Examen Parcial**|Evaluación presencial de contenidos teóricos y prácticos.|
-> |**Noviembre (Post-Parcial)**|Avances de Proyecto|Dinámica de tutorías: cada grupo tiene 30 min asignados para corrección.|
-> |**Fines de Noviembre**|Presentación Final|Exposición presencial de los proyectos grupales funcionales.|
+> **Fórmula de Tipificación (****Z****):** Z = \frac{x_i - \bar{x}}{\sigma}
 > 
-> **Recordatorios Importantes:**
+> Donde:
 > 
-> - **Asistencia:** Hay 4 clases presenciales mínimas obligatorias.
-> - **Grupos:** El trabajo es grupal para simular entornos de desarrollo reales.
-> - **Entorno:** Es obligatorio tener Node.js instalado y funcional en las máquinas personales para el inicio del proyecto.
+> - x_i es el valor original.
+> - \bar{x} es la media.
+> - \sigma es la desviación típica.
+> 
+> **Características de la variable tipificada:**
+> 
+> - Permite un cambio de coordenadas/escala.
+> - Los valores resultantes suelen oscilar entre **-3 y 3**.
+> - Introduce valores negativos y positivos centrados en el cero, facilitando la construcción de gráficas de distribución.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 5. Aplicación en Excel
+> 
+> El uso de software de hojas de cálculo simplifica estos procesos mediante funciones específicas:
+> 
+> |   |   |
+> |---|---|
+> |Concepto|Función de Excel|
+> |**Media**|`=PROMEDIO(rango)`|
+> |**Desviación Media**|`=DESVPROM(rango)`|
+> |**Desviación Típica (Población)**|`=DESVEST.P(rango)`|
+> |**Valor Absoluto**|`=ABS(valor)`|
+> |**Raíz Cuadrada**|`=RAIZ(valor)`|
+> |**Contar elementos (****n****)**|`=CONTAR(rango)`|
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 6. Ejemplos Prácticos
+> 
+> ### Caso 1: Cálculo de Desviación Media (Datos: 8 elementos)
+> 
+> Supongamos una media calculada de 9,5.
+> 
+> 1. **Restas:** (Valor 1 - 9,5), (Valor 2 - 9,5)... Algunos darán negativo (ej. -2,5).
+> 2. **Comprobación:** La suma de las restas debe dar 0.
+> 3. **Absoluto:** -2,5 se convierte en 2,5.
+> 4. **Suma de absolutos:** Supongamos que la suma es 34.
+> 5. **Resultado:** 34 / 8 = 4,25 (Desviación Media).
+> 
+> ### Caso 2: Tipificación
+> 
+> Si un valor es 12, la media es 9 y la desviación típica es 1,5:
+> 
+> - Z = (12 - 9) / 1,5
+> - Z = 3 / 1,5 = 2 Este "2" es la nueva coordenada del valor en una escala estandarizada.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 7. Errores Comunes y Confusiones
+> 
+> 1. **Olvidar el valor absoluto en la DM:** Si no se aplica, la suma de las desviaciones será cero y no se podrá calcular la dispersión.
+> 2. **Confundir Varianza con Desviación Típica:** La varianza es el valor previo a la raíz cuadrada. Si no se aplica la raíz, la medida está en "unidades al cuadrado", lo cual no sirve para la tipificación.
+> 3. **Suma en Intervalos:** Un error frecuente es sumar las restas de las marcas de clase sin multiplicarlas por su frecuencia respectiva. Si hay 18 elementos en un intervalo, esa desviación debe contarse 18 veces.
+> 4. **Uso de Datos Desordenados:** Aunque Excel lo resuelve, trabajar manualmente con datos desordenados aumenta la probabilidad de omitir valores o calcular mal el rango.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 8. Síntesis y Conclusiones
+> 
+> - La **Desviación Media** es una medida de dispersión lineal y simple basada en valores absolutos.
+> - La **Desviación Típica** es más robusta y es la base para la mayoría de los cálculos estadísticos avanzados.
+> - La **Tipificación** es un proceso de "cambio de escala" que permite trabajar en un rango controlado (generalmente de -3 a 3) sin perder la distribución original de los datos. Esto es fundamental para graficar y comparar variables de distinta naturaleza.
 > 
 > --------------------------------------------------------------------------------
 > 
 > ## 9. Preguntas de Repaso
 > 
-> ### Básicas
+> ### Nivel Básico
 > 
-> 1. ¿Cuál es la diferencia principal entre una Clase y un Objeto?
-> 2. Defina los conceptos de Atributo y Método.
-> 3. ¿Para qué sirve el método Constructor de una clase?
+> 1. ¿Cuál es la diferencia principal entre el rango y la desviación media?
+> 2. ¿Por qué la suma de las diferencias respecto a la media siempre da cero si no se usa valor absoluto?
+> 3. ¿Qué función de Excel se utiliza para calcular la desviación promedio de forma directa?
 > 
-> ### Intermedias
+> ### Nivel Intermedio
 > 
-> 4. Explique la importancia del Encapsulamiento con un ejemplo que no sea el del automóvil.
-> 5. ¿Por qué el paradigma procedimental dificulta el mantenimiento de sistemas grandes?
-> 6. ¿Qué diferencia hay entre un atributo de instancia y un atributo de clase?
+> 4. En una tabla de intervalos, ¿por qué es necesario multiplicar la desviación por la frecuencia?
+> 5. Explique el proceso para obtener la desviación típica a partir de la varianza.
+> 6. ¿Qué sucede con el signo de un valor menor a la media cuando se calcula su desviación típica?
 > 
-> ### Avanzadas
+> ### Nivel Avanzado
 > 
-> 7. Describa el proceso de Abstracción al diseñar una clase `Producto` para un banco vs. para un supermercado.
-> 8. ¿Cómo se relaciona la herencia con la reutilización de código?
-> 9. Analice por qué JavaScript se considera un lenguaje apto para este paradigma a pesar de ser multiparadigma.
+> 7. ¿Cuál es el objetivo primordial de tipificar una variable (convertirla a valor Z)?
+> 8. Si un valor tipificado da como resultado 4, ¿qué se puede inferir sobre ese dato considerando el rango estándar de -3 a 3?
+> 9. Describa cómo la desviación típica y la media actúan en conjunto para realizar un cambio de coordenadas en un conjunto de datos.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 10. Fechas Importantes y Avisos Académicos
+> 
+> Tras el análisis de la sesión del **9 de octubre**, se destacan los siguientes puntos:
+> 
+> - **Próxima Clase:** El **jueves de la semana siguiente**. En esta sesión se retomará con mayor profundidad el tema de tipificación de variables y su representación gráfica.
+> - **Aviso de Suspensión:** Se informa explícitamente que **mañana no hay clase**.
+> - **Indicación del Profesor:** Para la próxima clase, se espera que los estudiantes puedan realizar tres pasos fundamentales sobre cualquier serie de datos:
+>     1. Cálculo de la media.
+>     2. Cálculo de la desviación típica.
+>     3. Tipificación de la variable.
+> - **Recomendación Metodológica:** El profesor insiste en la importancia de **ordenar los datos siempre**, ya que esto facilita todos los cálculos posteriores y previene errores, aunque la fórmula de Excel no lo requiera estrictamente.
 
 > [!quote]- Video resumen, infografía y presentación
 > # 1. Video resumen
 > 
-> <iframe title="Clase 1 - Desarrollo de sistemas orientado a objetos" src="https://www.youtube.com/embed/vnjtJeCOHYM?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe title="Clase 7 - Estadística y probabilidad para el desarrollo de software" src="https://www.youtube.com/embed/CKTbgM1Agc4?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 2. Infografía
 > 
-> <iframe src="https://drive.google.com/file/d/1fSpXQSUxFjlAgI2zsIKVRtyF_kkjPB_D/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/11fLmwSXtzJ7BeyI51LNmNQanu2KCp6lW/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 3. Presentación
 > 
-> <iframe src="https://drive.google.com/file/d/1qvm3ckFbOSYjyvO2XjnR2_5t-FU_M-rf/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1fgDEsYi8_j7RO1ZU3ds9GYFI_r6gRWYY/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>

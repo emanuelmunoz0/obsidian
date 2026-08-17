@@ -3,176 +3,190 @@
 ---
 
 > [!quote]- Resumen
-> # Guía Integral de Estudio: Desarrollo de Sistemas Orientados a Objetos
+> # Guía de Estudio: Modelado y Diseño de Software
 > 
-> Este documento constituye una síntesis exhaustiva de los fundamentos de la programación orientada a objetos (POO) y la configuración de entornos de desarrollo, diseñada como material de estudio principal para la materia.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 1. Introducción General al Paradigma
-> 
-> El desarrollo de sistemas ha evolucionado a través de diferentes **paradigmas de programación**, que son esencialmente modelos o estilos de programación que definen cómo se estructura y ejecuta el código. La transición hacia la **Programación Orientada a Objetos (POO)** surge como una respuesta a las limitaciones de los modelos anteriores para gestionar la complejidad creciente de los sistemas informáticos.
-> 
-> Esta materia se define como un "híbrido": combina la teoría profunda de la POO con el aprendizaje práctico de la **infraestructura y el setup de desarrollo**. El objetivo es que el estudiante no solo comprenda la lógica de objetos, sino que también domine el ecosistema de herramientas (servidores, bases de datos, entornos de ejecución) necesarias para profesionalizar el desarrollo de aplicaciones.
+> Este documento constituye un material de estudio integral para la asignatura de Modelado y Diseño de Software, basado en las directrices académicas y técnicas proporcionadas en el contexto institucional. Su objetivo es proporcionar una comprensión profunda del Lenguaje de Modelado Unificado (UML) y la metodología de trabajo requerida.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 2. Contexto e Importancia: Del Modelo Procedimental a la POO
+> ## 1. Introducción General
 > 
-> ### El Paradigma Procedimental
+> El modelado de software se presenta como un paso fundamental en el ciclo de vida del desarrollo de sistemas. Se define como un "lenguaje de bienvenida" para los profesionales de la informática, ya que permite diseñar organizaciones, eventos y estructuras de manera estandarizada antes de proceder a la codificación.
 > 
-> Históricamente, la programación era predominantemente procedimental. Se basaba en una secuencia de instrucciones con estructuras de control (condicionales e iteraciones). Aunque funcional, presentaba dos problemas críticos al escalar:
+> ### Importancia y Relevancia
 > 
-> 1. **Dificultad de Mantenimiento:** Modificar una funcionalidad en un sistema extenso implicaba rastrear infinitas líneas de código, con un alto riesgo de romper partes no relacionadas ("efecto dominó").
-> 2. **Baja Reutilización:** El código estaba tan entrelazado con funciones específicas de una aplicación que era casi imposible trasladarlo a otro proyecto.
+> El uso de modelos permite:
 > 
-> ### El Surgimiento de la POO
-> 
-> En la década de los 90, la POO se consolidó (con lenguajes como Java y C++) como la solución para organizar el software de manera similar a cómo percibimos el mundo real: a través de entidades con características y comportamientos definidos. Hoy en día, los lenguajes modernos como JavaScript o Python son multiparadigma, permitiendo combinar lo procedimental, lo lógico, lo funcional y lo orientado a objetos de forma fluida.
-> 
-> --------------------------------------------------------------------------------
-> 
-> ## 3. Marco Conceptual: Definición de Conceptos Clave
-> 
-> Para entender la POO desde cero, es fundamental distinguir entre sus componentes básicos:
-> 
-> ### A. Clase (El Molde)
-> 
-> Es una abstracción que define la estructura de un tipo de objeto. Se escribe siempre en **singular** (ej. `Cliente`, no `Clientes`). Define qué datos tendrá el objeto y qué podrá hacer.
-> 
-> ### B. Objeto o Instancia (El Resultado)
-> 
-> Es la materialización de la clase. Mientras que la clase es el "plano", el objeto es la "casa construida". Cada objeto ocupa un lugar en la memoria (variable) y tiene valores específicos para sus atributos.
-> 
-> - _Sintaxis conceptual:_ `Variable = New Clase()`.
-> 
-> ### C. Atributos (Datos/Características)
-> 
-> Son las variables internas de la clase que definen las propiedades del objeto.
-> 
-> - **Públicos:** Accesibles desde cualquier parte del código.
-> - **Privados:** Solo pueden ser modificados por los métodos internos de la misma clase (crucial para la seguridad de datos como contraseñas o saldos).
-> - **De Instancia:** Valores que cambian entre objetos (ej. el nombre de cada cliente).
-> - **De Clase:** Valores compartidos por todos los objetos de esa clase (ej. la anatomía básica en una clase `Persona`).
-> 
-> ### D. Métodos (Funciones/Comportamientos)
-> 
-> Son las acciones que el objeto puede realizar.
-> 
-> - **Constructores:** El método especial que se ejecuta automáticamente al crear un objeto (`new`). Se encarga de inicializar los atributos.
-> - **Getters:** Métodos para obtener/leer el valor de un atributo.
-> - **Setters:** Métodos para establecer o modificar el valor de un atributo, permitiendo incluir validaciones.
+> - **Planificación Estructural:** Crear "planos" de software, similares a los de una construcción arquitectónica.
+> - **Comunicación:** Facilitar el diálogo entre diseñadores, usuarios y desarrolladores.
+> - **Documentación Evolutiva:** Mantener un registro de las versiones y modificaciones del sistema (ej. Versión 1.0, 1.1, 2.0).
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 4. Los Cuatro Pilares de la POO
+> ## 2. Marco Conceptual: Fundamentos de UML
 > 
-> La solidez de este paradigma se apoya en cuatro conceptos fundamentales que guían el diseño de software:
+> El **Lenguaje de Modelado Unificado (UML)** es el estándar de la industria para visualizar, especificar, construir y documentar los artefactos de un sistema de software.
+> 
+> ### Conceptos Clave
+> 
+> - **Diagrama:** Representación gráfica de un aspecto del sistema. UML posee entre 13 y 14 tipos de diagramas, aunque la práctica académica se centra en los más influyentes.
+> - **Bloques de Construcción:** Los objetos y elementos que se arrastran y conectan para representar la lógica del negocio.
+> - **Estereotipos:** Conductas o elementos conocidos de la vida diaria que se utilizan para clasificar elementos en el modelo. Pueden ser comunes o inventados por el diseñador según la problemática.
+> - **Valores Etiquetados:** Extensiones de las propiedades de los bloques; permiten añadir información adicional a los elementos del modelo.
+> - **Restricciones:** Limitaciones o impedimentos definidos por el diseñador (ej. quién tiene acceso a qué parte del software).
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 3. Desarrollo del Tema: Tipos de Diagramas y Aplicación
+> 
+> UML se divide en diagramas estructurales y de comportamiento. A continuación se detallan los diagramas fundamentales:
+> 
+> ### Tabla de Diagramas Principales
 > 
 > |   |   |   |
 > |---|---|---|
-> |Pilar|Descripción|Analogía / Ejemplo|
-> |**Abstracción**|Proceso de simplificar la realidad, seleccionando solo los atributos y métodos relevantes para el sistema y descartando el resto.|Para un banco, un `Cliente` es un DNI y un saldo; no importa su altura o color de ojos.|
-> |**Encapsulamiento**|Ocultar la complejidad interna. Los datos están "protegidos" dentro del objeto y solo se accede a ellos a través de métodos autorizados.|Para conducir un auto, presionas el acelerador (método); no necesitas saber cómo funciona la inyección de combustible (lógica interna).|
-> |**Herencia**|Capacidad de crear clases nuevas a partir de clases existentes, heredando sus atributos y métodos. Permite jerarquías (clase padre/hijo).|Una clase `Persona` (padre) hereda sus rasgos a `Empleado` y `Cliente` (hijos).|
-> |**Polimorfismo**|Capacidad de que diferentes clases respondan de manera distinta a un mismo mensaje o método.|El método `CerrarCuenta` actuará distinto si es una `Caja de Ahorro` o una `Cuenta Corriente`.|
+> |Categoría|Diagrama|Descripción|
+> |**Estructural**|**Clase**|El más importante. Define clases, atributos y funciones.|
+> |**Estructural**|**Objetos**|Muestra cómo se relacionan los objetos entre sí en un momento dado.|
+> |**Estructural**|**Componentes**|Describe la organización de los componentes físicos (CPU, memoria, periféricos).|
+> |**Estructural**|**Despliegue**|Representa la configuración de los nodos de procesamiento y redes.|
+> |**Comportamiento**|**Caso de Uso**|Identifica a los actores y cómo se vinculan con las funciones del sistema.|
+> |**Comportamiento**|**Secuencia**|Muestra la interacción temporal (ej. la secuencia de un cajero automático).|
+> |**Comportamiento**|**Estado**|Describe los cambios de estado ante eventos (ej. una máquina de café).|
+> |**Comportamiento**|**Actividad**|Detalla procesos internos o algoritmos (ej. un programa de autolimpieza).|
+> |**Comportamiento**|**Colaboración**|Clarifica qué integrantes intervienen en un estudio o proceso específico.|
+> 
+> ### Profundización en Elementos Estructurales
+> 
+> 1. **Clases:** Representadas por rectángulos. Incluyen:
+>     - Nombre de la clase.
+>     - Atributos (características).
+>     - Funciones (operaciones).
+>     - **Visibilidad:** Determina si un atributo es público, privado, protegido o no visible (ej. el "ojo" en las claves de celulares).
+> 2. **Paquetes:** Elementos de agrupación que engloban estructuras y clases para organizar el modelo.
+> 3. **Notas:** Comentarios esenciales que sirven como "ayuda memoria" para explicar comportamientos o funciones.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 5. Desarrollo del Entorno y Ecosistema Tecnológico
+> ## 4. Tipos de Datos y Relaciones
 > 
-> Un pilar de esta formación es el **Setup de Infraestructura**. No basta con programar la lógica; se debe configurar el entorno donde la aplicación "vive".
+> El diseño de diagramas requiere precisión en la definición de la información que se procesa.
 > 
-> - **Ecosistema JavaScript:** Es la decisión estándar para el desarrollo en este curso.
-> - **Node.js:** El entorno que permite ejecutar JavaScript fuera del navegador (en el servidor). Es vital saber gestionar paquetes (instalar/desinstalar).
-> - **Express:** Framework de Node para crear servidores web y APIs que responden a solicitudes de navegadores.
-> - **Bases de Datos:** Se requiere conexión y capacidad de realizar consultas (queries) para crear, modificar y acceder a datos. Se mencionan opciones vectoriales para IA como Pinecone o Chroma.
-> - **Frontend:** El usuario interactúa mediante HTML y CSS. Se permite el uso de frameworks como Angular, React o Next para quienes deseen mayor complejidad.
-> - **Inteligencia Artificial (IA):** Se incentiva el uso de IAs (vía API o modelos locales) tanto para asistir en la codificación como para integrarlas como funcionalidades dentro de las aplicaciones.
+> ### Gestión de Datos
 > 
-> --------------------------------------------------------------------------------
+> - **Cadenas (Strings):** Se utilizan para todo lo que no requiere operaciones numéricas (nombres, documentos, direcciones, emails). Es el tipo de dato más versátil.
+> - **Tipos Numéricos:** Incluyen enteros (positivos o negativos) y números con decimales (flotantes/doble precisión). Es vital definir si llevan signo o no para optimizar la memoria (bytes).
+> - **Validación:** Es responsabilidad del diseñador evitar valores imposibles (ej. edades negativas).
 > 
-> ## 6. Ejemplos Prácticos: Sistema Bancario
+> ### Relaciones y Dependencias
 > 
-> A continuación, se detalla cómo se estructuraría una aplicación bancaria bajo este paradigma:
+> Inspiradas en el modelo de bases de datos, las conexiones entre bloques pueden ser:
 > 
-> ### Clase: `CuentaBancaria`
-> 
-> - **Atributos:** `numeroCuenta`, `propietario`, `CBU`, `montoDisponible` (privado), `limite`.
-> - **Métodos:**
->     - `getSaldo()`: Retorna el dinero disponible.
->     - `setLimite(nuevoLimite)`: Modifica el límite previa validación.
->     - `checkOperacion()`: Verifica si una transacción no supera el límite.
-> 
-> ### Relación entre Clases
-> 
-> Un sistema real conecta múltiples moldes:
-> 
-> 1. Un **Banco** (clase) tiene un atributo que es una **Lista/Array** de **Cuentas Bancarias**.
-> 2. Al ejecutar el método `aperturaCuenta()` en la clase `Cliente`, se invoca al **Constructor** de la clase `CuentaBancaria` para generar un nuevo objeto.
+> - Uno a uno (1:1).
+> - Uno a varios (1:N).
+> - Varios a varios (N:N).
+> - **Generalización:** Indica una jerarquía entre un origen y un final.
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 7. Errores Comunes y Clarificaciones
+> ## 5. Ejemplos Prácticos
 > 
-> - **Confusión entre Clase y Objeto:** Es frecuente intentar asignar un valor (como un nombre específico) a la clase. El valor pertenece al objeto; la clase solo define que _existirá_ un nombre.
-> - **Exceso de Atributos:** No realizar una abstracción correcta lleva a sistemas pesados con datos innecesarios.
-> - **Transparencia en Cambios:** Una gran ventaja del encapsulamiento es que si se cambia la lógica de un método (ej. cómo se autentica una contraseña), el resto del sistema no se entera ni se rompe, siempre que la respuesta final del método siga siendo la misma.
+> ### El Caso de la Máquina de Café (Diagrama de Estado)
+> 
+> Es el ejemplo por excelencia de una máquina de estados:
+> 
+> 1. **Estado Inicial:** Panel inactivo.
+> 2. **Evento:** Ingreso de moneda/tarjeta.
+> 3. **Cambio de Estado:** Se ilumina el teclado.
+> 4. **Interacción:** El usuario selecciona bebida y azúcar.
+> 5. **Actividad:** Proceso de generación y volcado de la bebida.
+> 6. **Estado Final:** Retiro del producto y aviso de finalización.
+> 
+> ### El Caso de la Biblioteca (Conectividad)
+> 
+> Un sistema de biblioteca debe evitar ser una "isla". Se recomienda:
+> 
+> - Mostrar libros por categoría.
+> - **Comunicaciones:** Incluir logos o funciones de WhatsApp/Email para que el usuario consulte disponibilidad.
+> - **Opciones Flexibles:** Definir si el libro es digital (solo lectura) o físico (retiro presencial).
 > 
 > --------------------------------------------------------------------------------
 > 
-> ## 8. Fechas Importantes y Avisos Académicos
+> ## 6. Metodología de Trabajo y Herramientas
 > 
-> Basado en la planificación docente y los anuncios de clase, se establecen los siguientes hitos:
+> ### Filosofía del "Borrador Permanente"
+> 
+> En esta materia, ningún trabajo se considera "terminado" definitivamente. Cada diagrama es un borrador sujeto a revisión continua basado en el debate y la retroalimentación. Se enfatiza que el software es propenso a modificaciones constantes por necesidades del usuario o fallas detectadas.
+> 
+> ### Herramientas de Software Recomendadas
+> 
+> - **Microsoft Visio:** Excelente para diagramas de bloques; muy familiar para usuarios de Word.
+> - **Wondershare EdrawMax:** Software especializado con cuadrículas y plantillas prediseñadas.
+> - **Herramientas Portables/Online:** Se permite el uso de cualquier software que el grupo elija, priorizando la practicidad.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 7. Fechas Importantes y Avisos Académicos
+> 
+> Tras el análisis de las fuentes, se establecen los siguientes hitos y normas para el cuatrimestre:
 > 
 > |   |   |   |
 > |---|---|---|
-> |Fecha (Estimada/Fija)|Tipo de Evento|Descripción Detallada|
-> |**Clase 3 o 4**|Inicio de Proyecto|Comienzo del trabajo grupal y configuración de infraestructura (Node, bases de datos).|
-> |**Fines de Agosto - 20 Sept.**|Viaje del Profesor|El docente estará en Italia. Las clases podrían ser grabadas o reprogramadas ante problemas de conexión.|
-> |**Mediados de Octubre**|Trabajo Práctico (TP)|Entrega de TP de ejercicios (posiblemente un TP largo de ~20 ejercicios).|
-> |**22 de Octubre**|Clase Presencial|Tercera instancia presencial obligatoria (según planificación tentativa).|
-> |**29 de Octubre**|**Examen Parcial**|Evaluación presencial de contenidos teóricos y prácticos.|
-> |**Noviembre (Post-Parcial)**|Avances de Proyecto|Dinámica de tutorías: cada grupo tiene 30 min asignados para corrección.|
-> |**Fines de Noviembre**|Presentación Final|Exposición presencial de los proyectos grupales funcionales.|
+> |Fecha|Evento / Hito|Descripción Detallada|
+> |**Inmediato**|Conformación de Grupos|Grupos de 3 a 5 integrantes. Deben informarse al profesor por WhatsApp o en clase.|
+> |**Próximo Viernes**|Inicio de Temas Específicos|Comienza la explicación detallada de los diagramas, iniciando con el de **Clase**.|
+> |**6 de Septiembre**|**Inicio de Presentaciones**|Fecha establecida para comenzar a presentar los diagramas de UML.|
+> |**Semanal**|Rotación de Expositores|**Obligatorio:** Cada semana debe explicar un alumno distinto del grupo para asegurar que todos conozcan el trabajo.|
+> |**Fin de Cuatrimestre**|Entrega Final|Revisión de todos los diagramas adeudados (formato virtual o presencial acordado).|
 > 
-> **Recordatorios Importantes:**
+> ### Advertencias Académicas:
 > 
-> - **Asistencia:** Hay 4 clases presenciales mínimas obligatorias.
-> - **Grupos:** El trabajo es grupal para simular entornos de desarrollo reales.
-> - **Entorno:** Es obligatorio tener Node.js instalado y funcional en las máquinas personales para el inicio del proyecto.
+> - **Evaluación:** La nota surge de los trabajos prácticos (TPs) presentados clase a clase.
+> - **Comunicación:** Es estrictamente obligatorio incluir elementos de comunicación (logos de redes sociales, chats) en los diagramas para evitar que los sistemas queden aislados.
+> - **Documentación:** Se recomienda documentar cada cambio estructural con números de versión para mantener el control del proyecto.
+> 
+> --------------------------------------------------------------------------------
+> 
+> ## 8. Síntesis y Conclusiones
+> 
+> El modelado con UML no es solo un ejercicio técnico, sino un proceso creativo de diseño. Los puntos clave a recordar son:
+> 
+> - UML es un estándar global para "planos" de software.
+> - La flexibilidad y la conectividad son los pilares de un buen diseño moderno.
+> - El trabajo grupal y la rotación son fundamentales para el aprendizaje integral.
+> - El modelado es iterativo: siempre se puede (y se debe) mejorar el borrador.
 > 
 > --------------------------------------------------------------------------------
 > 
 > ## 9. Preguntas de Repaso
 > 
-> ### Básicas
+> ### Nivel Básico
 > 
-> 1. ¿Cuál es la diferencia principal entre una Clase y un Objeto?
-> 2. Defina los conceptos de Atributo y Método.
-> 3. ¿Para qué sirve el método Constructor de una clase?
+> 1. ¿Qué es UML y para qué sirve en el desarrollo de software?
+> 2. Mencione tres tipos de diagramas estructurales.
+> 3. ¿Qué función cumplen las "Notas" en un diagrama?
 > 
-> ### Intermedias
+> ### Nivel Intermedio
 > 
-> 4. Explique la importancia del Encapsulamiento con un ejemplo que no sea el del automóvil.
-> 5. ¿Por qué el paradigma procedimental dificulta el mantenimiento de sistemas grandes?
-> 6. ¿Qué diferencia hay entre un atributo de instancia y un atributo de clase?
+> 4. Explique la diferencia entre visibilidad pública y privada en una clase.
+> 5. ¿Por qué es importante definir correctamente el tipo de dato (ej. cadena vs. entero) en un modelo?
+> 6. ¿Qué es un "Estereotipo" y cómo se aplica en un diagrama?
 > 
-> ### Avanzadas
+> ### Nivel Avanzado
 > 
-> 7. Describa el proceso de Abstracción al diseñar una clase `Producto` para un banco vs. para un supermercado.
-> 8. ¿Cómo se relaciona la herencia con la reutilización de código?
-> 9. Analice por qué JavaScript se considera un lenguaje apto para este paradigma a pesar de ser multiparadigma.
+> 7. Describa el funcionamiento de un Diagrama de Estado utilizando el ejemplo de la máquina de café.
+> 8. ¿Cuál es la importancia de la "Generalización" en las relaciones entre objetos?
+> 9. Analice por qué el profesor insiste en la inclusión de canales de comunicación externos en los diseños de software actuales.
 
 > [!quote]- Video resumen, infografía y presentación
 > # 1. Video resumen
 > 
-> <iframe title="Clase 1 - Desarrollo de sistemas orientado a objetos" src="https://www.youtube.com/embed/vnjtJeCOHYM?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe title="Clase 1 - Modelado y diseño de software" src="https://www.youtube.com/embed/VwsLEyXx_7g?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 2. Infografía
 > 
-> <iframe src="https://drive.google.com/file/d/1fSpXQSUxFjlAgI2zsIKVRtyF_kkjPB_D/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1cwXlp3GrMKFw2HVqImXaf5JENb5bSURr/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 > 
 > # 3. Presentación
 > 
-> <iframe src="https://drive.google.com/file/d/1qvm3ckFbOSYjyvO2XjnR2_5t-FU_M-rf/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+> <iframe src="https://drive.google.com/file/d/1-3JmtPs45RmqEXnabn5ik0kwT7rvoVci/preview" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
