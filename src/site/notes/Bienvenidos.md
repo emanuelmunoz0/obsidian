@@ -305,3 +305,19 @@ Este sitio es un espacio colaborativo creado por estudiantes de la **Tecnicatura
 > > **[[2° año, 1° cuatrimestre/5. Metodología de pruebas de sistemas/Clase 6 - Viernes, 22 de mayo de 2026 (22 05 26) - Metodología de pruebas de sistemas\|Clase 6 - Viernes, 22 de mayo de 2026 (22 05 26)]]**
 > > 
 > > **[[2° año, 1° cuatrimestre/5. Metodología de pruebas de sistemas/Clase 7 - Viernes, 29 de mayo de 2026 (29 05 26) - Metodología de pruebas de sistemas\|Clase 7 - Viernes, 29 de mayo de 2026 (29 05 26)]]**
+
+<br>
+
+> [!info] 2° año, 2° cuatrimestre - 2026
+
+> > [!example]- Ingeniería de software
+> > **[[2° año, 2° cuatrimestre/1. Ingeniería de software/Clase 1 - Lunes, 10 de agosto de 2026 (10 08 26) - Ingeniería de software\|Clase 1 - Lunes, 10 de agosto de 2026 (10 08 26)]]**
+
+> > [!example]- Desarrollo e Implementación de sistemas en la nube
+> > **[[2° año, 2° cuatrimestre/2. Desarrollo e Implementación de sistemas en la nube/Clase 1 - Martes, 11 de agosto de 2026 (11 08 26) - Desarrollo e Implementación de sistemas en la nube\|Clase 1 - Martes, 11 de agosto de 2026 (11 08 26)]]**
+
+> > [!example]- Desarrollo de sistemas web frontend
+> > **[[2° año, 2° cuatrimestre/3. Desarrollo de sistemas web frontend/Clase 1 - Miércoles, 12 de agosto de 2026 (12 08 26) - Desarrollo de sistemas web frontend\|Clase 1 - Miércoles, 12 de agosto de 2026 (12 08 26)]]**
+
+> > [!example]- Desarrollo de sistemas web backend
+> > **[[2° año, 2° cuatrimestre/4. Desarrollo de sistemas web backend/Clase 1 - Jueves, 13 de agosto de 2026 (13 08 26) - Desarrollo de sistemas web backend\|Clase 1 - Jueves, 13 de agosto de 2026 (13 08 26)]]**
