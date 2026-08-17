@@ -143,6 +143,8 @@ Este sitio es un espacio colaborativo creado por estudiantes de la **Tecnicatura
 > > 
 > > **[[1° año, 2° cuatrimestre/5. Modelado y diseño de software/Clase 12 - Viernes, 14 de noviembre de 2025 (14 11 25) - Modelado y diseño de software\|Clase 12 - Viernes, 14 de noviembre de 2025 (14 11 25)]]**
 
+<br>
+
 > [!info] 2° año, 1° cuatrimestre - 2026
 
 > > [!example]- Taller de comunicación
