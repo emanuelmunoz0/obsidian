@@ -319,6 +319,7 @@ Este sitio es un espacio colaborativo creado por estudiantes de la **Tecnicatura
 
 > > [!example]- Desarrollo de sistemas web frontend
 > > **[[2° año, 2° cuatrimestre/3. Desarrollo de sistemas web frontend/Clase 1 - Miércoles, 12 de agosto de 2026 (12 08 26) - Desarrollo de sistemas web frontend\|Clase 1 - Miércoles, 12 de agosto de 2026 (12 08 26)]]**
+> > **[[2° año, 2° cuatrimestre/3. Desarrollo de sistemas web frontend/Clase 2 - Miércoles, 19 de agosto de 2026 (19 08 26) - Desarrollo de sistemas web frontend\|Clase 2 - Miércoles, 19 de agosto de 2026 (19 08 26)]]**
 
 > > [!example]- Desarrollo de sistemas web backend
 > > **[[2° año, 2° cuatrimestre/4. Desarrollo de sistemas web backend/Clase 1 - Jueves, 13 de agosto de 2026 (13 08 26) - Desarrollo de sistemas web backend\|Clase 1 - Jueves, 13 de agosto de 2026 (13 08 26)]]**
