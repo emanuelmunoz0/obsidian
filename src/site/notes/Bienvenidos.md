@@ -315,6 +315,7 @@ Este sitio es un espacio colaborativo creado por estudiantes de la **Tecnicatura
 
 > > [!example]- Desarrollo e Implementación de sistemas en la nube
 > > **[[2° año, 2° cuatrimestre/2. Desarrollo e Implementación de sistemas en la nube/Clase 1 - Martes, 11 de agosto de 2026 (11 08 26) - Desarrollo e Implementación de sistemas en la nube\|Clase 1 - Martes, 11 de agosto de 2026 (11 08 26)]]**
+> > **[[2° año, 2° cuatrimestre/2. Desarrollo e Implementación de sistemas en la nube/Clase 2 - Martes, 18 de agosto de 2026 (18 08 26) - Desarrollo e Implementación de sistemas en la nube\|Clase 2 - Martes, 18 de agosto de 2026 (18 08 26)]]**
 
 > > [!example]- Desarrollo de sistemas web frontend
 > > **[[2° año, 2° cuatrimestre/3. Desarrollo de sistemas web frontend/Clase 1 - Miércoles, 12 de agosto de 2026 (12 08 26) - Desarrollo de sistemas web frontend\|Clase 1 - Miércoles, 12 de agosto de 2026 (12 08 26)]]**
